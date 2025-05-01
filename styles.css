@@ -3,3 +3,12 @@ html, body, #viewDiv {
     margin: 0;
     padding: 0;
   }
+
+  .header {
+    background-color: #000000;
+    color: rgb(0, 0, 0);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
