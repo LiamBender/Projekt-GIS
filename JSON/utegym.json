@@ -1,0 +1,62 @@
+{
+    "type":"FeatureCollection",
+    "name":"UTEGYM",
+    "features":[
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                16.8866,
+                60.6186,
+                0
+             ]
+          },
+          "properties":{
+             "NAMN":"Forsbacka Utegym"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.1707,
+                60.6493,
+                0
+             ]
+          },
+          "properties":{
+             "NAMN":"Hemlingby Utegym"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.134,
+                60.6941,
+                0
+             ]
+          },
+          "properties":{
+             "NAMN":"Gavlehov Utegym"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                16.9928,
+                60.4195,
+                0
+             ]
+          },
+          "properties":{
+             "NAMN":"Hedesunda Utegym"
+          }
+       }
+    ]
+ }

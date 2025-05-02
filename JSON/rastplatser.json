@@ -1,0 +1,834 @@
+{
+    "type":"FeatureCollection",
+    "name":"RASTPLATSER",
+    "features":[
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.242179690882381,
+                60.679923418862444
+             ]
+          },
+          "properties":{
+             "OBJEKTID":193,
+             "NAMN":"Fågeludden Bomhus",
+             "BESKRVN":"Fin rastplats vid rudsjön i Bomhus. Här finns vindskydd, grillplats och fågeltorn. I anslutning till rastplatsen passerar även Bomhus motionsspår.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Vindskydd",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.237706333934167,
+                60.676008292580171
+             ]
+          },
+          "properties":{
+             "OBJEKTID":194,
+             "NAMN":"Rastplats Bomhus",
+             "BESKRVN":"Rastplats i skogsmiljö längs med Bomhus motionsspår. Här finns vindskydd och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Vindskydd",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.05067959353201,
+                60.678809970370672
+             ]
+          },
+          "properties":{
+             "OBJEKTID":195,
+             "NAMN":"Rastplats Hagaströms motionsspår",
+             "BESKRVN":"Rastplats intill Hagaströms motionsspår. Här finns vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Vindskydd, Bänkbord",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.061021556095341,
+                60.676121277797911
+             ]
+          },
+          "properties":{
+             "OBJEKTID":196,
+             "NAMN":"Rastplats - Hagaström IP",
+             "BESKRVN":"Rastplats belägen vid Hagaström IP med utsikt över fotbollsplanerna.",
+             "ANDAMAL":"Rastplats",
+             "INFO":null,
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                16.993394791208328,
+                60.419765670530701
+             ]
+          },
+          "properties":{
+             "OBJEKTID":197,
+             "NAMN":"Rastplats - Hedesunda motionsspår",
+             "BESKRVN":"Rastplats med vindskydd och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":null,
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                16.994977443417095,
+                60.419859077746942
+             ]
+          },
+          "properties":{
+             "OBJEKTID":198,
+             "NAMN":"Rastplats - Hedesunda motionsspår",
+             "BESKRVN":"Rastplats intill motionsspåret med vindskydd och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":null,
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                16.993353825821675,
+                60.41808662909272
+             ]
+          },
+          "properties":{
+             "OBJEKTID":199,
+             "NAMN":"Rastplats - Hedesunda motionsspår",
+             "BESKRVN":"Rastplats med vindskydd och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":null,
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.170068697193273,
+                60.647207541589538
+             ]
+          },
+          "properties":{
+             "OBJEKTID":200,
+             "NAMN":"Rastplats Barnens kulturstig Hemlingby",
+             "BESKRVN":"Fin stor rastplats intill Barnens Kulturstig. Här finns ett tillgänglighetsanpassat dass, stort vindskydd, grillplats och bänkbord.\nRastplatsen skottas vintertid. Rastplatsen går att nå via 2-km spåre",
+             "ANDAMAL":"Rastplats",
+             "INFO":null,
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.170068697193273,
+                60.647207541589538
+             ]
+          },
+          "properties":{
+             "OBJEKTID":201,
+             "NAMN":"Rastplats Barnens kulturstig Hemlingby",
+             "BESKRVN":"Fin stor rastplats intill Barnens Kulturstig. Här finns ett tillgänglighetsanpassat dass, stort vindskydd, grillplats och bänkbord.\nRastplatsen skottas vintertid. Rastplatsen går att nå via 2-km spåre",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.183969727132521,
+                60.6214502042804
+             ]
+          },
+          "properties":{
+             "OBJEKTID":202,
+             "NAMN":"Rastplats Sjötorp Hemlingby",
+             "BESKRVN":"Rastplats Sjötorp är en mysig rastplats med fin vy över myren. Här finns vindskydd, bänkbord och grillplats.\nRastplatsen är belägen intill Hemlingby friluftsområdes milspår och Gästrikeleden.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Vindskydd",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.171112117025991,
+                60.649287249061523
+             ]
+          },
+          "properties":{
+             "OBJEKTID":203,
+             "NAMN":"Rastplats Grillhuset Hemlingby",
+             "BESKRVN":"Fint och stort vindskydd med grillplats och sittplatser inuti.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Vindskydd",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.172338500340295,
+                60.64388244327084
+             ]
+          },
+          "properties":{
+             "OBJEKTID":204,
+             "NAMN":"Rastplats tredubbla Hemlingby",
+             "BESKRVN":"Tredubbla är en stor och fin rastplats i Hemlingby frilufysområde med plats för en större grupp. Här finns eldstad, vedförråd och sittbänkar.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Vedlår, Vindskydd",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.168152881680051,
+                60.651788763559622
+             ]
+          },
+          "properties":{
+             "OBJEKTID":205,
+             "NAMN":"Rastplats Hemlingbybacken C",
+             "BESKRVN":"Rastplats belägen nedanför Hemlingbybacken &amp; snowpark. Här finns vindskydd, eldstad, bänkbord och vedförråd. ",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.169978948151503,
+                60.652450844345083
+             ]
+          },
+          "properties":{
+             "OBJEKTID":206,
+             "NAMN":"Rastplats Hemlingbybacken A",
+             "BESKRVN":"Rastplats precis intill parkeringen nedanför Hemlingbybacken. Här finns Vindskydd, eldstad, bänkbord och vedförråd. ",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.16924645587352,
+                60.652426009839907
+             ]
+          },
+          "properties":{
+             "OBJEKTID":207,
+             "NAMN":"Rastplats Hemlingbybacken B",
+             "BESKRVN":"Rastplats nedanför Hemlingbybacken. Här finns vindskydd, eldstad, bänkbord och vedförråd. ",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.170068697193273,
+                60.647207541589538
+             ]
+          },
+          "properties":{
+             "OBJEKTID":208,
+             "NAMN":"Rastplats Barnens kulturstig Hemlingby",
+             "BESKRVN":"Fin stor rastplats intill Barnens Kulturstig. Här finns ett tillgänglighetsanpassat dass, stort vindskydd, grillplats och bänkbord.\nRastplatsen skottas vintertid. Rastplatsen går att nå via 2-km spåre",
+             "ANDAMAL":"Rastplats",
+             "INFO":null,
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.170068697193273,
+                60.647207541589538
+             ]
+          },
+          "properties":{
+             "OBJEKTID":209,
+             "NAMN":"Rastplats Barnens kulturstig Hemlingby",
+             "BESKRVN":"Fin stor rastplats intill Barnens Kulturstig. Här finns ett tillgänglighetsanpassat dass, stort vindskydd, grillplats och bänkbord.\nRastplatsen skottas vintertid. Rastplatsen går att nå via 2-km spåre",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.172688008046347,
+                60.647317237829562
+             ]
+          },
+          "properties":{
+             "OBJEKTID":210,
+             "NAMN":"Rastplats Storskogen Hemlingby",
+             "BESKRVN":"Rastplatsen i storskogen är fint beläget intill upplevelsespåret. Här finns vindskydd, sittbänkar och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.167513425357988,
+                60.650121941557174
+             ]
+          },
+          "properties":{
+             "OBJEKTID":211,
+             "NAMN":"Rastplats Lilla pulkabacken Hemlingby",
+             "BESKRVN":"Rastplats belägen intill lilla pulkabacken i Hemlingby friluftsområde. Här finns vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.170312299319946,
+                60.648443964449221
+             ]
+          },
+          "properties":{
+             "OBJEKTID":212,
+             "NAMN":"Rastplats inte nudda marken Hemlingby",
+             "BESKRVN":"Rastplats belägen intill motorikbanan \"inte nudda marken\". Här finns vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.172915591526845,
+                60.649450170679337
+             ]
+          },
+          "properties":{
+             "OBJEKTID":213,
+             "NAMN":"Rastplats Mulleskogen Hemlingby",
+             "BESKRVN":"Fin rastplats i \"mulleskogen\". Rastplatsen når man genom att gå in där Högt och lågt har sin verksamhet. Här finns vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.179626119632104,
+                60.649295634225787
+             ]
+          },
+          "properties":{
+             "OBJEKTID":214,
+             "NAMN":"Rastplats Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, bänkbord och eldstad.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.180380644304226,
+                60.647798224931499
+             ]
+          },
+          "properties":{
+             "OBJEKTID":215,
+             "NAMN":"Rastplats Hemlingby",
+             "BESKRVN":"Stor rastplats med vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.180836512100409,
+                60.645106194920707
+             ]
+          },
+          "properties":{
+             "OBJEKTID":216,
+             "NAMN":"Rastplats Stråket Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.175298468141502,
+                60.643390330348183
+             ]
+          },
+          "properties":{
+             "OBJEKTID":217,
+             "NAMN":"Rastplats - Berget Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.173991573769051,
+                60.646570113621706
+             ]
+          },
+          "properties":{
+             "OBJEKTID":218,
+             "NAMN":"Rastplats - Svängen Hemlingby",
+             "BESKRVN":"Rastplats med grillplats, bänkbord och vindskydd.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.176410423548809,
+                60.650917342102964
+             ]
+          },
+          "properties":{
+             "OBJEKTID":219,
+             "NAMN":"Rastplats - Fridalen Hemlingby",
+             "BESKRVN":"Rastplats intill Teambana. Här finns vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.183008821347062,
+                60.646543891307843
+             ]
+          },
+          "properties":{
+             "OBJEKTID":220,
+             "NAMN":"Rastplats - Järvstaängarna Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, bänkbord, vedförråd och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.181312860320766,
+                60.643991310366552
+             ]
+          },
+          "properties":{
+             "OBJEKTID":221,
+             "NAMN":"Rastplats - Höjden Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, vedförråd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.1790224117109,
+                60.643439777634406
+             ]
+          },
+          "properties":{
+             "OBJEKTID":222,
+             "NAMN":"Rastplats - Nötterhagen Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, grillplats och bänkbord.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.179554876723962,
+                60.643073273607961
+             ]
+          },
+          "properties":{
+             "OBJEKTID":223,
+             "NAMN":"Rastplats - gamla teambanan Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.174557531431798,
+                60.642561805870862
+             ]
+          },
+          "properties":{
+             "OBJEKTID":224,
+             "NAMN":"Rastplats - Kabyssen Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.17168821075045,
+                60.643967399159109
+             ]
+          },
+          "properties":{
+             "OBJEKTID":225,
+             "NAMN":"Rastplats - Skomarspussen Hemlingby",
+             "BESKRVN":"Fin rastplats med vindskydd, bänkbord och grillplats. Här finns också ett utedass.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.182953916139276,
+                60.642119414952482
+             ]
+          },
+          "properties":{
+             "OBJEKTID":226,
+             "NAMN":"Rastplats - Gläntan Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, grillplats och bänkbord.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.179491668717461,
+                60.638634535502497
+             ]
+          },
+          "properties":{
+             "OBJEKTID":227,
+             "NAMN":"Rastplats - Spanaren Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.178879995698242,
+                60.633584637048685
+             ]
+          },
+          "properties":{
+             "OBJEKTID":228,
+             "NAMN":"Rastplats Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, bänkbord och grillplats intill kraftledningsgata.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.17504120656109,
+                60.638562211628084
+             ]
+          },
+          "properties":{
+             "OBJEKTID":229,
+             "NAMN":"Rastplats - Utsikten Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, grillplats och vedförråd.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.165753007556042,
+                60.639407201794583
+             ]
+          },
+          "properties":{
+             "OBJEKTID":230,
+             "NAMN":"Rastplats - Äppelbo Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, bänkbord och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.184356787046223,
+                60.646467518525782
+             ]
+          },
+          "properties":{
+             "OBJEKTID":231,
+             "NAMN":"Rastplats - Pip-Johans Hemlingby",
+             "BESKRVN":"Rastplats med vindskydd, grillplats och bänkbord.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.113929135793793,
+                60.665348448580538
+             ]
+          },
+          "properties":{
+             "OBJEKTID":232,
+             "NAMN":"Rastplats - Kungsbäck Åkermanskulle",
+             "BESKRVN":"Rastplatsen vid Åkermanskulle har fin utsikt. Här finns bänkbord och eldstad. Här passerar dessutom Kungsbäcks motionsspår.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Bänkbord",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.110354930266368,
+                60.660696154353509
+             ]
+          },
+          "properties":{
+             "OBJEKTID":233,
+             "NAMN":"Rastplats Kungsbäck södra",
+             "BESKRVN":"Rastplats Kungsbäck södra ligger intill E4an och här passerar Kungsbäck motionsspår. Här finns vindskydd.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Vindskydd",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.101339406285771,
+                60.660908328491843
+             ]
+          },
+          "properties":{
+             "OBJEKTID":234,
+             "NAMN":"Rastplats Kungsbäck sydvästra",
+             "BESKRVN":"Rastplats Kungsbäck sydvästra är belägen precis intill Kungsbäck motionsspår. Här finns vindskydd.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Vindskydd",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.115764080198542,
+                60.662475060152779
+             ]
+          },
+          "properties":{
+             "OBJEKTID":235,
+             "NAMN":"Rastplats Olsbacka kurva",
+             "BESKRVN":"Rastplatsen Olsbacka kurva har ett vindskydd med eldstad. Här passerar dessutom Kungsbäcks motionsspår.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Vindskydd",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.010327000035382,
+                60.633731999358169
+             ]
+          },
+          "properties":{
+             "OBJEKTID":236,
+             "NAMN":"Rastplats Sofiedal",
+             "BESKRVN":"Rastplats med vindskydd och grillplats intill motions- och ridspår. Här passerar också Gästrikeleden.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Vindskydd",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.041831228700669,
+                60.656488399803202
+             ]
+          },
+          "properties":{
+             "OBJEKTID":237,
+             "NAMN":"Rastplats Åbyvallen startområde",
+             "BESKRVN":"Rastplatsen vid Åbyvallens startområde har vindskydd med grillplats med utsikt över startområdet.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Löpning, Vindskydd, Skidor",
+             "FILNAMN":"Rastplatser"
+          }
+       },
+       {
+          "type":"Feature",
+          "geometry":{
+             "type":"Point",
+             "coordinates":[
+                17.05223958685967,
+                60.659377667105808
+             ]
+          },
+          "properties":{
+             "OBJEKTID":238,
+             "NAMN":"Rastplats Åbyvallen",
+             "BESKRVN":"Rastplats Åbyvallen ligger längs med motionsspåret och här finns vindskydd och grillplats.",
+             "ANDAMAL":"Rastplats",
+             "INFO":"Grillplats/Eldplats, Löpning, Vindskydd, Skidor",
+             "FILNAMN":"Rastplatser"
+          }
+       }
+    ]
+ }

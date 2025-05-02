@@ -1,0 +1,1085 @@
+{
+	"type": "FeatureCollection",
+	"name": "lekplatser",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0474,
+					60.6525
+				]
+			},
+			"properties": {
+				"Namn": "Alborga"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1666,
+					60.6612
+				]
+			},
+			"properties": {
+				"Namn": "Apelgatan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1671,
+					60.7203
+				]
+			},
+			"properties": {
+				"Namn": "Arentvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1427,
+					60.6696
+				]
+			},
+			"properties": {
+				"Namn": "Brunnsparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1187,
+					60.6656
+				]
+			},
+			"properties": {
+				"Namn": "Hedvigslund"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1327,
+					60.9276
+				]
+			},
+			"properties": {
+				"Namn": "Egnahemsgatan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1718,
+					60.6701
+				]
+			},
+			"properties": {
+				"Namn": "Väpnarparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1688,
+					60.7012
+				]
+			},
+			"properties": {
+				"Namn": "Forngravarna"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1622,
+					60.6802
+				]
+			},
+			"properties": {
+				"Namn": "Jungfruparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9985,
+					60.3987
+				]
+			},
+			"properties": {
+				"Namn": "Hagalund"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2187,
+					60.6781
+				]
+			},
+			"properties": {
+				"Namn": "Holmsund"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1848,
+					60.6988
+				]
+			},
+			"properties": {
+				"Namn": "Jonstorp"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1233,
+					60.677
+				]
+			},
+			"properties": {
+				"Namn": "Jungfrugatan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1925,
+					60.65
+				]
+			},
+			"properties": {
+				"Namn": "Järvsta"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0592,
+					60.6668
+				]
+			},
+			"properties": {
+				"Namn": "Kraftvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1525,
+					60.67
+				]
+			},
+			"properties": {
+				"Namn": "Vävareparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1496,
+					60.6625
+				]
+			},
+			"properties": {
+				"Namn": "Källbäcksparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0816,
+					60.6733
+				]
+			},
+			"properties": {
+				"Namn": "Lekgränd"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0947,
+					60.6781
+				]
+			},
+			"properties": {
+				"Namn": "Lexe"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0623,
+					60.6697
+				]
+			},
+			"properties": {
+				"Namn": "Lindesnäsvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1628,
+					60.6526
+				]
+			},
+			"properties": {
+				"Namn": "Lövens Tä"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0099,
+					60.6469
+				]
+			},
+			"properties": {
+				"Namn": "Markheden"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.997,
+					60.3938
+				]
+			},
+			"properties": {
+				"Namn": "Mejerivägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1479,
+					60.6676
+				]
+			},
+			"properties": {
+				"Namn": "Nobelparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1415,
+					60.679
+				]
+			},
+			"properties": {
+				"Namn": "Nordost"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1291,
+					60.6795
+				]
+			},
+			"properties": {
+				"Namn": "Nynäsplan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1626,
+					60.7235
+				]
+			},
+			"properties": {
+				"Namn": "Odalvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1378,
+					60.6657
+				]
+			},
+			"properties": {
+				"Namn": "Oskarsparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2341,
+					60.6731
+				]
+			},
+			"properties": {
+				"Namn": "Rostadsvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.3261,
+					60.6491
+				]
+			},
+			"properties": {
+				"Namn": "Rönnåsvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1678,
+					60.7052
+				]
+			},
+			"properties": {
+				"Namn": "Rösgatan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2528,
+					60.6774
+				]
+			},
+			"properties": {
+				"Namn": "Siriusplan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.129,
+					60.6594
+				]
+			},
+			"properties": {
+				"Namn": "Skogsfruparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9977,
+					60.6373
+				]
+			},
+			"properties": {
+				"Namn": "Snickarvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2147,
+					60.6635
+				]
+			},
+			"properties": {
+				"Namn": "Solhjulet"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1264,
+					60.6747
+				]
+			},
+			"properties": {
+				"Namn": "Stadsträdgården"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0812,
+					60.6779
+				]
+			},
+			"properties": {
+				"Namn": "Stenbäck"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1611,
+					60.6726
+				]
+			},
+			"properties": {
+				"Namn": "Stenebergsparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1499,
+					60.6988
+				]
+			},
+			"properties": {
+				"Namn": "Stigsparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2579,
+					60.6714
+				]
+			},
+			"properties": {
+				"Namn": "Storhagen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1467,
+					60.6522
+				]
+			},
+			"properties": {
+				"Namn": "Stormgatan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1422,
+					60.6748
+				]
+			},
+			"properties": {
+				"Namn": "Stortorget"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1324,
+					60.6461
+				]
+			},
+			"properties": {
+				"Namn": "Stureborg"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1606,
+					60.7093
+				]
+			},
+			"properties": {
+				"Namn": "Stålbogatan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1219,
+					60.6869
+				]
+			},
+			"properties": {
+				"Namn": "Södra Sätraängarna"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0984,
+					60.7004
+				]
+			},
+			"properties": {
+				"Namn": "Tussilagovägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1351,
+					60.6625
+				]
+			},
+			"properties": {
+				"Namn": "Vesslevägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.259,
+					60.6735
+				]
+			},
+			"properties": {
+				"Namn": "Vretlindan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1494,
+					60.7158
+				]
+			},
+			"properties": {
+				"Namn": "Åängsvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1034,
+					60.6972
+				]
+			},
+			"properties": {
+				"Namn": "Ängsullsvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1184,
+					60.6902
+				]
+			},
+			"properties": {
+				"Namn": "Norra Sätraängarna"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1703,
+					60.7157
+				]
+			},
+			"properties": {
+				"Namn": "Varvaterrassen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1226,
+					60.6579
+				]
+			},
+			"properties": {
+				"Namn": "Almvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0335,
+					60.6532
+				]
+			},
+			"properties": {
+				"Namn": "Krogasvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1726,
+					60.7235
+				]
+			},
+			"properties": {
+				"Namn": "Åsvägen i Hille"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1326,
+					60.6775
+				]
+			},
+			"properties": {
+				"Namn": "Nynäsparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2085,
+					60.6675
+				]
+			},
+			"properties": {
+				"Namn": "Långbackavägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2217,
+					60.6683
+				]
+			},
+			"properties": {
+				"Namn": "Myrparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2368,
+					60.6627
+				]
+			},
+			"properties": {
+				"Namn": "Tranmur"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9947,
+					60.642
+				]
+			},
+			"properties": {
+				"Namn": "Siporexparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1616,
+					60.6993
+				]
+			},
+			"properties": {
+				"Namn": "Brännerigatan"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1253,
+					60.6541
+				]
+			},
+			"properties": {
+				"Namn": "Höjersdalsparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.127,
+					60.6561
+				]
+			},
+			"properties": {
+				"Namn": "Videkullen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1383,
+					60.6595
+				]
+			},
+			"properties": {
+				"Namn": "Korpvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1144,
+					60.6945
+				]
+			},
+			"properties": {
+				"Namn": "Ulvsmygen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1502,
+					60.703
+				]
+			},
+			"properties": {
+				"Namn": "Sidlångsvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1424,
+					60.7049
+				]
+			},
+			"properties": {
+				"Namn": "Stigshöjden"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9749,
+					60.6453
+				]
+			},
+			"properties": {
+				"Namn": "Sågvreten"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9856,
+					60.634
+				]
+			},
+			"properties": {
+				"Namn": "Spikåsvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0427,
+					60.9316
+				]
+			},
+			"properties": {
+				"Namn": "Stenvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0676,
+					60.8956
+				]
+			},
+			"properties": {
+				"Namn": "Råvägen"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1861,
+					60.7676
+				]
+			},
+			"properties": {
+				"Namn": "Björke"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.897,
+					60.6153
+				]
+			},
+			"properties": {
+				"Namn": "Pilparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1785,
+					60.6749
+				]
+			},
+			"properties": {
+				"Namn": "Hammarparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1418,
+					60.6521
+				]
+			},
+			"properties": {
+				"Namn": "Tellusparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0989,
+					60.687
+				]
+			},
+			"properties": {
+				"Namn": "Pingeltorp"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1451,
+					60.6711
+				]
+			},
+			"properties": {
+				"Namn": "Klockgjutareparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1395,
+					60.6792
+				]
+			},
+			"properties": {
+				"Namn": "Esplanaden"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1582,
+					60.6427
+				]
+			},
+			"properties": {
+				"Namn": "Skogslekplatsen Hemlingby"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1804,
+					60.7066
+				]
+			},
+			"properties": {
+				"Namn": "Lindbacka"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1651,
+					60.6775
+				]
+			},
+			"properties": {
+				"Namn": "Ahlgrensparken lekplats"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1418,
+					60.6493
+				]
+			},
+			"properties": {
+				"Namn": "Andersbergs gym"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9961,
+					60.6418
+				]
+			},
+			"properties": {
+				"Namn": "Siporexparken utegym"
+			}
+		}
+	]
+}

@@ -1,0 +1,462 @@
+{
+	"type": "FeatureCollection",
+	"name": "badplatser",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.112,
+					60.674,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Boulognerbadet",
+				"GATUADRESS": "Västra vägen 56",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Boulognerbadet! Boulognerbadet är ett stadsbad i Gavleån som är omgivet av gräsmattor och promenadstråk. Beroende på vattennivå kan det vara strömmande vatten utanför bryggorna.  I anslutning till badet finns brygga med ramp ner till vattnet, soldäck, volleybollplaner, utegym, omklädningsrum, HWC samt en grillplats.       ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/boulognerbadet/",
+				"UPDDATUM": "20190702091716"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2584,
+					60.6764,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Lillhagsbadet",
+				"GATUADRESS": "Depkens väg 23, Bomhus",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Lillhagsbadet! Här finns en mindre inomhuspool, bastuavdelning, ett relaxrum och två omklädningsrum. Inomhuspoolen är tillgänglighetsanpassad för personer med olika funktionsnedsättningar. Vattennivån i bassäongen är höj- och sänkbar och i byggnaden finns två liftbord mellan våningsplanen.  ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/lillhagsbadet/",
+				"UPDDATUM": "20190709074844"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9756,
+					61.0121,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Högbacka",
+				"GATUADRESS": "Högbacksvägen",
+				"ORT": "Högbacka",
+				"BESKR_KORT": " Välkommen till Högbacka! Högbacka är ett insjöbad med gräs- och sandstrand. Här finns badbrygga, dass, parkering och Högbacka camping.      ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/hogbacka/",
+				"UPDDATUM": "20190701085312"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.4742,
+					60.6407,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Rullsand",
+				"GATUADRESS": "Rullsandsvägen 1",
+				"ORT": "Skuskär",
+				"BESKR_KORT": " Välkommen till Rullsand! Rullsand är ett havsbad med en lång sandstrand. Här finns WC, affär, kiosk, parkering och camping.   ",
+				"URL": null,
+				"UPDDATUM": "20190801070913"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.3329,
+					60.6527,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Furuviksparken",
+				"GATUADRESS": "Dannemansvägen 4",
+				"ORT": "Furuvik",
+				"BESKR_KORT": " Välkommen till Furuviks poolområde! Här finns ett äventyrsbad utomhus med en stor pool, barnpool, två vattenrutschar och ett äventyrstorn.  Runt poolen finns trädäck och stora gräsytor. På området finns även glasskiosk, duschar, toaletter och omklädningsrum.  ",
+				"URL": null,
+				"UPDDATUM": "20190801065628"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1541,
+					60.9275,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Salthartsfjärden",
+				"GATUADRESS": "Saltharsvägen",
+				"ORT": "Norrsundet",
+				"BESKR_KORT": " Välkommen till Saltharsfjärden! Här finns ett havsbad med klippor, sand- och grässtrand samt badbrygga, omklädningsrum, dass och grillplats. ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/saltharsfjarden/",
+				"UPDDATUM": "20190701090151"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.3026,
+					60.6654,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Vårvik",
+				"GATUADRESS": "Vårviksvägen 11, Sikvik",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Vårvik! Vårvik är ett havsbad med klippor och liten sandstrand. I anslutning till badplatsen finns omklädningsrum, sommaröppen restaurang och grillplats.    Hundar får vistas på badområdet som ligger efter stigen till vänster om restaurangen men inte bada i vattnet. Det finns en stig till höger om restaurangen som går ner till klipporna där går det att bada med hund.    ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/varvik/",
+				"UPDDATUM": "20190708083024"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.096,
+					60.9137,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Totrabadet",
+				"GATUADRESS": "Sandtrappan, Totra",
+				"ORT": "Hamrånge",
+				"BESKR_KORT": " Välkommen till Totrabadet! Totrabadet är ett insjöbad i Hamrångefjärden med långgrund sandstrand. I anslutning till badplatsen finns omklädningsrum, badbrygga, toaletter och parkeringsplats. ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/totrabadet/",
+				"UPDDATUM": "20190701091416"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9282,
+					60.7693,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Smörnäs",
+				"GATUADRESS": "Oslättforsvägen 291",
+				"ORT": "Smörnäs",
+				"BESKR_KORT": " Välkommen till Smörnäs! Smörnäs insjöbad är beläget vid Friluftsfrämjandets läger- och friluftsgård vid Lundbosjön väster om Oslättfors. Vid badplatsen finns brygga, sommarcafé, båtuthyrning och dass. Det är även tillåtet för hundar att bada här.    ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/smornas/",
+				"UPDDATUM": "20190701090459"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1419,
+					60.7172,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Forsbybadet",
+				"GATUADRESS": "Kvarnvägen, Forsby",
+				"ORT": "Gävle",
+				"BESKR_KORT": "Välkommen till Forsbybadet! Forsbybadet är ett insjöbad i Testeboån med grässtrand. I anslutning till badplatsen finns badbrygga och dass.   OBS! Badplatsen är stängd på grund av otjänligt badvatten.  ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/forsbybadet/",
+				"UPDDATUM": "20190703084313"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0074,
+					60.6378,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Valbobadet",
+				"GATUADRESS": "Fritidsvägen 4",
+				"ORT": "Valbo",
+				"BESKR_KORT": " Välkommen till Valbobadet!   Här finns ett inomhusbad och ett utomhusbad. Utomhusbadet håller öppet under sommartid och här finns bland annat: 50-metersbassäng, hopptorn och liten trampolin, vattenleksaker samt WC och utomhusdusch.   Inomhusbadet är under ombyggnad och beräknas öppna i september 2019.    ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/valbobadet/",
+				"UPDDATUM": "20190709080355"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.334,
+					60.7582,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gammel Annabadet",
+				"GATUADRESS": "Harkskärsvägen 32, Harkskär",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Gammel Annabadet! Här finns ett havsbad med sand- och grässtrand i en vindskyddad havsvik med badbrygga och dass. ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/gammel-annabadet/",
+				"UPDDATUM": "20190701084232"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2899,
+					60.7302,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Engesberg",
+				"GATUADRESS": "Solviksvägen",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Engesberg! Här finns ett havsbad med långgrund sand- och grässtrand. I närheten finns även ett café, minilivs, omklädningsrum, toaletter, camping, stugby och en gästbåtsbrygga.     ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/engesberg/",
+				"UPDDATUM": "20190701083907"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.24,
+					60.7042,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Engeltofta",
+				"GATUADRESS": "Bönavägen 118 A",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Engeltofta havsbad! Havsbadet har både en sand- och grässtrand. Här finns en tillgänglighetsanpassad badramp, toaletter, gästbåtsbrygga, volleybollplan, restaurang och hotell. Även en ångbåtsbrygga med angöringsplats för Limöbåten finns i anslutning till havsbadet.    ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/engeltofta/",
+				"UPDDATUM": "20200923065647"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.8841,
+					60.6127,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Laduholmen",
+				"GATUADRESS": "Sandviksvägen",
+				"ORT": "Forsbacka",
+				"BESKR_KORT": " Välkommen till Laduholmen! Laduholmen är ett insjöbad i Storsjön med sandstrand. Här finns badbryggor, omklädningsrum och toaletter. Brygga till turbåten Emma med gästbåtplatser på ena sidan. ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/laduholmen/",
+				"UPDDATUM": "20190701085817"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.3419,
+					60.7164,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Limön",
+				"GATUADRESS": "Limön",
+				"ORT": "Limön",
+				"BESKR_KORT": " Välkommen till Limöns havsbad! Limön är en idyllisk sommarö utanför Gävles kust. Här finns badplatser vid badviken/tärnviken, Scoutviken och Kalkudden. På ön finns även ett sommarcafé, gästbåtsbrygga och toaletter. Limöbåten har även sin angöringsplats på ön.     ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/limons-havsbad/",
+				"UPDDATUM": "20190604081200"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.3475,
+					60.6462,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Harnäsbadet",
+				"GATUADRESS": "Tröskenvägen, Ytterharnäs",
+				"ORT": "Furuvik",
+				"BESKR_KORT": " Välkommen till Harnäsbadet! Harnäsbadet är ett insjöbad med sand- och grässtrand. Här finns trampoliner, beachvolleybollplan, kiosk, grillplats, omklädningsrum och WC.   ",
+				"URL": null,
+				"UPDDATUM": "20190801064600"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2409,
+					60.8098,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Hilleviksbadet",
+				"GATUADRESS": "Hilleviksvägen",
+				"ORT": "Hillevik",
+				"BESKR_KORT": " Välkommen till Hilleviksbadet! Här finns ett havsbad med sand- och grässtrand, badbrygga och dass. ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/hilleviksbadet/",
+				"UPDDATUM": "20190701084623"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1324,
+					60.6649,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Fjärran Höjderbadet ",
+				"GATUADRESS": "Lantmäterigatan 5",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Fjärran Höjderbadet! Fjärran Höjderbadet är en komplett bad- och motionsanläggning i centrala Gävle som har öppet 365 dagar om året. Här finns en 25-metersbassäng, hopptorn, familjebassäng, stor barnbassäng, bubbelpooler, relax-spa, doftbastu, utomhusrelax, gym, servicering och utomhusbassänger.    ",
+				"URL": null,
+				"UPDDATUM": "20190709122723"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0207,
+					60.35,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Sandsnäsbadet",
+				"GATUADRESS": "Övägen 68",
+				"ORT": "Hedesunda",
+				"BESKR_KORT": " Välkommen till Sandnäsbadet! Sandnäsbadet är ett insjöbad vid Dalälven med sandstrand. Här finns badbrygga,  gästbåtbrygga,   omklädningsrum, badrullstol och dass. I anslutning till badplatsen finns även servering och camping med uthyrning av bastuflotte och kanot.  ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/sandnasbadet/",
+				"UPDDATUM": "20190701090407"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1047,
+					60.7351,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Torsvedsbadet",
+				"GATUADRESS": "Oslättforsvägen, S. Åbyggeby",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Torsvedsbadet! Torsvedsbadet är ett insjöbad vid Testeboån med badbrygga och vindskydd med grillplats. ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/torsvedsbadet/",
+				"UPDDATUM": "20190701091144"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2622,
+					60.7158,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Storsand",
+				"GATUADRESS": "Storsandsvägen",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Storsand! Havsbadet har både sand- och grässtrand. I anslutning till badet finns WC, grillplats, gästbåtbrygga och volleybollplan. Föreningen Tungsurf Club har verksamhet i anslutning till badet.    ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/storsand/",
+				"UPDDATUM": "20210831065400"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.3042,
+					60.7365,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Bönaviken",
+				"GATUADRESS": "Bönavägen, Bönan",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Bönaviken! Här ligger ett havsbad i en liten, långgrund vik med sandstrand och badbrygga. Här finns även dass, grillplats och parkering. ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/bonaviken/",
+				"UPDDATUM": "20190701082539"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1564,
+					60.7043,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Strömsbrobadet",
+				"GATUADRESS": "Hillevägen 11, Strömsbro",
+				"ORT": "Gävle",
+				"BESKR_KORT": " Välkommen till Strömsbrobadet! Strömsbrobadet är ett insjöbad vid Testeboån med en sandstrand, stora gräsytor, grillplats och toaletter.  ",
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/stromsbrobadet/",
+				"UPDDATUM": "20200825072629"
+			}
+		}
+	]
+}

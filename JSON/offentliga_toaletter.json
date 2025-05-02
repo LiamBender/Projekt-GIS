@@ -1,0 +1,123 @@
+{
+	"type": "FeatureCollection",
+	"name": "OFFENTLIGA_TOALETTER",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1479,
+					60.67
+				]
+			},
+			"properties": {
+				"BENAMN": "Södermalmstorg"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1458,
+					60.6743
+				]
+			},
+			"properties": {
+				"BENAMN": "Stadshusgården"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1262,
+					60.675
+				]
+			},
+			"properties": {
+				"BENAMN": "Boulongern Lekplats"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1179,
+					60.6723
+				]
+			},
+			"properties": {
+				"BENAMN": "Boulongern Kabinettet"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1224,
+					60.6744
+				]
+			},
+			"properties": {
+				"BENAMN": "Boulongern Labbet"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1161,
+					60.6693
+				]
+			},
+			"properties": {
+				"BENAMN": "Regementsparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1616,
+					60.673
+				]
+			},
+			"properties": {
+				"BENAMN": "Stenebergsparken"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.142,
+					60.6748
+				]
+			},
+			"properties": {
+				"BENAMN": "Stortorget"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1138,
+					60.6743
+				]
+			},
+			"properties": {
+				"BENAMN": "Stadsbadet"
+			}
+		}
+	]
+}

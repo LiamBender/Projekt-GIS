@@ -1,0 +1,1165 @@
+{
+	"type": "FeatureCollection",
+	"name": "IDROTT_MOTION",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.135,
+					60.6864,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gefle Boulecenter",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": null,
+				"UPDDATUM": "20230405082547"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2584,
+					60.6764,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Lillhagsbadet",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Simhall",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/natur-och-friluftsliv/bad/badplatser-och-badanlaggningar/lillhagsbadet/",
+				"UPDDATUM": "20230405085328"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.132,
+					60.6929,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gunder Hägg Stadion ",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Friidrottsarena",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/gunder-haggstadion/",
+				"UPDDATUM": "20230405082820"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1457,
+					60.9257,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Lindövallen",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": " Fotbollsplan Ishockeyrink ",
+				"URL": null,
+				"UPDDATUM": "20230405085654"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1246,
+					60.6581,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Fridhemsskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "   ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/fridhemsskolan-idrottshall/",
+				"UPDDATUM": "20230405081944"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1743,
+					60.7175,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Hille IP ",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Fotbollsplaner",
+				"URL": null,
+				"UPDDATUM": "20230405085054"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1621,
+					60.6724,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Staffansskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "    ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/staffansskolans-idrottshall/",
+				"UPDDATUM": "20230405091051"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1423,
+					60.6777,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Norra Gymnastikhuset",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Idrottshallar",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/norra-gymnastikhuset/",
+				"UPDDATUM": "20230405090335"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1347,
+					60.6919,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gavlevallen",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "   ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/gavlevallen/",
+				"UPDDATUM": "20230405082420"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1433,
+					60.6924,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Sätravallen",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Basebollplan Fotbollsplan ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/satravallen/",
+				"UPDDATUM": "20230405091458"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1292,
+					60.6773,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Borgarskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/borgarskolans-idrottshall/",
+				"UPDDATUM": "20230405092438"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1951,
+					60.6967,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gävle Ryttarsällskap",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Ridsportsanläggning",
+				"URL": null,
+				"UPDDATUM": "20230405083411"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2457,
+					60.6851,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Kastvallen",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": " Fotbollsplaner Ishall  ",
+				"URL": null,
+				"UPDDATUM": "20230405085150"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.01,
+					60.3944,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Hedesunda skola idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "   ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/hedesunda-skola-idrottshall/",
+				"UPDDATUM": "20230405084509"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1327,
+					60.6913,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Monitor ERP Arena",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": " Ishall ",
+				"URL": null,
+				"UPDDATUM": "20230405082333"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.135,
+					60.6788,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Nynäs IP",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Fotbollshall Idrottshall Ishall",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/nynas-ip/",
+				"UPDDATUM": "20230405090458"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0616,
+					60.6742,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Hagaströms IP",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": " Fotbollsplaner Skrnnarbana Ishockeyrink    ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/hagastroms-ip/",
+				"UPDDATUM": "20230405083904"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1542,
+					60.6685,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Polhemsskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Idrottshallar",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/polhemsskolans-idrottshall/",
+				"UPDDATUM": "20230405090600"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0027,
+					60.6326,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gävle Fältrittklubb ",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Ridsportsanläggning",
+				"URL": null,
+				"UPDDATUM": "20230405083146"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1302,
+					60.6902,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "GTK-hallen",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Tennishall",
+				"URL": null,
+				"UPDDATUM": "20230405082705"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1445,
+					60.659,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Sörbyskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/sorbyskolans-idrottshall/",
+				"UPDDATUM": "20230405091709"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0321,
+					60.9445,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Vifors IP",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": null,
+				"UPDDATUM": "20230405091923"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2108,
+					60.6723,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Sjöängsskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/sjoangsskolans-idrottshall/",
+				"UPDDATUM": "20230405090642"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1797,
+					60.6624,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gymnastikens Hus",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": null,
+				"UPDDATUM": "20230405082843"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1387,
+					60.6515,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Andersbergs idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/andersbergs-idrottshall/",
+				"UPDDATUM": "20230405132646"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0013,
+					60.6452,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Ludvigsbergsskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "   ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/ludvigsbergs-idrottshall/",
+				"UPDDATUM": "20230405085752"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1415,
+					60.6503,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Andersbergs konstgräsplan",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/andersbergs-konstgrasplan/",
+				"UPDDATUM": "20230405080827"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1339,
+					60.6682,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Solängsskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "    ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/solangsskolan-idrottshall/",
+				"UPDDATUM": "20230405090931"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1667,
+					60.726,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Milboskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/milbo-varva-skolan-idrottshall/",
+				"UPDDATUM": "20230405090039"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1808,
+					60.6734,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Brynäsvallen ",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": " Fotbollsplan Ishall    ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/brynasvallen/",
+				"UPDDATUM": "20230405081430"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1134,
+					60.6418,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gävle Ponnyklubb",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": " Ridsportsanläggning ",
+				"URL": null,
+				"UPDDATUM": "20230405083346"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0662,
+					60.6745,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Hagaströmsskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "   ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/hagastromsskolans-idrottshall/",
+				"UPDDATUM": "20230405084044"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2239,
+					60.6647,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Vikingaskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/vikingaskolans-idrottshall/",
+				"UPDDATUM": "20230405091515"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9754,
+					60.5947,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gävle Motorstadion",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "   ",
+				"URL": null,
+				"UPDDATUM": "20230405083250"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.8872,
+					60.618,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Mariehovs IP",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Fotbollsplaner",
+				"URL": null,
+				"UPDDATUM": "20230405085948"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.115,
+					60.6901,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Träffens IP",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Fotbollsplaner Idrottshallar",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/traffens-ip/",
+				"UPDDATUM": "20230418090141"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.3585,
+					60.6529,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Ytterharnäs idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/service-och-information/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/ytterharnas-skolas-idrottshall/",
+				"UPDDATUM": "20230405091133"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1541,
+					60.6697,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Vårdskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "   ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/vardskolan-komvux-idrottshall/",
+				"UPDDATUM": "20230405091335"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0379,
+					60.6523,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Åbyvallen",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": " Fotbollsplaner ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/abyvallen/",
+				"UPDDATUM": "20230405090843"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1386,
+					60.6568,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Sörby IP ",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Fotbollshall Fotbollsplaner",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/sorby-ip/",
+				"UPDDATUM": "20230405091619"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1876,
+					60.6694,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Måsbergets IP",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Fotbollsplaner",
+				"URL": null,
+				"UPDDATUM": "20230405090123"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1845,
+					60.709,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Skidstavallen",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Cykelanläggning Längdskidanläggning ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/natur-och-friluftsliv/motionsspar-leder-och-naturstigar/motionsspar/skidstavallens-motionsspar/",
+				"UPDDATUM": "20230405090854"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.178,
+					60.7002,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gävle Golfklubb",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": null,
+				"UPDDATUM": "20230405083215"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1324,
+					60.6649,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Fjärran Höjderbadet",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Simhall Idrottshall",
+				"URL": "https://www.fjarranhojderbadet.se/",
+				"UPDDATUM": "20230405081816"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.984,
+					60.3965,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Hedesunda IP",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Fotbollsplaner Gruppträningslokal  Ishall",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/hedesunda-ip/",
+				"UPDDATUM": "20230405084410"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0077,
+					60.6376,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Valbo Sportcentrum ",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Idrottshall Ishall Simhall inomhus Tennishall Fotbollsplaner Simbassäng utomhus ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/valbo-sportcentrum/",
+				"UPDDATUM": "20230405092253"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1363,
+					60.6931,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gavlehovshallen ",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Alfahallen (idrottshall) Novahallen (idrottshall) Omegahallen (friidrottshall)",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/gavlehovshallen/",
+				"UPDDATUM": "20230405082220"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.8948,
+					60.613,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Forsbacka idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/forsbacka-idrottshall/",
+				"UPDDATUM": "20230405081854"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1414,
+					60.6683,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Vallbacksskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/vallbacksskolans-idrottshall/",
+				"UPDDATUM": "20230405091852"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2116,
+					60.618,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Älgsjöns Skjutbana",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": null,
+				"UPDDATUM": "20230405090856"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1088,
+					60.6953,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Ulvsäterskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/ulvsatersskolans-idrottshall/",
+				"UPDDATUM": "20230405092239"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.165,
+					60.708,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Testebovallen",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Curlinghall Fotbollsplaner Idrottshall  Ishall",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/testebovallen/",
+				"UPDDATUM": "20230405091828"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1088,
+					60.6953,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Ulven boxningslokal",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": null,
+				"UPDDATUM": "20230405092104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					16.9178,
+					60.6165,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Gävle Vattenskidklubb",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": null,
+				"UPDDATUM": "20230405083453"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.0441,
+					60.9249,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Bergby idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/bergby-idrottshall/",
+				"UPDDATUM": "20230405081029"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.142,
+					60.6667,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Vallbacksgården bågskyttelokal",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": null,
+				"UPDDATUM": "20230405092026"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1696,
+					60.6507,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Hemlingbybacken och snowpark",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": "Skidbacke Snowpark ",
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/natur-och-friluftsliv/hemlingby-friluftsomrade/besok-hemlingbybacken-och-snowpark-2/",
+				"UPDDATUM": "20230405085020"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1471,
+					60.6636,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Lindängen skyttelokal",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": null,
+				"UPDDATUM": "20230405085600"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1725,
+					60.674,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Brynässkolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/brynasskolans-idrottshall/",
+				"UPDDATUM": "20230405081622"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.2583,
+					60.6758,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Lillhagsskolans idrottshallar",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/lillhagsskolans-idrottshall/",
+				"UPDDATUM": "20230405085511"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1493,
+					60.6973,
+					0
+				]
+			},
+			"properties": {
+				"NAMN": "Stigslundsskolans idrottshall",
+				"GATUADRESS": null,
+				"ORT": null,
+				"BESKR_KORT": null,
+				"URL": "https://www.gavle.se/kommunens-service/kultur-och-fritid/idrott-och-motion/idrottsanlaggningar-och-hallar/idrottsanlaggningar-och-hallar/stigslundsskolans-idrottshall/",
+				"UPDDATUM": "20230405091351"
+			}
+		}
+	]
+}
