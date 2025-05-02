@@ -13,3 +13,10 @@ require([
       zoom: 13
     });
   });
+
+
+// Fuktion för att läsa in en JSON-fil.
+async function fetchData(file) {
+  const response = await fetch(file);
+  return response.json();
+}
