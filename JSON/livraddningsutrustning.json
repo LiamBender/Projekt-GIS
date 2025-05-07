@@ -1,0 +1,3548 @@
+{
+	"type": "FeatureCollection",
+	"name": "LIVRADDNINGSUTRUSTNING",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1549,
+					60.6758
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsbåt",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1611,
+					60.6782
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsbåt",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1483,
+					60.6743
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsbåt",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1444,
+					60.673
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsbåt",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1219,
+					60.673
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsbåt",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1121,
+					60.6735
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsbåt",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1169,
+					60.6791
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsbåt",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1659,
+					60.6788
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20141216"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.161,
+					60.6785
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1714,
+					60.6808
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20141216"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1677,
+					60.6803
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20141216"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1687,
+					60.6804
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20141216"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1694,
+					60.6809
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20141216"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1707,
+					60.681
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20141216"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1573,
+					60.6768
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1587,
+					60.6775
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1601,
+					60.6779
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1616,
+					60.6784
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1637,
+					60.6786
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1652,
+					60.6787
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1672,
+					60.679
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1692,
+					60.6793
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1708,
+					60.6794
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.171,
+					60.6816
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.173,
+					60.6797
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1745,
+					60.6799
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1763,
+					60.6802
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.178,
+					60.6804
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.18,
+					60.6807
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1794,
+					60.6819
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1774,
+					60.6816
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1734,
+					60.681
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1809,
+					60.6817
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1825,
+					60.6814
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1812,
+					60.6809
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1651,
+					60.6782
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningspost",
+				"UPDDATUM": "20200527"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1457,
+					60.6736
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1447,
+					60.6733
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1443,
+					60.6732
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1433,
+					60.673
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1426,
+					60.6728
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1421,
+					60.6725
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1445,
+					60.673
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1459,
+					60.6734
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.147,
+					60.6736
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1477,
+					60.6738
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1486,
+					60.674
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1493,
+					60.6742
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.15,
+					60.6743
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1509,
+					60.6745
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.152,
+					60.6747
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1534,
+					60.675
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1545,
+					60.6753
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1554,
+					60.6756
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1561,
+					60.6758
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1569,
+					60.676
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1578,
+					60.6762
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1586,
+					60.6765
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1595,
+					60.6767
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1603,
+					60.6769
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1611,
+					60.6771
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1619,
+					60.6774
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1609,
+					60.6786
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1609,
+					60.6782
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1606,
+					60.6781
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1588,
+					60.6774
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1582,
+					60.6772
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1575,
+					60.6769
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.157,
+					60.6767
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1563,
+					60.6764
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1556,
+					60.6761
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1549,
+					60.6758
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1542,
+					60.6755
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1532,
+					60.6753
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1517,
+					60.675
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1507,
+					60.6748
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1497,
+					60.6746
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.149,
+					60.6745
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1483,
+					60.6743
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1475,
+					60.674
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1466,
+					60.6738
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1605,
+					60.6789
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1609,
+					60.6789
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1621,
+					60.6791
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1622,
+					60.6795
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1623,
+					60.6797
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1631,
+					60.6797
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1638,
+					60.6799
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1645,
+					60.6799
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1652,
+					60.6801
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1658,
+					60.6801
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1667,
+					60.6803
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1673,
+					60.6803
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1677,
+					60.6804
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1686,
+					60.6807
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1695,
+					60.6808
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1707,
+					60.681
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1714,
+					60.6809
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1701,
+					60.6808
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1686,
+					60.6805
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1826,
+					60.6811
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1825,
+					60.6813
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1823,
+					60.6815
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.181,
+					60.6817
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.18,
+					60.6819
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.179,
+					60.6818
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1775,
+					60.6816
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1803,
+					60.6808
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1794,
+					60.6806
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1785,
+					60.6805
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1776,
+					60.6804
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1768,
+					60.6803
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1759,
+					60.6801
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.175,
+					60.68
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.174,
+					60.6799
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1722,
+					60.6796
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1688,
+					60.6792
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1682,
+					60.6791
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1668,
+					60.6789
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1658,
+					60.6788
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1654,
+					60.6787
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1649,
+					60.6787
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1646,
+					60.6786
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1644,
+					60.6786
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1643,
+					60.678
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1656,
+					60.6782
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1668,
+					60.6784
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1681,
+					60.6786
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1705,
+					60.6789
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1718,
+					60.6791
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1731,
+					60.6792
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1742,
+					60.6794
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1755,
+					60.6796
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1768,
+					60.6798
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150128"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1164,
+					60.6712
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1158,
+					60.6709
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1154,
+					60.6709
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1152,
+					60.6711
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1155,
+					60.6717
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1161,
+					60.6721
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1162,
+					60.6725
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1711,
+					60.6814
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150423"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1707,
+					60.6821
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150423"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1718,
+					60.6823
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150423"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1728,
+					60.6825
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20150423"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1578,
+					60.6771
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1585,
+					60.6774
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1592,
+					60.6776
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.16,
+					60.6779
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1608,
+					60.6781
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1627,
+					60.6784
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1633,
+					60.6785
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1637,
+					60.6785
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1663,
+					60.6789
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1672,
+					60.679
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1685,
+					60.6792
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1692,
+					60.6792
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1698,
+					60.6793
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1707,
+					60.6794
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1717,
+					60.6796
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1712,
+					60.6811
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.171,
+					60.6816
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1707,
+					60.6821
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1724,
+					60.6797
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsstege",
+				"UPDDATUM": "20151104"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1708,
+					60.681
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1606,
+					60.679
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1553,
+					60.6755
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1645,
+					60.6781
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1644,
+					60.6786
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1588,
+					60.6775
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1618,
+					60.6771
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1533,
+					60.675
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.153,
+					60.6753
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1606,
+					60.6781
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1588,
+					60.6763
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1571,
+					60.6767
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1516,
+					60.6747
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1514,
+					60.6749
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1504,
+					60.6744
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1493,
+					60.6742
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1484,
+					60.6743
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1465,
+					60.6735
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1463,
+					60.6737
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1441,
+					60.6732
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1446,
+					60.673
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1422,
+					60.6726
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1426,
+					60.6724
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1399,
+					60.6717
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1357,
+					60.6724
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1328,
+					60.6729
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1107,
+					60.6796
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1171,
+					60.6789
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1311,
+					60.6735
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1281,
+					60.6738
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1269,
+					60.6738
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1229,
+					60.6732
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1235,
+					60.6724
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1222,
+					60.673
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.12,
+					60.6726
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1155,
+					60.671
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1163,
+					60.6721
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1158,
+					60.6736
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1112,
+					60.6741
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1102,
+					60.6746
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1564,
+					60.6929
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.155,
+					60.6759
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1669,
+					60.6784
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1702,
+					60.6787
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1719,
+					60.6789
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1746,
+					60.6801
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1812,
+					60.6809
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1804,
+					60.6818
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1663,
+					60.6802
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1646,
+					60.68
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.163,
+					60.6797
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1622,
+					60.6795
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1161,
+					60.6703
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.121,
+					60.6709
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1557,
+					60.7015
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1565,
+					60.7044
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1596,
+					60.6988
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1577,
+					60.6983
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1592,
+					60.6972
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1578,
+					60.6966
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1579,
+					60.6948
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": null
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.171,
+					60.6816
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1714,
+					60.6807
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1733,
+					60.681
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1774,
+					60.6816
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1794,
+					60.6819
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1809,
+					60.6817
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1825,
+					60.6813
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.18,
+					60.6807
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.178,
+					60.6804
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1763,
+					60.6802
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1745,
+					60.6799
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.173,
+					60.6797
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1708,
+					60.6794
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1692,
+					60.6793
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1672,
+					60.679
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1658,
+					60.6788
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1652,
+					60.6787
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1636,
+					60.6785
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1615,
+					60.6783
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1601,
+					60.6779
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.161,
+					60.6785
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20151105"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1694,
+					60.6787
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20200527"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1626,
+					60.6776
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20200527"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1611,
+					60.6772
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20200527"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.159,
+					60.6766
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20200527"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1332,
+					60.6735
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20200527"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1182,
+					60.6715
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20200527"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					17.1121,
+					60.6736
+				]
+			},
+			"properties": {
+				"TYP": "Livräddningsboj",
+				"UPDDATUM": "20200527"
+			}
+		}
+	]
+}
