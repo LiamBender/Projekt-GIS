@@ -32,6 +32,8 @@ require([
   addPointLayer("spontanidrott", "JSON/spontanidrott.json", "magenta");
   addPointLayer("utegym", "JSON/utegym.json", "green");
   getPathsData(0);
+  getPathsData(5);
+  deleteLayer("Paths5");
 
   // Funktion som hämtar JSON-data
   async function fetchData(file) {
@@ -89,7 +91,7 @@ require([
   // Funktion som läser data från JSON-fil för att sedan rita ett line-lager
   async function getPathsData(lineIndex) {
     const pathLayer = new GraphicsLayer();
-    layers["Paths"] = pathLayer;
+    layers[`Paths${lineIndex}`] = pathLayer;
     map.add(pathLayer);
 
     const data = await fetchData("JSON/motionsspar.json");
