@@ -31,7 +31,7 @@ require([
   addPointLayer("rastplatser", "JSON/rastplatser.json", "teal");
   addPointLayer("spontanidrott", "JSON/spontanidrott.json", "magenta");
   addPointLayer("utegym", "JSON/utegym.json", "green");
-  getPathsData();
+  getPathsData(0);
 
   // Funktion som hämtar JSON-data
   async function fetchData(file) {
@@ -87,41 +87,45 @@ require([
   }
 
   // Funktion som läser data från JSON-fil för att sedan rita ett line-lager
-  async function getPathsData() {
+  async function getPathsData(lineIndex) {
     const pathLayer = new GraphicsLayer();
-    layers["Paths"] = pathLayer; // Lagrar det som ett lager med namnet "Paths" i layers-objektet
+    layers["Paths"] = pathLayer;
     map.add(pathLayer);
 
     const data = await fetchData("JSON/motionsspar.json");
     if (data) {
-        showPaths(pathLayer, data);
+        showPaths(pathLayer, data, lineIndex);
     }
-}
+  }
 
   // Funktion för att rita ut linjer på lager
-  function showPaths(layer, data) {
+  function showPaths(layer, data, lineIndex) {
     layer.removeAll();
 
-    data.features.forEach(feature => {
-      const coords = feature.geometry.coordinates;
+    // Check if the specified lineIndex exists in the features array
+    const feature = data.features[lineIndex]; // Use the lineIndex parameter to select the desired line
+    if (feature) {
+        const coords = feature.geometry.coordinates;
 
-      const line = new Polyline({
-        paths: [coords],
-        spatialReference: { wkid: 4326 }
-      });
+        const line = new Polyline({
+            paths: [coords],
+            spatialReference: { wkid: 4326 }
+        });
 
-      const symbol = new SimpleLineSymbol({
-        color: "blue",
-        width: 3
-      });
+        const symbol = new SimpleLineSymbol({
+            color: "blue",
+            width: 3
+        });
 
-      const graphic = new Graphic({
-        geometry: line,
-        symbol: symbol
-      });
+        const graphic = new Graphic({
+            geometry: line,
+            symbol: symbol
+        });
 
-      layer.add(graphic);
-    });
+        layer.add(graphic);
+    } else {
+        console.error(`Line at index ${lineIndex} does not exist.`);
+    }
   }
 
   // Funktion som tar bort lager på kartan
