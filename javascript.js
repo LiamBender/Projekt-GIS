@@ -52,6 +52,8 @@ require([
     layers[layerName] = layer;
     map.add(layer);
 
+    layer.visible = false;
+
     const data = await fetchData(dataFile);
     if (data) {
       showPoints(layer, data, color);
@@ -141,4 +143,24 @@ require([
         console.error(`Layer ${layerName} does not exist.`);
     }
   }
+
+// Funktion som togglar synligheten av ett lager
+window.toggleLayer = function(layerName) {
+  const layer = layers[layerName];
+  if (layer) {
+    // Växla synlighet på lagret
+    layer.visible = !layer.visible;
+
+    // Lägg till/ta bort CSS-klass för visuell feedback på knappen
+    const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
+    buttons.forEach(button => {
+      button.classList.toggle("active-layer", layer.visible);  // Lägg till/ta bort klassen baserat på synlighet
+    });
+
+    console.log(`Lagret "${layerName}" är nu ${layer.visible ? "synligt" : "dolt"}`);
+  } else {
+    console.error(`Lagret "${layerName}" finns inte`);
+  }
+};
+
 });

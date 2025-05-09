@@ -72,3 +72,9 @@ footer {
     flex-direction: column;
     gap: 10px;
   }
+
+.active-layer {
+  background-color: #e0e0e0; /* Ljus bakgrund på aktiv knapp */
+  font-weight: bold; /* Fetstil för aktiv knapp */
+  border-left: 4px solid green; /* Grön vänsterkant för aktiv knapp */
+}
