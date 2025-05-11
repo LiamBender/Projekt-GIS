@@ -196,5 +196,58 @@ async function addAllPathsLayer() {
   }
 }
 
+// Sökfilter för olika objekt
+window.filterFunction = function() {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  if (!input) return;
+
+  const searchableLayers = {
+    "badplatser": "badplatser",
+    "livräddningsutrustning": "livraddningsutrustning",
+    "pulkabackar": "pulkabackar",
+    "idrott": "idrott_motion",
+    "motion": "idrott_motion",
+    "motionsspår": "PathsAll",
+    "spontanidrott": "spontanidrott",
+    "utegym": "utegym",
+    "lekplatser": "lekplatser",
+    "rastplatser": "rastplatser",
+    "papperskorgar": "papperskorgar",
+    "toaletter": "offentliga_toaletter",
+    "offentliga toaletter": "offentliga_toaletter"
+  };
+
+  let matchFound = false;
+
+  for (const [key, layerName] of Object.entries(searchableLayers)) {
+    if (input === key) {
+      matchFound = true;
+
+      // Dölj alla andra lager först
+      Object.keys(layers).forEach(name => {
+        if (layers[name]) {
+          layers[name].visible = false;
+        }
+      });
+
+      // Visa det matchade lagret
+      const layer = layers[layerName];
+      if (layer) {
+        layer.visible = true;
+
+        // Uppdatera knappens visuella status
+        const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
+        buttons.forEach(button => {
+          button.classList.add("active-layer");
+        });
+      }
+
+      break;
+    }
+  }
+}
+
+
+
 
 });
