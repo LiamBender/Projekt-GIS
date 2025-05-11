@@ -31,9 +31,10 @@ require([
   addPointLayer("rastplatser", "JSON/rastplatser.json", "teal");
   addPointLayer("spontanidrott", "JSON/spontanidrott.json", "magenta");
   addPointLayer("utegym", "JSON/utegym.json", "green");
-  getPathsData(0);
-  getPathsData(5);
-  deleteLayer("Paths5");
+  addAllPathsLayer();
+  // getPathsData(0);
+  // getPathsData(5);
+  // deleteLayer("Paths5");
 
   // Funktion som hämtar JSON-data
   async function fetchData(file) {
@@ -162,5 +163,38 @@ window.toggleLayer = function(layerName) {
     console.error(`Lagret "${layerName}" finns inte`);
   }
 };
+
+// Funktion som lägger till alla paths-lager
+async function addAllPathsLayer() {
+  const pathLayer = new GraphicsLayer();
+  layers["PathsAll"] = pathLayer;
+  map.add(pathLayer);
+  pathLayer.visible = false;
+
+  const data = await fetchData("JSON/motionsspar.json");
+  if (data) {
+    data.features.forEach(feature => {
+      const coords = feature.geometry.coordinates;
+
+      const line = new Polyline({
+        paths: [coords],
+        spatialReference: { wkid: 4326 }
+      });
+
+      const symbol = new SimpleLineSymbol({
+        color: "blue",
+        width: 3
+      });
+
+      const graphic = new Graphic({
+        geometry: line,
+        symbol: symbol
+      });
+
+      pathLayer.add(graphic);
+    });
+  }
+}
+
 
 });
