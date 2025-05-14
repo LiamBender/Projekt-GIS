@@ -197,7 +197,7 @@ async function addAllPathsLayer() {
 }
 
 // Sökfilter för olika objekt
-window.filterFunction = function() {
+window.filterFunction = async function () {
   const input = document.getElementById("searchInput").value.toLowerCase().trim();
   if (!input) return;
 
@@ -219,33 +219,76 @@ window.filterFunction = function() {
 
   let matchFound = false;
 
+  // 1. Kontrollera om det är ett standardlager
   for (const [key, layerName] of Object.entries(searchableLayers)) {
     if (input === key) {
       matchFound = true;
 
-      // Dölj alla andra lager först
       Object.keys(layers).forEach(name => {
-        if (layers[name]) {
-          layers[name].visible = false;
-        }
+        if (layers[name]) layers[name].visible = false;
       });
 
-      // Visa det matchade lagret
       const layer = layers[layerName];
       if (layer) {
         layer.visible = true;
 
-        // Uppdatera knappens visuella status
         const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
         buttons.forEach(button => {
           button.classList.add("active-layer");
         });
       }
-
       break;
     }
   }
+
+  // 2. Om inget vanligt lager hittades, kolla motionsspårens namn
+  if (!matchFound) {
+    const data = await fetchData("JSON/motionsspar.json");
+    if (data && data.features) {
+      const index = data.features.findIndex(f =>
+        f.properties.NAMN && f.properties.NAMN.toLowerCase().trim() === input
+      );
+
+      if (index !== -1) {
+        Object.keys(layers).forEach(name => {
+          if (layers[name]) layers[name].visible = false;
+        });
+
+        const layerName = `Paths${index}`;
+        deleteLayer(layerName);
+        getPathsData(index);  // Visa det enskilda spåret
+        matchFound = true;
+      }
+    }
+  }
+
+  if (!matchFound) {
+    console.warn("Inget lager eller spår hittades för:", input);
+  }
+};
+
+// Fyll datalist med NAMN från motionsspår
+async function populateAutocomplete() {
+  const data = await fetchData("JSON/motionsspar.json");
+  const datalist = document.getElementById("suggestions");
+
+  if (data && data.features) {
+    const names = data.features.map(f => f.properties.NAMN).filter(Boolean);
+    datalist.innerHTML = ""; // Rensa gamla förslag
+
+    names.forEach(name => {
+      const option = document.createElement("option");
+      option.value = name;
+      datalist.appendChild(option);
+    });
+  }
 }
+
+// Kör direkt när sidan laddas
+populateAutocomplete();
+
+
+
 
 
 

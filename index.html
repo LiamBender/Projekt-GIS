@@ -51,7 +51,8 @@
         </header>
 
         <section>
-            <input type="text" id="searchInput" placeholder="Sök efter objekt..." onkeyup="filterFunction()">
+            <input type="text" id="searchInput" list="suggestions" placeholder="Sök efter objekt..." onkeyup="filterFunction()">
+            <datalist id="suggestions"></datalist>
         </section>
         
         <div id="viewDiv"></div>
