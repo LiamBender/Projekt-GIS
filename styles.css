@@ -83,5 +83,13 @@ section {
     padding: 20px;
     background-color: black;
     position: absolute;
+    top: 80px;  /* adjust based on header height */
     right: 0;
+    color: white;
+    z-index: 10; /* make sure it’s above the map */
+    max-width: 300px; /* optional: keep it from being too wide */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5); /* optional for style */
+    border-bottom-left-radius: 8px; /* optional for style */
 }
+
+

@@ -7,7 +7,7 @@ require([
   "esri/geometry/Point",
   "esri/geometry/Polyline",
   "esri/symbols/SimpleLineSymbol"
-], function(Map, MapView, Graphic, GraphicsLayer, SimpleMarkerSymbol, Point, Polyline, SimpleLineSymbol) {
+], function (Map, MapView, Graphic, GraphicsLayer, SimpleMarkerSymbol, Point, Polyline, SimpleLineSymbol) {
 
   const map = new Map({ basemap: "streets" });
 
@@ -82,14 +82,37 @@ require([
         }
       });
 
+      const props = feature.properties || {};
+
+      // Build popup content dynamically from all properties
+      let content = "";
+      for (const key in props) {
+        if (props.hasOwnProperty(key) && props[key] !== null && props[key] !== undefined) {
+          let value = props[key];
+          // If value looks like a URL, make it clickable
+          if (typeof value === "string" && value.match(/^https?:\/\//)) {
+            value = `<a href="${value}" target="_blank">${value}</a>`;
+          }
+          content += `<b>${key}:</b> ${value}<br>`;
+        }
+      }
+
+      const popupTemplate = {
+        title: props.NAMN || props.name || "Details",
+        content: content || "No additional information available."
+      };
+
       const graphic = new Graphic({
         geometry: point,
-        symbol: symbol
+        symbol: symbol,
+        attributes: props,
+        popupTemplate: popupTemplate
       });
 
       layer.add(graphic);
     });
   }
+
 
   // Funktion som läser data från JSON-fil för att sedan rita ett line-lager
   async function getPathsData(lineIndex) {
@@ -99,7 +122,7 @@ require([
 
     const data = await fetchData("JSON/motionsspar.json");
     if (data) {
-        showPaths(pathLayer, data, lineIndex);
+      showPaths(pathLayer, data, lineIndex);
     }
   }
 
@@ -110,70 +133,6 @@ require([
     // Check if the specified lineIndex exists in the features array
     const feature = data.features[lineIndex]; // Use the lineIndex parameter to select the desired line
     if (feature) {
-        const coords = feature.geometry.coordinates;
-
-        const line = new Polyline({
-            paths: [coords],
-            spatialReference: { wkid: 4326 }
-        });
-
-        const symbol = new SimpleLineSymbol({
-            color: "blue",
-            width: 3
-        });
-
-        const graphic = new Graphic({
-            geometry: line,
-            symbol: symbol
-        });
-
-        layer.add(graphic);
-    } else {
-        console.error(`Line at index ${lineIndex} does not exist.`);
-    }
-  }
-
-  // Funktion som tar bort lager på kartan
-  function deleteLayer(layerName) {
-    const layer = layers[layerName];
-    if (layer) {
-        map.remove(layer);
-        delete layers[layerName]; // Tar brot referensen till lagret i layers-objektet
-        console.log(`Layer ${layerName} has been deleted.`);
-    } else {
-        console.error(`Layer ${layerName} does not exist.`);
-    }
-  }
-
-// Funktion som togglar synligheten av ett lager
-window.toggleLayer = function(layerName) {
-  const layer = layers[layerName];
-  if (layer) {
-    // Växla synlighet på lagret
-    layer.visible = !layer.visible;
-
-    // Lägg till/ta bort CSS-klass för visuell feedback på knappen
-    const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
-    buttons.forEach(button => {
-      button.classList.toggle("active-layer", layer.visible);  // Lägg till/ta bort klassen baserat på synlighet
-    });
-
-    console.log(`Lagret "${layerName}" är nu ${layer.visible ? "synligt" : "dolt"}`);
-  } else {
-    console.error(`Lagret "${layerName}" finns inte`);
-  }
-};
-
-// Funktion som lägger till alla paths-lager
-async function addAllPathsLayer() {
-  const pathLayer = new GraphicsLayer();
-  layers["PathsAll"] = pathLayer;
-  map.add(pathLayer);
-  pathLayer.visible = false;
-
-  const data = await fetchData("JSON/motionsspar.json");
-  if (data) {
-    data.features.forEach(feature => {
       const coords = feature.geometry.coordinates;
 
       const line = new Polyline({
@@ -191,101 +150,165 @@ async function addAllPathsLayer() {
         symbol: symbol
       });
 
-      pathLayer.add(graphic);
-    });
-  }
-}
-
-// Sökfilter för olika objekt
-window.filterFunction = async function () {
-  const input = document.getElementById("searchInput").value.toLowerCase().trim();
-  if (!input) return;
-
-  const searchableLayers = {
-    "badplatser": "badplatser",
-    "livräddningsutrustning": "livraddningsutrustning",
-    "pulkabackar": "pulkabackar",
-    "idrott": "idrott_motion",
-    "motion": "idrott_motion",
-    "motionsspår": "PathsAll",
-    "spontanidrott": "spontanidrott",
-    "utegym": "utegym",
-    "lekplatser": "lekplatser",
-    "rastplatser": "rastplatser",
-    "papperskorgar": "papperskorgar",
-    "toaletter": "offentliga_toaletter",
-    "offentliga toaletter": "offentliga_toaletter"
-  };
-
-  let matchFound = false;
-
-  // 1. Kontrollera om det är ett standardlager
-  for (const [key, layerName] of Object.entries(searchableLayers)) {
-    if (input === key) {
-      matchFound = true;
-
-      Object.keys(layers).forEach(name => {
-        if (layers[name]) layers[name].visible = false;
-      });
-
-      const layer = layers[layerName];
-      if (layer) {
-        layer.visible = true;
-
-        const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
-        buttons.forEach(button => {
-          button.classList.add("active-layer");
-        });
-      }
-      break;
+      layer.add(graphic);
+    } else {
+      console.error(`Line at index ${lineIndex} does not exist.`);
     }
   }
 
-  // 2. Om inget vanligt lager hittades, kolla motionsspårens namn
-  if (!matchFound) {
-    const data = await fetchData("JSON/motionsspar.json");
-    if (data && data.features) {
-      const index = data.features.findIndex(f =>
-        f.properties.NAMN && f.properties.NAMN.toLowerCase().trim() === input
-      );
+  // Funktion som tar bort lager på kartan
+  function deleteLayer(layerName) {
+    const layer = layers[layerName];
+    if (layer) {
+      map.remove(layer);
+      delete layers[layerName]; // Tar brot referensen till lagret i layers-objektet
+      console.log(`Layer ${layerName} has been deleted.`);
+    } else {
+      console.error(`Layer ${layerName} does not exist.`);
+    }
+  }
 
-      if (index !== -1) {
+  // Funktion som togglar synligheten av ett lager
+  window.toggleLayer = function (layerName) {
+    const layer = layers[layerName];
+    if (layer) {
+      // Växla synlighet på lagret
+      layer.visible = !layer.visible;
+
+      // Lägg till/ta bort CSS-klass för visuell feedback på knappen
+      const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
+      buttons.forEach(button => {
+        button.classList.toggle("active-layer", layer.visible);  // Lägg till/ta bort klassen baserat på synlighet
+      });
+
+      console.log(`Lagret "${layerName}" är nu ${layer.visible ? "synligt" : "dolt"}`);
+    } else {
+      console.error(`Lagret "${layerName}" finns inte`);
+    }
+  };
+
+  // Funktion som lägger till alla paths-lager
+  async function addAllPathsLayer() {
+    const pathLayer = new GraphicsLayer();
+    layers["PathsAll"] = pathLayer;
+    map.add(pathLayer);
+    pathLayer.visible = false;
+
+    const data = await fetchData("JSON/motionsspar.json");
+    if (data) {
+      data.features.forEach(feature => {
+        const coords = feature.geometry.coordinates;
+
+        const line = new Polyline({
+          paths: [coords],
+          spatialReference: { wkid: 4326 }
+        });
+
+        const symbol = new SimpleLineSymbol({
+          color: "blue",
+          width: 3
+        });
+
+        const graphic = new Graphic({
+          geometry: line,
+          symbol: symbol
+        });
+
+        pathLayer.add(graphic);
+      });
+    }
+  }
+
+  // Sökfilter för olika objekt
+  window.filterFunction = async function () {
+    const input = document.getElementById("searchInput").value.toLowerCase().trim();
+    if (!input) return;
+
+    const searchableLayers = {
+      "badplatser": "badplatser",
+      "livräddningsutrustning": "livraddningsutrustning",
+      "pulkabackar": "pulkabackar",
+      "idrott": "idrott_motion",
+      "motion": "idrott_motion",
+      "motionsspår": "PathsAll",
+      "spontanidrott": "spontanidrott",
+      "utegym": "utegym",
+      "lekplatser": "lekplatser",
+      "rastplatser": "rastplatser",
+      "papperskorgar": "papperskorgar",
+      "toaletter": "offentliga_toaletter",
+      "offentliga toaletter": "offentliga_toaletter"
+    };
+
+    let matchFound = false;
+
+    // 1. Kontrollera om det är ett standardlager
+    for (const [key, layerName] of Object.entries(searchableLayers)) {
+      if (input === key) {
+        matchFound = true;
+
         Object.keys(layers).forEach(name => {
           if (layers[name]) layers[name].visible = false;
         });
 
-        const layerName = `Paths${index}`;
-        deleteLayer(layerName);
-        getPathsData(index);  // Visa det enskilda spåret
-        matchFound = true;
+        const layer = layers[layerName];
+        if (layer) {
+          layer.visible = true;
+
+          const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
+          buttons.forEach(button => {
+            button.classList.add("active-layer");
+          });
+        }
+        break;
       }
+    }
+
+    // 2. Om inget vanligt lager hittades, kolla motionsspårens namn
+    if (!matchFound) {
+      const data = await fetchData("JSON/motionsspar.json");
+      if (data && data.features) {
+        const index = data.features.findIndex(f =>
+          f.properties.NAMN && f.properties.NAMN.toLowerCase().trim() === input
+        );
+
+        if (index !== -1) {
+          Object.keys(layers).forEach(name => {
+            if (layers[name]) layers[name].visible = false;
+          });
+
+          const layerName = `Paths${index}`;
+          deleteLayer(layerName);
+          getPathsData(index);  // Visa det enskilda spåret
+          matchFound = true;
+        }
+      }
+    }
+
+    if (!matchFound) {
+      console.warn("Inget lager eller spår hittades för:", input);
+    }
+  };
+
+  // Fyll datalist med NAMN från motionsspår
+  async function populateAutocomplete() {
+    const data = await fetchData("JSON/motionsspar.json");
+    const datalist = document.getElementById("suggestions");
+
+    if (data && data.features) {
+      const names = data.features.map(f => f.properties.NAMN).filter(Boolean);
+      datalist.innerHTML = ""; // Rensa gamla förslag
+
+      names.forEach(name => {
+        const option = document.createElement("option");
+        option.value = name;
+        datalist.appendChild(option);
+      });
     }
   }
 
-  if (!matchFound) {
-    console.warn("Inget lager eller spår hittades för:", input);
-  }
-};
-
-// Fyll datalist med NAMN från motionsspår
-async function populateAutocomplete() {
-  const data = await fetchData("JSON/motionsspar.json");
-  const datalist = document.getElementById("suggestions");
-
-  if (data && data.features) {
-    const names = data.features.map(f => f.properties.NAMN).filter(Boolean);
-    datalist.innerHTML = ""; // Rensa gamla förslag
-
-    names.forEach(name => {
-      const option = document.createElement("option");
-      option.value = name;
-      datalist.appendChild(option);
-    });
-  }
-}
-
-// Kör direkt när sidan laddas
-populateAutocomplete();
+  // Kör direkt när sidan laddas
+  populateAutocomplete();
 
 
 
