@@ -220,152 +220,193 @@ require([
   }
 
   // Sökfilter för olika objekt
-  window.filterFunction = async function () {
-    const input = document.getElementById("searchInput").value.toLowerCase().trim();
-    if (!input) return;
+window.filterFunction = async function () {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
 
-    const searchableLayers = {
-      "badplatser": "badplatser",
-      "livräddningsutrustning": "livraddningsutrustning",
-      "pulkabackar": "pulkabackar",
-      "idrott": "idrott_motion",
-      "motion": "idrott_motion",
-      "motionsspår": "PathsAll",
-      "spontanidrott": "spontanidrott",
-      "utegym": "utegym",
-      "lekplatser": "lekplatser",
-      "rastplatser": "rastplatser",
-      "papperskorgar": "papperskorgar",
-      "toaletter": "offentliga_toaletter",
-      "offentliga toaletter": "offentliga_toaletter"
-    };
+  // Om sökfältet är tomt – ta bort bara temporära söklager
+  if (!input) {
+    Object.keys(layers).forEach(name => {
+      const layer = layers[name];
+      if (!layer) return;
 
-    let matchFound = false;
+      if (name.startsWith("SearchResult") || name.startsWith("Paths")) {
+        map.remove(layer);
+        delete layers[name];
+      } else {
+        layer.visible = false;
+      }
+    });
 
-    // 1. Sök i standardlagren
-    for (const [key, layerName] of Object.entries(searchableLayers)) {
-      if (input === key) {
+    // Ta bort visuell highlight från knappar
+    document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
+    return;
+  }
+
+  const searchableLayers = {
+    "badplatser": "badplatser",
+    "livräddningsutrustning": "livraddningsutrustning",
+    "pulkabackar": "pulkabackar",
+    "idrott": "idrott_motion",
+    "motion": "idrott_motion",
+    "motionsspår": "PathsAll",
+    "spontanidrott": "spontanidrott",
+    "utegym": "utegym",
+    "lekplatser": "lekplatser",
+    "rastplatser": "rastplatser",
+    "papperskorgar": "papperskorgar",
+    "toaletter": "offentliga_toaletter",
+    "offentliga toaletter": "offentliga_toaletter"
+  };
+
+  let matchFound = false;
+
+  // Dölj alla standardlager (utan att ta bort deras grafik)
+  Object.keys(layers).forEach(name => {
+    if (!name.startsWith("SearchResult")) {
+      layers[name].visible = false;
+    }
+  });
+
+  // 1. Direkt matchning mot nyckelord
+  for (const [key, layerName] of Object.entries(searchableLayers)) {
+    if (input === key) {
+      matchFound = true;
+
+      const layer = layers[layerName];
+      if (layer) {
+        layer.visible = true;
+        const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
+        buttons.forEach(button => button.classList.add("active-layer"));
+      }
+      break;
+    }
+  }
+
+  // 2. Matcha mot motionsspårens namn
+  if (!matchFound) {
+    const data = await fetchData("JSON/motionsspar.json");
+    if (data && data.features) {
+      const index = data.features.findIndex(f =>
+        f.properties?.NAMN?.toLowerCase().trim() === input
+      );
+
+      if (index !== -1) {
+        Object.keys(layers).forEach(name => {
+          if (name.startsWith("Paths")) {
+            map.remove(layers[name]);
+            delete layers[name];
+          }
+        });
+
+        getPathsData(index);
         matchFound = true;
-
-        Object.keys(layers).forEach(name => layers[name].visible = false);
-
-        const layer = layers[layerName];
-        if (layer) {
-          layer.visible = true;
-          const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
-          buttons.forEach(button => button.classList.add("active-layer"));
-        }
-        break;
       }
     }
+  }
 
-    // 2. Sök i motionsspårens namn
-    if (!matchFound) {
-      const data = await fetchData("JSON/motionsspar.json");
-      if (data && data.features) {
-        const index = data.features.findIndex(f =>
-          f.properties?.NAMN?.toLowerCase().trim() === input
-        );
+  // 3. Sök i alla punktdata efter namn-matchning
+  if (!matchFound) {
+    const pointFiles = [
+      { name: "badplatser", file: "JSON/badplatser.json", color: "blue" },
+      { name: "idrott_motion", file: "JSON/idrott_motion.json", color: "yellow" },
+      { name: "lekplatser", file: "JSON/lekplatser.json", color: "orange" },
+      { name: "livraddningsutrustning", file: "JSON/livraddningsutrustning.json", color: "purple" },
+      { name: "offentliga_toaletter", file: "JSON/offentliga_toaletter.json", color: "cyan" },
+      { name: "papperskorgar", file: "JSON/papperskorgar.json", color: "black" },
+      { name: "pulkabackar", file: "JSON/pulkabackar.json", color: "indigo" },
+      { name: "rastplatser", file: "JSON/rastplatser.json", color: "teal" },
+      { name: "spontanidrott", file: "JSON/spontanidrott.json", color: "magenta" },
+      { name: "utegym", file: "JSON/utegym.json", color: "green" }
+    ];
 
-        if (index !== -1) {
-          Object.keys(layers).forEach(name => layers[name].visible = false);
-          const layerName = `Paths${index}`;
-          deleteLayer(layerName);
-          getPathsData(index);
-          matchFound = true;
-        }
+    // Ta bort tidigare söklager
+    Object.keys(layers).forEach(name => {
+      if (name.startsWith("SearchResult")) {
+        map.remove(layers[name]);
+        delete layers[name];
       }
-    }
+    });
 
-    // 3. Sök bland alla punkter i alla JSON-filer efter "namn"-nyckel
-    if (!matchFound) {
-      const pointFiles = [
-        { name: "badplatser", file: "JSON/badplatser.json", color: "blue" },
-        { name: "idrott_motion", file: "JSON/idrott_motion.json", color: "yellow" },
-        { name: "lekplatser", file: "JSON/lekplatser.json", color: "orange" },
-        { name: "livraddningsutrustning", file: "JSON/livraddningsutrustning.json", color: "purple" },
-        { name: "offentliga_toaletter", file: "JSON/offentliga_toaletter.json", color: "cyan" },
-        { name: "papperskorgar", file: "JSON/papperskorgar.json", color: "black" },
-        { name: "pulkabackar", file: "JSON/pulkabackar.json", color: "indigo" },
-        { name: "rastplatser", file: "JSON/rastplatser.json", color: "teal" },
-        { name: "spontanidrott", file: "JSON/spontanidrott.json", color: "magenta" },
-        { name: "utegym", file: "JSON/utegym.json", color: "green" }
-      ];
+    for (const layerInfo of pointFiles) {
+      const data = await fetchData(layerInfo.file);
+      if (!data || !data.features) continue;
 
-      Object.keys(layers).forEach(name => layers[name].visible = false); // Dölj alla lager först
+      const matchedGraphics = [];
 
-      for (const layerInfo of pointFiles) {
-        const data = await fetchData(layerInfo.file);
-        const layer = layers[layerInfo.name];
+      data.features.forEach(feature => {
+        const props = feature.properties || {};
+        for (const key in props) {
+          if (key.toLowerCase().includes("namn")) {
+            const val = props[key];
+            if (typeof val === "string" && val.toLowerCase().includes(input)) {
+              const coords = feature.geometry.coordinates;
+              const point = new Point({
+                longitude: coords[0],
+                latitude: coords[1]
+              });
 
-        if (data && layer) {
-          const matchedGraphics = [];
+              const symbol = new SimpleMarkerSymbol({
+                style: "circle",
+                color: layerInfo.color,
+                size: 8,
+                outline: {
+                  color: "white",
+                  width: 1
+                }
+              });
 
-          data.features.forEach(feature => {
-            const props = feature.properties || {};
-            for (const key in props) {
-              if (key.toLowerCase().includes("namn")) {
-                const val = props[key];
-                if (typeof val === "string" && val.toLowerCase().includes(input)) {
-                  // Match hittad, skapa grafiken
-                  const coords = feature.geometry.coordinates;
-                  const point = new Point({
-                    longitude: coords[0],
-                    latitude: coords[1]
-                  });
-
-                  const symbol = new SimpleMarkerSymbol({
-                    style: "circle",
-                    color: layerInfo.color,
-                    size: 8,
-                    outline: {
-                      color: "white",
-                      width: 1
-                    }
-                  });
-
-                  let content = "";
-                  for (const p in props) {
-                    if (props[p]) {
-                      let v = props[p];
-                      if (typeof v === "string" && v.match(/^https?:\/\//)) {
-                        v = `<a href="${v}" target="_blank">${v}</a>`;
-                      }
-                      content += `<b>${p}:</b> ${v}<br>`;
-                    }
+              let content = "";
+              for (const p in props) {
+                if (props[p]) {
+                  let v = props[p];
+                  if (typeof v === "string" && v.match(/^https?:\/\//)) {
+                    v = `<a href="${v}" target="_blank">${v}</a>`;
                   }
-
-                  const graphic = new Graphic({
-                    geometry: point,
-                    symbol: symbol,
-                    attributes: props,
-                    popupTemplate: {
-                      title: props[key],
-                      content: content
-                    }
-                  });
-
-                  matchedGraphics.push(graphic);
-                  break; // Räcker att en "namn"-nyckel matchar
+                  content += `<b>${p}:</b> ${v}<br>`;
                 }
               }
-            }
-          });
 
-          if (matchedGraphics.length > 0) {
-            layer.removeAll();
-            layer.visible = true;
-            layer.addMany(matchedGraphics);
-            matchFound = true;
+              const graphic = new Graphic({
+                geometry: point,
+                symbol: symbol,
+                attributes: props,
+                popupTemplate: {
+                  title: props[key],
+                  content: content
+                }
+              });
+
+              matchedGraphics.push(graphic);
+              break; // Stoppa vid första match
+            }
           }
         }
+      });
+
+      if (matchedGraphics.length > 0) {
+        const tempLayerName = `SearchResult_${layerInfo.name}`;
+        let searchLayer = layers[tempLayerName];
+
+        if (!searchLayer) {
+          searchLayer = new GraphicsLayer();
+          layers[tempLayerName] = searchLayer;
+          map.add(searchLayer);
+        }
+
+        searchLayer.removeAll();
+        searchLayer.visible = true;
+        searchLayer.addMany(matchedGraphics);
+
+        matchFound = true;
       }
     }
+  }
 
-    if (!matchFound) {
-      console.warn("Inget objekt hittades för:", input);
-    }
-  };
+  if (!matchFound) {
+    console.warn("Inget objekt hittades för:", input);
+  }
+};
+
 
 
 async function populateAutocomplete() {
