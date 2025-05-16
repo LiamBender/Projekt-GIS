@@ -242,73 +242,188 @@ require([
 
     let matchFound = false;
 
-    // 1. Kontrollera om det är ett standardlager
+    // 1. Sök i standardlagren
     for (const [key, layerName] of Object.entries(searchableLayers)) {
       if (input === key) {
         matchFound = true;
 
-        Object.keys(layers).forEach(name => {
-          if (layers[name]) layers[name].visible = false;
-        });
+        Object.keys(layers).forEach(name => layers[name].visible = false);
 
         const layer = layers[layerName];
         if (layer) {
           layer.visible = true;
-
           const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
-          buttons.forEach(button => {
-            button.classList.add("active-layer");
-          });
+          buttons.forEach(button => button.classList.add("active-layer"));
         }
         break;
       }
     }
 
-    // 2. Om inget vanligt lager hittades, kolla motionsspårens namn
+    // 2. Sök i motionsspårens namn
     if (!matchFound) {
       const data = await fetchData("JSON/motionsspar.json");
       if (data && data.features) {
         const index = data.features.findIndex(f =>
-          f.properties.NAMN && f.properties.NAMN.toLowerCase().trim() === input
+          f.properties?.NAMN?.toLowerCase().trim() === input
         );
 
         if (index !== -1) {
-          Object.keys(layers).forEach(name => {
-            if (layers[name]) layers[name].visible = false;
-          });
-
+          Object.keys(layers).forEach(name => layers[name].visible = false);
           const layerName = `Paths${index}`;
           deleteLayer(layerName);
-          getPathsData(index);  // Visa det enskilda spåret
+          getPathsData(index);
           matchFound = true;
         }
       }
     }
 
+    // 3. Sök bland alla punkter i alla JSON-filer efter "namn"-nyckel
     if (!matchFound) {
-      console.warn("Inget lager eller spår hittades för:", input);
+      const pointFiles = [
+        { name: "badplatser", file: "JSON/badplatser.json", color: "blue" },
+        { name: "idrott_motion", file: "JSON/idrott_motion.json", color: "yellow" },
+        { name: "lekplatser", file: "JSON/lekplatser.json", color: "orange" },
+        { name: "livraddningsutrustning", file: "JSON/livraddningsutrustning.json", color: "purple" },
+        { name: "offentliga_toaletter", file: "JSON/offentliga_toaletter.json", color: "cyan" },
+        { name: "papperskorgar", file: "JSON/papperskorgar.json", color: "black" },
+        { name: "pulkabackar", file: "JSON/pulkabackar.json", color: "indigo" },
+        { name: "rastplatser", file: "JSON/rastplatser.json", color: "teal" },
+        { name: "spontanidrott", file: "JSON/spontanidrott.json", color: "magenta" },
+        { name: "utegym", file: "JSON/utegym.json", color: "green" }
+      ];
+
+      Object.keys(layers).forEach(name => layers[name].visible = false); // Dölj alla lager först
+
+      for (const layerInfo of pointFiles) {
+        const data = await fetchData(layerInfo.file);
+        const layer = layers[layerInfo.name];
+
+        if (data && layer) {
+          const matchedGraphics = [];
+
+          data.features.forEach(feature => {
+            const props = feature.properties || {};
+            for (const key in props) {
+              if (key.toLowerCase().includes("namn")) {
+                const val = props[key];
+                if (typeof val === "string" && val.toLowerCase().includes(input)) {
+                  // Match hittad, skapa grafiken
+                  const coords = feature.geometry.coordinates;
+                  const point = new Point({
+                    longitude: coords[0],
+                    latitude: coords[1]
+                  });
+
+                  const symbol = new SimpleMarkerSymbol({
+                    style: "circle",
+                    color: layerInfo.color,
+                    size: 8,
+                    outline: {
+                      color: "white",
+                      width: 1
+                    }
+                  });
+
+                  let content = "";
+                  for (const p in props) {
+                    if (props[p]) {
+                      let v = props[p];
+                      if (typeof v === "string" && v.match(/^https?:\/\//)) {
+                        v = `<a href="${v}" target="_blank">${v}</a>`;
+                      }
+                      content += `<b>${p}:</b> ${v}<br>`;
+                    }
+                  }
+
+                  const graphic = new Graphic({
+                    geometry: point,
+                    symbol: symbol,
+                    attributes: props,
+                    popupTemplate: {
+                      title: props[key],
+                      content: content
+                    }
+                  });
+
+                  matchedGraphics.push(graphic);
+                  break; // Räcker att en "namn"-nyckel matchar
+                }
+              }
+            }
+          });
+
+          if (matchedGraphics.length > 0) {
+            layer.removeAll();
+            layer.visible = true;
+            layer.addMany(matchedGraphics);
+            matchFound = true;
+          }
+        }
+      }
+    }
+
+    if (!matchFound) {
+      console.warn("Inget objekt hittades för:", input);
     }
   };
 
-  // Fyll datalist med NAMN från motionsspår
-  async function populateAutocomplete() {
-    const data = await fetchData("JSON/motionsspar.json");
-    const datalist = document.getElementById("suggestions");
 
+async function populateAutocomplete() {
+  const datalist = document.getElementById("suggestions");
+  datalist.innerHTML = ""; // Rensa gamla förslag
+
+  // Lista över alla filer och vad de representerar
+  const sources = [
+    { name: "Motionsspår", file: "JSON/motionsspar.json", propertyKey: "NAMN" },
+    { name: "Badplatser", file: "JSON/badplatser.json" },
+    { name: "Idrott & Motion", file: "JSON/idrott_motion.json" },
+    { name: "Lekplatser", file: "JSON/lekplatser.json" },
+    { name: "Livräddningsutrustning", file: "JSON/livraddningsutrustning.json" },
+    { name: "Offentliga toaletter", file: "JSON/offentliga_toaletter.json" },
+    { name: "Papperskorgar", file: "JSON/papperskorgar.json" },
+    { name: "Pulkabackar", file: "JSON/pulkabackar.json" },
+    { name: "Rastplatser", file: "JSON/rastplatser.json" },
+    { name: "Spontanidrott", file: "JSON/spontanidrott.json" },
+    { name: "Utegym", file: "JSON/utegym.json" }
+  ];
+
+  for (const source of sources) {
+    const data = await fetchData(source.file);
     if (data && data.features) {
-      const names = data.features.map(f => f.properties.NAMN).filter(Boolean);
-      datalist.innerHTML = ""; // Rensa gamla förslag
-
-      names.forEach(name => {
-        const option = document.createElement("option");
-        option.value = name;
-        datalist.appendChild(option);
+      data.features.forEach(feature => {
+        const props = feature.properties || {};
+        for (const key in props) {
+          if (key.toLowerCase().includes("namn")) {
+            const value = props[key];
+            if (value && typeof value === "string") {
+              const option = document.createElement("option");
+              option.value = `${source.name}: ${value}`;
+              datalist.appendChild(option);
+              break; // Vi lägger bara till första matchande namn-nyckeln
+            }
+          }
+        }
       });
     }
   }
+}
 
-  // Kör direkt när sidan laddas
-  populateAutocomplete();
+// Add event listener to the search input field
+document.getElementById("searchInput").addEventListener("input", function() {
+  // Get the current value of the input
+  let inputVal = this.value.trim();
+
+  // Check if the value contains ": " and remove the part before and including ": "
+  const match = inputVal.match(/^[^:]+:\s*(.*)$/); // Match everything before ": "
+  if (match) {
+    // If a match is found, update the input value to only show the part after ": "
+    this.value = match[1];
+  }
+});
+
+// Call populateAutocomplete to fill the datalist
+populateAutocomplete();
+
 
 
 
