@@ -229,7 +229,7 @@ window.filterFunction = async function () {
       const layer = layers[name];
       if (!layer) return;
 
-      if (name.startsWith("SearchResult") || name.startsWith("Paths")) {
+      if (name.startsWith("SearchResult")) {
         map.remove(layer);
         delete layers[name];
       } else {
@@ -237,233 +237,249 @@ window.filterFunction = async function () {
       }
     });
 
+    // Kolla om PathsAll är synligt, och återställ dess synlighet beroende på om toggleLayer är aktivt
+    const pathsAllLayer = layers["PathsAll"];
+    if (pathsAllLayer) {
+      // Kolla om toggleLayer för PathsAll är aktivt
+      const toggleButton = document.querySelector(`a[href='#'][onclick="toggleLayer('PathsAll')"]`);
+      if (toggleButton && toggleButton.classList.contains("active-layer")) {
+        // Om toggleLayer för PathsAll är aktivt, visa alla paths
+        pathsAllLayer.visible = true;  // Gör PathsAll synlig igen
+      } else {
+        // Om toggleLayer inte är aktivt, göm paths
+        pathsAllLayer.visible = false;
+      }
+    }
+
     // Ta bort visuell highlight från knappar
     document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
     return;
   }
 
-  const searchableLayers = {
-    "badplatser": "badplatser",
-    "livräddningsutrustning": "livraddningsutrustning",
-    "pulkabackar": "pulkabackar",
-    "idrott": "idrott_motion",
-    "motion": "idrott_motion",
-    "motionsspår": "PathsAll",
-    "spontanidrott": "spontanidrott",
-    "utegym": "utegym",
-    "lekplatser": "lekplatser",
-    "rastplatser": "rastplatser",
-    "papperskorgar": "papperskorgar",
-    "toaletter": "offentliga_toaletter",
-    "offentliga toaletter": "offentliga_toaletter"
-  };
 
-  let matchFound = false;
+    const searchableLayers = {
+      "badplatser": "badplatser",
+      "livräddningsutrustning": "livraddningsutrustning",
+      "pulkabackar": "pulkabackar",
+      "idrott": "idrott_motion",
+      "motion": "idrott_motion",
+      "motionsspår": "PathsAll",
+      "spontanidrott": "spontanidrott",
+      "utegym": "utegym",
+      "lekplatser": "lekplatser",
+      "rastplatser": "rastplatser",
+      "papperskorgar": "papperskorgar",
+      "toaletter": "offentliga_toaletter",
+      "offentliga toaletter": "offentliga_toaletter"
+    };
 
-  // Dölj alla standardlager (utan att ta bort deras grafik)
-  Object.keys(layers).forEach(name => {
-    if (!name.startsWith("SearchResult")) {
-      layers[name].visible = false;
-    }
-  });
+    let matchFound = false;
 
-  // 1. Direkt matchning mot nyckelord
-  for (const [key, layerName] of Object.entries(searchableLayers)) {
-    if (input === key) {
-      matchFound = true;
-
-      const layer = layers[layerName];
-      if (layer) {
-        layer.visible = true;
-        const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
-        buttons.forEach(button => button.classList.add("active-layer"));
-      }
-      break;
-    }
-  }
-
-  // 2. Matcha mot motionsspårens namn
-  if (!matchFound) {
-    const data = await fetchData("JSON/motionsspar.json");
-    if (data && data.features) {
-      const index = data.features.findIndex(f =>
-        f.properties?.NAMN?.toLowerCase().trim() === input
-      );
-
-      if (index !== -1) {
-        Object.keys(layers).forEach(name => {
-          if (name.startsWith("Paths")) {
-            map.remove(layers[name]);
-            delete layers[name];
-          }
-        });
-
-        getPathsData(index);
-        matchFound = true;
-      }
-    }
-  }
-
-  // 3. Sök i alla punktdata efter namn-matchning
-  if (!matchFound) {
-    const pointFiles = [
-      { name: "badplatser", file: "JSON/badplatser.json", color: "blue" },
-      { name: "idrott_motion", file: "JSON/idrott_motion.json", color: "yellow" },
-      { name: "lekplatser", file: "JSON/lekplatser.json", color: "orange" },
-      { name: "livraddningsutrustning", file: "JSON/livraddningsutrustning.json", color: "purple" },
-      { name: "offentliga_toaletter", file: "JSON/offentliga_toaletter.json", color: "cyan" },
-      { name: "papperskorgar", file: "JSON/papperskorgar.json", color: "black" },
-      { name: "pulkabackar", file: "JSON/pulkabackar.json", color: "indigo" },
-      { name: "rastplatser", file: "JSON/rastplatser.json", color: "teal" },
-      { name: "spontanidrott", file: "JSON/spontanidrott.json", color: "magenta" },
-      { name: "utegym", file: "JSON/utegym.json", color: "green" }
-    ];
-
-    // Ta bort tidigare söklager
+    // Dölj alla standardlager (utan att ta bort deras grafik)
     Object.keys(layers).forEach(name => {
-      if (name.startsWith("SearchResult")) {
-        map.remove(layers[name]);
-        delete layers[name];
+      if (!name.startsWith("SearchResult")) {
+        layers[name].visible = false;
       }
     });
 
-    for (const layerInfo of pointFiles) {
-      const data = await fetchData(layerInfo.file);
-      if (!data || !data.features) continue;
+    // 1. Direkt matchning mot nyckelord
+    for (const [key, layerName] of Object.entries(searchableLayers)) {
+      if (input === key) {
+        matchFound = true;
 
-      const matchedGraphics = [];
+        const layer = layers[layerName];
+        if (layer) {
+          layer.visible = true;
+          const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
+          buttons.forEach(button => button.classList.add("active-layer"));
+        }
+        break;
+      }
+    }
 
-      data.features.forEach(feature => {
-        const props = feature.properties || {};
-        for (const key in props) {
-          if (key.toLowerCase().includes("namn")) {
-            const val = props[key];
-            if (typeof val === "string" && val.toLowerCase().includes(input)) {
-              const coords = feature.geometry.coordinates;
-              const point = new Point({
-                longitude: coords[0],
-                latitude: coords[1]
-              });
+    // 2. Matcha mot motionsspårens namn
+    if (!matchFound) {
+      const data = await fetchData("JSON/motionsspar.json");
+      if (data && data.features) {
+        const index = data.features.findIndex(f =>
+          f.properties?.NAMN?.toLowerCase().trim() === input
+        );
 
-              const symbol = new SimpleMarkerSymbol({
-                style: "circle",
-                color: layerInfo.color,
-                size: 8,
-                outline: {
-                  color: "white",
-                  width: 1
-                }
-              });
-
-              let content = "";
-              for (const p in props) {
-                if (props[p]) {
-                  let v = props[p];
-                  if (typeof v === "string" && v.match(/^https?:\/\//)) {
-                    v = `<a href="${v}" target="_blank">${v}</a>`;
-                  }
-                  content += `<b>${p}:</b> ${v}<br>`;
-                }
-              }
-
-              const graphic = new Graphic({
-                geometry: point,
-                symbol: symbol,
-                attributes: props,
-                popupTemplate: {
-                  title: props[key],
-                  content: content
-                }
-              });
-
-              matchedGraphics.push(graphic);
-              break; // Stoppa vid första match
+        if (index !== -1) {
+          Object.keys(layers).forEach(name => {
+            if (name.startsWith("Paths") && name !== "PathsAll") {
+              map.remove(layers[name]);
+              delete layers[name];
             }
-          }
+          });
+
+          getPathsData(index);
+          matchFound = true;
+        }
+
+      }
+    }
+
+    // 3. Sök i alla punktdata efter namn-matchning
+    if (!matchFound) {
+      const pointFiles = [
+        { name: "badplatser", file: "JSON/badplatser.json", color: "blue" },
+        { name: "idrott_motion", file: "JSON/idrott_motion.json", color: "yellow" },
+        { name: "lekplatser", file: "JSON/lekplatser.json", color: "orange" },
+        { name: "livraddningsutrustning", file: "JSON/livraddningsutrustning.json", color: "purple" },
+        { name: "offentliga_toaletter", file: "JSON/offentliga_toaletter.json", color: "cyan" },
+        { name: "papperskorgar", file: "JSON/papperskorgar.json", color: "black" },
+        { name: "pulkabackar", file: "JSON/pulkabackar.json", color: "indigo" },
+        { name: "rastplatser", file: "JSON/rastplatser.json", color: "teal" },
+        { name: "spontanidrott", file: "JSON/spontanidrott.json", color: "magenta" },
+        { name: "utegym", file: "JSON/utegym.json", color: "green" }
+      ];
+
+      // Ta bort tidigare söklager
+      Object.keys(layers).forEach(name => {
+        if (name.startsWith("SearchResult")) {
+          map.remove(layers[name]);
+          delete layers[name];
         }
       });
 
-      if (matchedGraphics.length > 0) {
-        const tempLayerName = `SearchResult_${layerInfo.name}`;
-        let searchLayer = layers[tempLayerName];
+      for (const layerInfo of pointFiles) {
+        const data = await fetchData(layerInfo.file);
+        if (!data || !data.features) continue;
 
-        if (!searchLayer) {
-          searchLayer = new GraphicsLayer();
-          layers[tempLayerName] = searchLayer;
-          map.add(searchLayer);
+        const matchedGraphics = [];
+
+        data.features.forEach(feature => {
+          const props = feature.properties || {};
+          for (const key in props) {
+            if (key.toLowerCase().includes("namn")) {
+              const val = props[key];
+              if (typeof val === "string" && val.toLowerCase().includes(input)) {
+                const coords = feature.geometry.coordinates;
+                const point = new Point({
+                  longitude: coords[0],
+                  latitude: coords[1]
+                });
+
+                const symbol = new SimpleMarkerSymbol({
+                  style: "circle",
+                  color: layerInfo.color,
+                  size: 8,
+                  outline: {
+                    color: "white",
+                    width: 1
+                  }
+                });
+
+                let content = "";
+                for (const p in props) {
+                  if (props[p]) {
+                    let v = props[p];
+                    if (typeof v === "string" && v.match(/^https?:\/\//)) {
+                      v = `<a href="${v}" target="_blank">${v}</a>`;
+                    }
+                    content += `<b>${p}:</b> ${v}<br>`;
+                  }
+                }
+
+                const graphic = new Graphic({
+                  geometry: point,
+                  symbol: symbol,
+                  attributes: props,
+                  popupTemplate: {
+                    title: props[key],
+                    content: content
+                  }
+                });
+
+                matchedGraphics.push(graphic);
+                break; // Stoppa vid första match
+              }
+            }
+          }
+        });
+
+        if (matchedGraphics.length > 0) {
+          const tempLayerName = `SearchResult_${layerInfo.name}`;
+          let searchLayer = layers[tempLayerName];
+
+          if (!searchLayer) {
+            searchLayer = new GraphicsLayer();
+            layers[tempLayerName] = searchLayer;
+            map.add(searchLayer);
+          }
+
+          searchLayer.removeAll();
+          searchLayer.visible = true;
+          searchLayer.addMany(matchedGraphics);
+
+          matchFound = true;
         }
+      }
+    }
 
-        searchLayer.removeAll();
-        searchLayer.visible = true;
-        searchLayer.addMany(matchedGraphics);
+    if (!matchFound) {
+      console.warn("Inget objekt hittades för:", input);
+    }
+  };
 
-        matchFound = true;
+
+
+  async function populateAutocomplete() {
+    const datalist = document.getElementById("suggestions");
+    datalist.innerHTML = ""; // Rensa gamla förslag
+
+    // Lista över alla filer och vad de representerar
+    const sources = [
+      { name: "Motionsspår", file: "JSON/motionsspar.json", propertyKey: "NAMN" },
+      { name: "Badplatser", file: "JSON/badplatser.json" },
+      { name: "Idrott & Motion", file: "JSON/idrott_motion.json" },
+      { name: "Lekplatser", file: "JSON/lekplatser.json" },
+      { name: "Livräddningsutrustning", file: "JSON/livraddningsutrustning.json" },
+      { name: "Offentliga toaletter", file: "JSON/offentliga_toaletter.json" },
+      { name: "Papperskorgar", file: "JSON/papperskorgar.json" },
+      { name: "Pulkabackar", file: "JSON/pulkabackar.json" },
+      { name: "Rastplatser", file: "JSON/rastplatser.json" },
+      { name: "Spontanidrott", file: "JSON/spontanidrott.json" },
+      { name: "Utegym", file: "JSON/utegym.json" }
+    ];
+
+    for (const source of sources) {
+      const data = await fetchData(source.file);
+      if (data && data.features) {
+        data.features.forEach(feature => {
+          const props = feature.properties || {};
+          for (const key in props) {
+            if (key.toLowerCase().includes("namn")) {
+              const value = props[key];
+              if (value && typeof value === "string") {
+                const option = document.createElement("option");
+                option.value = `${source.name}: ${value}`;
+                datalist.appendChild(option);
+                break; // Vi lägger bara till första matchande namn-nyckeln
+              }
+            }
+          }
+        });
       }
     }
   }
 
-  if (!matchFound) {
-    console.warn("Inget objekt hittades för:", input);
-  }
-};
+  // Add event listener to the search input field
+  document.getElementById("searchInput").addEventListener("input", function () {
+    // Get the current value of the input
+    let inputVal = this.value.trim();
 
-
-
-async function populateAutocomplete() {
-  const datalist = document.getElementById("suggestions");
-  datalist.innerHTML = ""; // Rensa gamla förslag
-
-  // Lista över alla filer och vad de representerar
-  const sources = [
-    { name: "Motionsspår", file: "JSON/motionsspar.json", propertyKey: "NAMN" },
-    { name: "Badplatser", file: "JSON/badplatser.json" },
-    { name: "Idrott & Motion", file: "JSON/idrott_motion.json" },
-    { name: "Lekplatser", file: "JSON/lekplatser.json" },
-    { name: "Livräddningsutrustning", file: "JSON/livraddningsutrustning.json" },
-    { name: "Offentliga toaletter", file: "JSON/offentliga_toaletter.json" },
-    { name: "Papperskorgar", file: "JSON/papperskorgar.json" },
-    { name: "Pulkabackar", file: "JSON/pulkabackar.json" },
-    { name: "Rastplatser", file: "JSON/rastplatser.json" },
-    { name: "Spontanidrott", file: "JSON/spontanidrott.json" },
-    { name: "Utegym", file: "JSON/utegym.json" }
-  ];
-
-  for (const source of sources) {
-    const data = await fetchData(source.file);
-    if (data && data.features) {
-      data.features.forEach(feature => {
-        const props = feature.properties || {};
-        for (const key in props) {
-          if (key.toLowerCase().includes("namn")) {
-            const value = props[key];
-            if (value && typeof value === "string") {
-              const option = document.createElement("option");
-              option.value = `${source.name}: ${value}`;
-              datalist.appendChild(option);
-              break; // Vi lägger bara till första matchande namn-nyckeln
-            }
-          }
-        }
-      });
+    // Check if the value contains ": " and remove the part before and including ": "
+    const match = inputVal.match(/^[^:]+:\s*(.*)$/); // Match everything before ": "
+    if (match) {
+      // If a match is found, update the input value to only show the part after ": "
+      this.value = match[1];
     }
-  }
-}
+  });
 
-// Add event listener to the search input field
-document.getElementById("searchInput").addEventListener("input", function() {
-  // Get the current value of the input
-  let inputVal = this.value.trim();
-
-  // Check if the value contains ": " and remove the part before and including ": "
-  const match = inputVal.match(/^[^:]+:\s*(.*)$/); // Match everything before ": "
-  if (match) {
-    // If a match is found, update the input value to only show the part after ": "
-    this.value = match[1];
-  }
-});
-
-// Call populateAutocomplete to fill the datalist
-populateAutocomplete();
+  // Call populateAutocomplete to fill the datalist
+  populateAutocomplete();
 
 
 
