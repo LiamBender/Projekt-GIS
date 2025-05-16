@@ -220,42 +220,35 @@ require([
   }
 
   // Sökfilter för olika objekt
-window.filterFunction = async function () {
-  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  window.filterFunction = async function () {
+    const input = document.getElementById("searchInput").value.toLowerCase().trim();
 
-  // Om sökfältet är tomt – ta bort bara temporära söklager
-  if (!input) {
-    Object.keys(layers).forEach(name => {
-      const layer = layers[name];
-      if (!layer) return;
+    if (!input) {
+      Object.keys(layers).forEach(name => {
+        const layer = layers[name];
+        if (!layer) return;
 
-      if (name.startsWith("SearchResult")) {
-        map.remove(layer);
-        delete layers[name];
-      } else {
-        layer.visible = false;
+        if (name.startsWith("SearchResult")) {
+          map.remove(layer);
+          delete layers[name];
+        } else {
+          layer.visible = false;
+        }
+      });
+
+      const pathsAllLayer = layers["PathsAll"];
+      if (pathsAllLayer) {
+        const toggleButton = document.querySelector(`a[href='#'][onclick="toggleLayer('PathsAll')"]`);
+        if (toggleButton && toggleButton.classList.contains("active-layer")) {
+          pathsAllLayer.visible = true;
+        } else {
+          pathsAllLayer.visible = false;
+        }
       }
-    });
 
-    // Kolla om PathsAll är synligt, och återställ dess synlighet beroende på om toggleLayer är aktivt
-    const pathsAllLayer = layers["PathsAll"];
-    if (pathsAllLayer) {
-      // Kolla om toggleLayer för PathsAll är aktivt
-      const toggleButton = document.querySelector(`a[href='#'][onclick="toggleLayer('PathsAll')"]`);
-      if (toggleButton && toggleButton.classList.contains("active-layer")) {
-        // Om toggleLayer för PathsAll är aktivt, visa alla paths
-        pathsAllLayer.visible = true;  // Gör PathsAll synlig igen
-      } else {
-        // Om toggleLayer inte är aktivt, göm paths
-        pathsAllLayer.visible = false;
-      }
+      document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
+      return;
     }
-
-    // Ta bort visuell highlight från knappar
-    document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
-    return;
-  }
-
 
     const searchableLayers = {
       "badplatser": "badplatser",
@@ -275,18 +268,15 @@ window.filterFunction = async function () {
 
     let matchFound = false;
 
-    // Dölj alla standardlager (utan att ta bort deras grafik)
     Object.keys(layers).forEach(name => {
       if (!name.startsWith("SearchResult")) {
         layers[name].visible = false;
       }
     });
 
-    // 1. Direkt matchning mot nyckelord
     for (const [key, layerName] of Object.entries(searchableLayers)) {
       if (input === key) {
         matchFound = true;
-
         const layer = layers[layerName];
         if (layer) {
           layer.visible = true;
@@ -297,7 +287,6 @@ window.filterFunction = async function () {
       }
     }
 
-    // 2. Matcha mot motionsspårens namn
     if (!matchFound) {
       const data = await fetchData("JSON/motionsspar.json");
       if (data && data.features) {
@@ -316,11 +305,10 @@ window.filterFunction = async function () {
           getPathsData(index);
           matchFound = true;
         }
-
       }
     }
 
-    // 3. Sök i alla punktdata efter namn-matchning
+    // 3. Sök i punktdata – baserat på både namn och typ
     if (!matchFound) {
       const pointFiles = [
         { name: "badplatser", file: "JSON/badplatser.json", color: "blue" },
@@ -335,7 +323,6 @@ window.filterFunction = async function () {
         { name: "utegym", file: "JSON/utegym.json", color: "green" }
       ];
 
-      // Ta bort tidigare söklager
       Object.keys(layers).forEach(name => {
         if (name.startsWith("SearchResult")) {
           map.remove(layers[name]);
@@ -352,7 +339,8 @@ window.filterFunction = async function () {
         data.features.forEach(feature => {
           const props = feature.properties || {};
           for (const key in props) {
-            if (key.toLowerCase().includes("namn")) {
+            const keyLower = key.toLowerCase();
+            if (keyLower.includes("namn") || keyLower.includes("typ")) {
               const val = props[key];
               if (typeof val === "string" && val.toLowerCase().includes(input)) {
                 const coords = feature.geometry.coordinates;
@@ -393,7 +381,7 @@ window.filterFunction = async function () {
                 });
 
                 matchedGraphics.push(graphic);
-                break; // Stoppa vid första match
+                break;
               }
             }
           }
@@ -429,7 +417,6 @@ window.filterFunction = async function () {
     const datalist = document.getElementById("suggestions");
     datalist.innerHTML = ""; // Rensa gamla förslag
 
-    // Lista över alla filer och vad de representerar
     const sources = [
       { name: "Motionsspår", file: "JSON/motionsspar.json", propertyKey: "NAMN" },
       { name: "Badplatser", file: "JSON/badplatser.json" },
@@ -444,19 +431,28 @@ window.filterFunction = async function () {
       { name: "Utegym", file: "JSON/utegym.json" }
     ];
 
+    const seenValues = new Set(); // För att undvika dubbletter
+
     for (const source of sources) {
       const data = await fetchData(source.file);
       if (data && data.features) {
         data.features.forEach(feature => {
           const props = feature.properties || {};
           for (const key in props) {
-            if (key.toLowerCase().includes("namn")) {
+            const keyLower = key.toLowerCase();
+            if (keyLower.includes("namn") || keyLower.includes("typ")) {
               const value = props[key];
               if (value && typeof value === "string") {
-                const option = document.createElement("option");
-                option.value = `${source.name}: ${value}`;
-                datalist.appendChild(option);
-                break; // Vi lägger bara till första matchande namn-nyckeln
+                const label = keyLower.includes("typ") ? "(Typ)" : "(Namn)";
+                const uniqueKey = `${source.name} ${label}: ${value}`;
+                if (!seenValues.has(uniqueKey)) {
+                  seenValues.add(uniqueKey);
+
+                  const option = document.createElement("option");
+                  option.value = uniqueKey;
+                  datalist.appendChild(option);
+                }
+                break; // Sluta efter första matchande fält
               }
             }
           }
@@ -464,6 +460,9 @@ window.filterFunction = async function () {
       }
     }
   }
+
+
+
 
   // Add event listener to the search input field
   document.getElementById("searchInput").addEventListener("input", function () {
