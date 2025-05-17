@@ -32,8 +32,13 @@ require([
   const sketch = new Sketch({
     layer: polygonLayer,
     view: view,
-    creationMode: "update",
-    availableCreateTools: ["polygon"]
+    creationMode: "single",
+    availableCreateTools: ["polygon"],
+      visibleElements: {
+      selectionTools: false,
+      settingsMenu: false,
+      undoRedoMenu: false
+    }
   });
   view.ui.add(sketch, "top-right");
 
@@ -52,6 +57,7 @@ require([
       sketch.cancel();
       sketch.visible = false;
       polygonLayer.visible = false;
+      document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
     }
   };
 
@@ -77,7 +83,6 @@ require([
       // Avsluta ritning och göm widgeten
       sketch.cancel();
       sketch.visible = false;
-      sketch.layer = null;
     }
   });
 
