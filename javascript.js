@@ -34,7 +34,7 @@ require([
     view: view,
     creationMode: "single",
     availableCreateTools: ["polygon"],
-      visibleElements: {
+    visibleElements: {
       selectionTools: false,
       settingsMenu: false,
       undoRedoMenu: false
@@ -47,6 +47,15 @@ require([
 
   window.togglePolygon = function (action) {
     if (action === 'draw') {
+      // Hide all layers and remove active-layer class from buttons
+      Object.keys(layers).forEach(name => {
+        if (layers[name]) layers[name].visible = false;
+      });
+      Object.keys(filteredPolygonLayers).forEach(name => {
+        if (filteredPolygonLayers[name]) filteredPolygonLayers[name].visible = false;
+      });
+      document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
+
       polygonLayer.visible = true;
       sketch.visible = true;
       sketch.create("polygon");
