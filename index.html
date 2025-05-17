@@ -1,72 +1,84 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css" />
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://js.arcgis.com/4.32/"></script>
-    </head>
-    <body>
 
-        <header class="header">
-            <nav class="nav-buttons">
-                <div class="dropdown">
-                    <button class="dropbtn">Bad & Friluft</button>
-                    <div class="dropdown-content">
-                        <a href="#" onclick="toggleLayer('badplatser')">Badplatser</a>
-                        <a href="#" onclick="toggleLayer('livraddningsutrustning')">Livräddningsutrustning</a>
-                        <a href="#" onclick="toggleLayer('pulkabackar')">Pulkabackar</a>
-                    </div>
-                </div>
-                
-                <div class="dropdown">
-                    <button class="dropbtn">Motion & Idrott</button>
-                    <div class="dropdown-content">
-                        <a href="#" onclick="toggleLayer('idrott_motion')">Idrott & Motion</a>
-                        <a href="#" onclick="toggleLayer('PathsAll')">Motionsspår</a>
-                        <a href="#" onclick="toggleLayer('spontanidrott')">Spontanidrott</a>
-                        <a href="#" onclick="toggleLayer('utegym')">Utegym</a>
-                    </div>
-                </div>
-                
-                <div class="dropdown">
-                    <button class="dropbtn">Rast & Lek</button>
-                    <div class="dropdown-content">
-                        <a href="#" onclick="toggleLayer('lekplatser')">Lekplatser</a>
-                        <a href="#" onclick="toggleLayer('rastplatser')">Rastplatser</a>
-                        <a href="#" onclick="toggleLayer('papperskorgar')">Papperskorgar</a>
-                    </div>
-                </div>
-                
-                <div class="dropdown">
-                    <button class="dropbtn">Service</button>
-                    <div class="dropdown-content">
-                        <a href="#" onclick="toggleLayer('offentliga_toaletter')">Offentliga Toaletter</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://js.arcgis.com/4.32/"></script>
+</head>
 
-        <section>
-            <input type="text" id="searchInput" list="suggestions" placeholder="Sök efter objekt..." onkeyup="filterFunction()">
-            <datalist id="suggestions"></datalist>
-        </section>
-        
-        <div id="viewDiv"></div>
+<body>
 
-        <footer>
-            <p>högskolan gävle</p>
-          
-            <p> 2025</p>
-          
-            <p> denna map är skapad av högskolan gävle</p>
-          
-            <p> frilufts karta</p>
-          </footer>
-        <script src="javascript.js" async defer></script>
-    </body>
+    <header class="header">
+        <nav class="nav-buttons">
+            <div class="dropdown">
+                <button class="dropbtn">Bad & Friluft</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="toggleLayer('badplatser')">Badplatser</a>
+                    <a href="#" onclick="toggleLayer('livraddningsutrustning')">Livräddningsutrustning</a>
+                    <a href="#" onclick="toggleLayer('pulkabackar')">Pulkabackar</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Motion & Idrott</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="toggleLayer('idrott_motion')">Idrott & Motion</a>
+                    <a href="#" onclick="toggleLayer('PathsAll')">Motionsspår</a>
+                    <a href="#" onclick="toggleLayer('spontanidrott')">Spontanidrott</a>
+                    <a href="#" onclick="toggleLayer('utegym')">Utegym</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Rast & Lek</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="toggleLayer('lekplatser')">Lekplatser</a>
+                    <a href="#" onclick="toggleLayer('rastplatser')">Rastplatser</a>
+                    <a href="#" onclick="toggleLayer('papperskorgar')">Papperskorgar</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Service</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="toggleLayer('offentliga_toaletter')">Offentliga Toaletter</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Polygon</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="togglePolygon('draw')">Skapa Polygon</a>
+                    <a href="#" onclick="togglePolygon('delete')">Ta bort Polygon</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <input type="text" id="searchInput" list="suggestions" placeholder="Sök efter objekt..."
+            onkeyup="filterFunction()">
+        <datalist id="suggestions"></datalist>
+    </section>
+
+    <div id="viewDiv"></div>
+
+    <footer>
+        <p>högskolan gävle</p>
+
+        <p> 2025</p>
+
+        <p> denna map är skapad av högskolan gävle</p>
+
+        <p> frilufts karta</p>
+    </footer>
+    <script src="javascript.js" async defer></script>
+</body>
+
 </html>

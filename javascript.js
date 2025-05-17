@@ -6,8 +6,11 @@ require([
   "esri/symbols/SimpleMarkerSymbol",
   "esri/geometry/Point",
   "esri/geometry/Polyline",
-  "esri/symbols/SimpleLineSymbol"
-], function (Map, MapView, Graphic, GraphicsLayer, SimpleMarkerSymbol, Point, Polyline, SimpleLineSymbol) {
+  "esri/symbols/SimpleLineSymbol",
+  "esri/widgets/Sketch",
+  "esri/geometry/geometryEngine",
+  "esri/geometry/Polygon"
+], function (Map, MapView, Graphic, GraphicsLayer, SimpleMarkerSymbol, Point, Polyline, SimpleLineSymbol, Sketch, geometryEngine, Polygon) {
 
   const map = new Map({ basemap: "streets" });
 
@@ -19,6 +22,100 @@ require([
   });
 
   const layers = {}; // Objekt som kan spara flera lager
+  const filteredPointsLayer = new GraphicsLayer();
+  const filteredPolygonLayers = {};
+  map.add(filteredPointsLayer);
+
+  const polygonLayer = new GraphicsLayer();
+  map.add(polygonLayer);
+
+  const sketch = new Sketch({
+    layer: polygonLayer,
+    view: view,
+    creationMode: "update",
+    availableCreateTools: ["polygon"]
+  });
+  view.ui.add(sketch, "top-right");
+
+  // Starta ej ritning direkt
+  sketch.visible = false;
+
+  window.togglePolygon = function (action) {
+    if (action === 'draw') {
+      polygonLayer.visible = true;
+      sketch.visible = true;
+      sketch.create("polygon");
+    } else if (action === 'delete') {
+      polygonLayer.removeAll();
+      savedPolygonCoords.length = 0;   // Rensa koordinater
+      updatePointLayers();             // Uppdatera lagren så alla punkter visas
+      sketch.cancel();
+      sketch.visible = false;
+      polygonLayer.visible = false;
+    }
+  };
+
+  // När ritningen är klar ska vi avsluta ritning OCH gömma widgeten
+  // Global array för att spara polygonernas koordinater
+  const savedPolygonCoords = [];
+
+  sketch.on("create", (event) => {
+    if (event.state === "complete") {
+      // Lägg till polygonen i lagret
+      polygonLayer.add(event.graphic);
+
+      // Extrahera polygonens koordinater (rings)
+      const polygonCoords = event.graphic.geometry.rings;
+
+      // Spara koordinaterna i den globala arrayen
+      savedPolygonCoords.push(polygonCoords);
+
+      console.log("Sparade polygonkoordinater:", savedPolygonCoords);
+
+      updatePointLayers();
+
+      // Avsluta ritning och göm widgeten
+      sketch.cancel();
+      sketch.visible = false;
+    }
+  });
+
+  const layerInfo = {
+    badplatser: { file: "JSON/badplatser.json", color: "blue" },
+    idrott_motion: { file: "JSON/idrott_motion.json", color: "yellow" },
+    lekplatser: { file: "JSON/lekplatser.json", color: "orange" },
+    livraddningsutrustning: { file: "JSON/livraddningsutrustning.json", color: "purple" },
+    offentliga_toaletter: { file: "JSON/offentliga_toaletter.json", color: "cyan" },
+    papperskorgar: { file: "JSON/papperskorgar.json", color: "black" },
+    pulkabackar: { file: "JSON/pulkabackar.json", color: "indigo" },
+    rastplatser: { file: "JSON/rastplatser.json", color: "teal" },
+    spontanidrott: { file: "JSON/spontanidrott.json", color: "magenta" },
+    utegym: { file: "JSON/utegym.json", color: "green" },
+  };
+
+  async function updatePointLayers() {
+    // Ta bort alla gamla filtrerade polygonlager
+    for (const key in filteredPolygonLayers) {
+      map.remove(filteredPolygonLayers[key]);
+      delete filteredPolygonLayers[key];
+    }
+
+    for (const layerName in layers) {
+      const layer = layers[layerName];
+      const info = layerInfo[layerName];
+      if (!info) continue;
+
+      const data = await fetchData(info.file);
+
+      if (data) {
+        if (savedPolygonCoords.length > 0) {
+          showPointsInPolygon(layerName, data, info.color);
+        } else {
+          showPoints(layer, data, info.color);
+        }
+      }
+    }
+  }
 
   // Lägger till lager med funktioner
   addPointLayer("badplatser", "JSON/badplatser.json", "blue");
@@ -57,8 +154,70 @@ require([
 
     const data = await fetchData(dataFile);
     if (data) {
-      showPoints(layer, data, color);
+      if (savedPolygonCoords.length > 0) {
+        // The array has at least one item
+        showPointsInPolygon(data, color);
+      } else {
+        // The array is empty
+        showPoints(layer, data, color);
+      }
     }
+  }
+
+  // Ändra showPointsInPolygon:
+  function showPointsInPolygon(layerName, data, color) {
+    // Ta bort gammalt lager om det finns
+    if (filteredPolygonLayers[layerName]) {
+      map.remove(filteredPolygonLayers[layerName]);
+    }
+
+    const layer = new GraphicsLayer();
+    filteredPolygonLayers[layerName] = layer;
+    map.add(layer);
+
+    const spatialRef = view.spatialReference || { wkid: 4326 };
+
+    data.features.forEach(feature => {
+      const coords = feature.geometry.coordinates;
+
+      const point = new Point({
+        longitude: coords[0],
+        latitude: coords[1],
+        spatialReference: spatialRef
+      });
+
+      const isInside = savedPolygonCoords.some(rings => {
+        const polygon = new Polygon({ rings: rings, spatialReference: spatialRef });
+        return geometryEngine.contains(polygon, point);
+      });
+
+      if (isInside) {
+        const symbol = new SimpleMarkerSymbol({
+          style: "circle",
+          color: color,
+          size: 8,
+          outline: { color: "white", width: 1 }
+        });
+
+        const props = feature.properties || {};
+
+        const popupTemplate = {
+          title: props.NAMN || props.name || "Details",
+          content: Object.entries(props).map(([k, v]) => `<b>${k}:</b> ${v}`).join("<br>") || "No info"
+        };
+
+        const graphic = new Graphic({
+          geometry: point,
+          symbol: symbol,
+          attributes: props,
+          popupTemplate: popupTemplate
+        });
+
+        layer.add(graphic);
+      }
+    });
+
+    layer.visible = false;
   }
 
   // Funktion som visar punkter på lager
@@ -260,17 +419,35 @@ require([
     }
   }
 
-  // Funktion som togglar synligheten av ett lager
+  // Ändra toggleLayer:
   window.toggleLayer = function (layerName) {
+    const isPointLayer = !!layerInfo[layerName];
+    if (savedPolygonCoords.length > 0 && isPointLayer) {
+      const layer = filteredPolygonLayers[layerName];
+      if (layer) {
+        layer.visible = !layer.visible;
+
+        // Visuell feedback på knappen
+        const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
+        buttons.forEach(button => {
+          button.classList.toggle("active-layer", layer.visible);
+        });
+
+        console.log(`Punkter i polygonen för ${layerName} är nu ${layer.visible ? "synliga" : "dolda"}`);
+      } else {
+        console.warn(`Inga punkter i polygonen för ${layerName}`);
+      }
+      return;
+    }
+
+    // Standardbeteende om ingen polygon finns eller om det inte är ett punktlager
     const layer = layers[layerName];
     if (layer) {
-      // Växla synlighet på lagret
       layer.visible = !layer.visible;
 
-      // Lägg till/ta bort CSS-klass för visuell feedback på knappen
       const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
       buttons.forEach(button => {
-        button.classList.toggle("active-layer", layer.visible);  // Lägg till/ta bort klassen baserat på synlighet
+        button.classList.toggle("active-layer", layer.visible);
       });
 
       console.log(`Lagret "${layerName}" är nu ${layer.visible ? "synligt" : "dolt"}`);
