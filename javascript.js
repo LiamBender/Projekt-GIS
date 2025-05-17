@@ -114,6 +114,25 @@ require([
   }
 
 
+  // Genererar färg baserad på index
+  function getColorByIndex(index, total) {
+    // Lista med färger
+    const COLORS = [
+      "#e6194b", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#46f0f0", "#f032e6",
+      "#bcf60c", "#fabebe", "#008080", "#e6beff", "#9a6324", "#fffac8", "#800000", "#aaffc3",
+      "#808000", "#ffd8b1", "#000075", "#808080", "#d2f53c", "#faff00", "#a9a9a9", "#b6a6ca",
+      "#ffb3ba", "#c6e2ff", "#b5ead7", "#ffdac1", "#ff9aa2", "#b28dff", "#ffb347", "#cfcfc4",
+      "#f1cbff", "#b7e4c7", "#d0f4de", "#e2cfc4", "#e0bbff", "#b3ffd9", "#ffdfba", "#f3c6e8",
+      "#baffc9"
+    ];
+    // Om indexen finns i listan så används deras färg
+    if (index < COLORS.length) {
+      return COLORS[index];
+    }
+    // Annan färg genereras om indexet når gränsen av listan
+    return `hsl(${(index * 360 / total) % 360}, 80%, 45%)`;
+  }
+
   // Funktion som läser data från JSON-fil för att sedan rita ett line-lager
   async function getPathsData(lineIndex) {
     const pathLayer = new GraphicsLayer();
@@ -126,12 +145,13 @@ require([
     }
   }
 
-  // Funktion för att rita ut linjer på lager
+  // Funktion för att rita ut linjer på lager, nu med olika färg per linje
   function showPaths(layer, data, lineIndex) {
     layer.removeAll();
 
-    // Check if the specified lineIndex exists in the features array
-    const feature = data.features[lineIndex]; // Use the lineIndex parameter to select the desired line
+    const totalFeatures = data.features.length;
+    // Checkar om lineIndex finns i features arrayen
+    const feature = data.features[lineIndex];
     if (feature) {
       const coords = feature.geometry.coordinates;
 
@@ -140,8 +160,10 @@ require([
         spatialReference: { wkid: 4326 }
       });
 
+      const color = getColorByIndex(lineIndex, totalFeatures);
+
       const symbol = new SimpleLineSymbol({
-        color: "blue",
+        color: color,
         width: 3
       });
 
@@ -153,6 +175,76 @@ require([
       layer.add(graphic);
     } else {
       console.error(`Line at index ${lineIndex} does not exist.`);
+    }
+  }
+
+  // Modifierad funktion: varje path ritas i unik färg
+  async function addAllPathsLayer() {
+    const pathLayer = new GraphicsLayer();
+    layers["PathsAll"] = pathLayer;
+    map.add(pathLayer);
+    pathLayer.visible = false;
+
+    const data = await fetchData("JSON/motionsspar.json");
+    if (data) {
+      const totalFeatures = data.features.length;
+      data.features.forEach((feature, index) => {
+        const coords = feature.geometry.coordinates;
+
+        const line = new Polyline({
+          paths: [coords],
+          spatialReference: { wkid: 4326 }
+        });
+
+        const color = getColorByIndex(index, totalFeatures);
+
+        const symbol = new SimpleLineSymbol({
+          color: color,
+          width: 3
+        });
+
+        const graphic = new Graphic({
+          geometry: line,
+          symbol: symbol
+        });
+
+        pathLayer.add(graphic);
+      });
+    }
+  }
+
+  // Modifierad funktion: varje path ritas i unik färg
+  async function addAllPathsLayer() {
+    const pathLayer = new GraphicsLayer();
+    layers["PathsAll"] = pathLayer;
+    map.add(pathLayer);
+    pathLayer.visible = false;
+
+    const data = await fetchData("JSON/motionsspar.json");
+    if (data) {
+      const totalFeatures = data.features.length;
+      data.features.forEach((feature, index) => {
+        const coords = feature.geometry.coordinates;
+
+        const line = new Polyline({
+          paths: [coords],
+          spatialReference: { wkid: 4326 }
+        });
+
+        const color = getColorByIndex(index, totalFeatures);
+
+        const symbol = new SimpleLineSymbol({
+          color: color,
+          width: 3
+        });
+
+        const graphic = new Graphic({
+          geometry: line,
+          symbol: symbol
+        });
+
+        pathLayer.add(graphic);
+      });
     }
   }
 
@@ -186,38 +278,6 @@ require([
       console.error(`Lagret "${layerName}" finns inte`);
     }
   };
-
-  // Funktion som lägger till alla paths-lager
-  async function addAllPathsLayer() {
-    const pathLayer = new GraphicsLayer();
-    layers["PathsAll"] = pathLayer;
-    map.add(pathLayer);
-    pathLayer.visible = false;
-
-    const data = await fetchData("JSON/motionsspar.json");
-    if (data) {
-      data.features.forEach(feature => {
-        const coords = feature.geometry.coordinates;
-
-        const line = new Polyline({
-          paths: [coords],
-          spatialReference: { wkid: 4326 }
-        });
-
-        const symbol = new SimpleLineSymbol({
-          color: "blue",
-          width: 3
-        });
-
-        const graphic = new Graphic({
-          geometry: line,
-          symbol: symbol
-        });
-
-        pathLayer.add(graphic);
-      });
-    }
-  }
 
   // Sökfilter för olika objekt
   window.filterFunction = async function () {
