@@ -60,13 +60,15 @@ require([
       sketch.visible = true;
       sketch.create("polygon");
     } else if (action === 'delete') {
-      polygonLayer.removeAll();
-      savedPolygonCoords.length = 0;   // Rensa koordinater
-      updatePointLayers();             // Uppdatera lagren så alla punkter visas
-      sketch.cancel();
-      sketch.visible = false;
-      polygonLayer.visible = false;
-      document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
+      if (savedPolygonCoords.length > 0) {
+        polygonLayer.removeAll();
+        savedPolygonCoords.length = 0;   // Rensa koordinater
+        updatePointLayers();             // Uppdatera lagren så alla punkter visas
+        sketch.cancel();
+        sketch.visible = false;
+        polygonLayer.visible = false;
+        document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
+      }
     }
   };
 
