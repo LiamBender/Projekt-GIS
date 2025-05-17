@@ -77,6 +77,7 @@ require([
       // Avsluta ritning och göm widgeten
       sketch.cancel();
       sketch.visible = false;
+      sketch.layer = null;
     }
   });
 
