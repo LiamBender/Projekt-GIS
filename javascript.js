@@ -309,7 +309,7 @@ require([
     return `hsl(${(index * 360 / total) % 360}, 80%, 45%)`;
   }
 
-  // Funktion som läser data från JSON-fil för att sedan rita ett line-lager
+  // Funktion som läser data från JSON-fil för att sedan rita ett line-lager med popup
   async function getPathsData(lineIndex) {
     const pathLayer = new GraphicsLayer();
     layers[`Paths${lineIndex}`] = pathLayer;
@@ -321,13 +321,13 @@ require([
     }
   }
 
-  // Funktion för att rita ut linjer på lager, nu med olika färg per linje
+  // Funktion för att rita ut linjer på lager, varje linje får popup baserat på JSON
   function showPaths(layer, data, lineIndex) {
     layer.removeAll();
 
     const totalFeatures = data.features.length;
-    // Checkar om lineIndex finns i features arrayen
     const feature = data.features[lineIndex];
+
     if (feature) {
       const coords = feature.geometry.coordinates;
 
@@ -343,9 +343,23 @@ require([
         width: 3
       });
 
+      // Skapa popupTemplate baserat på attributer
+      const popupTemplate = {
+        title: "{NAMN}",
+        content: `
+          <b>Beskrivning:</b> {BESKRVN}<br/>
+          <b>Ändamål:</b> {ANDAMAL}<br/>
+          <b>Info:</b> {INFO}<br/>
+          <b>Extra info:</b> {EXTRA_INFO}<br/>
+          <b>Längd (meter):</b> {Shape.STLength()}<br/>
+        `
+      };
+
       const graphic = new Graphic({
         geometry: line,
-        symbol: symbol
+        symbol: symbol,
+        attributes: feature.properties,
+        popupTemplate: popupTemplate
       });
 
       layer.add(graphic);
@@ -354,7 +368,7 @@ require([
     }
   }
 
-  // Modifierad funktion: varje path ritas i unik färg
+  // Funktion för att rita alla paths, varje linje får popup
   async function addAllPathsLayer() {
     const pathLayer = new GraphicsLayer();
     layers["PathsAll"] = pathLayer;
@@ -379,51 +393,30 @@ require([
           width: 3
         });
 
+        // PopupTemplate för varje linje
+        const popupTemplate = {
+          title: "{NAMN}",
+          content: `
+            <b>Beskrivning:</b> {BESKRVN}<br/>
+            <b>Ändamål:</b> {ANDAMAL}<br/>
+            <b>Info:</b> {INFO}<br/>
+            <b>Extra info:</b> {EXTRA_INFO}<br/>
+            <b>Längd (meter):</b> {Shape.STLength()}<br/>
+          `
+        };
+
         const graphic = new Graphic({
           geometry: line,
-          symbol: symbol
+          symbol: symbol,
+          attributes: feature.properties,
+          popupTemplate: popupTemplate
         });
 
         pathLayer.add(graphic);
       });
-    }
+  } 
   }
-
-  // Modifierad funktion: varje path ritas i unik färg
-  async function addAllPathsLayer() {
-    const pathLayer = new GraphicsLayer();
-    layers["PathsAll"] = pathLayer;
-    map.add(pathLayer);
-    pathLayer.visible = false;
-
-    const data = await fetchData("JSON/motionsspar.json");
-    if (data) {
-      const totalFeatures = data.features.length;
-      data.features.forEach((feature, index) => {
-        const coords = feature.geometry.coordinates;
-
-        const line = new Polyline({
-          paths: [coords],
-          spatialReference: { wkid: 4326 }
-        });
-
-        const color = getColorByIndex(index, totalFeatures);
-
-        const symbol = new SimpleLineSymbol({
-          color: color,
-          width: 3
-        });
-
-        const graphic = new Graphic({
-          geometry: line,
-          symbol: symbol
-        });
-
-        pathLayer.add(graphic);
-      });
-    }
-  }
-
+  
   // Funktion som tar bort lager på kartan
   function deleteLayer(layerName) {
     const layer = layers[layerName];
