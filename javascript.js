@@ -22,12 +22,74 @@ require([
   });
 
   const layers = {}; // Objekt som kan spara flera lager
+
+  //Polygon filter
   const filteredPointsLayer = new GraphicsLayer();
   const filteredPolygonLayers = {};
   map.add(filteredPointsLayer);
 
   const polygonLayer = new GraphicsLayer();
   map.add(polygonLayer);
+
+  // POI
+  const poiLayer = new GraphicsLayer();
+  map.add(poiLayer);
+
+  let creatingPOI = false;
+
+  window.pointHandler = function (action) {
+    if (action === "create") {
+      creatingPOI = true;
+      view.container.style.cursor = "crosshair";
+      console.log("Klicka på kartan för att lägga ut en POI.");
+    } else if (action === "delete") {
+      poiLayer.removeAll();
+      creatingPOI = false;
+      view.container.style.cursor = "default";
+      console.log("Alla POI har tagits bort.");
+    }
+  };
+
+  view.on("click", function (event) {
+    if (!creatingPOI) return;
+
+    creatingPOI = false;
+    view.container.style.cursor = "default";
+
+    const point = event.mapPoint;
+
+    const name = prompt("Ange namn för POI:");
+    if (name === null) return;
+
+    const description = prompt("Ange beskrivning för POI:");
+    if (description === null) return;
+
+    const symbol = new SimpleMarkerSymbol({
+      style: "circle",
+      color: "black",
+      size: 10,
+      outline: {
+        color: "white",
+        width: 1
+      }
+    });
+
+    const graphic = new Graphic({
+      geometry: point,
+      symbol: symbol,
+      attributes: {
+        name: name,
+        description: description
+      },
+      popupTemplate: {
+        title: name,
+        content: description
+      }
+    });
+
+    poiLayer.add(graphic);
+  });
+
 
   const sketch = new Sketch({
     layer: polygonLayer,
@@ -414,9 +476,9 @@ require([
 
         pathLayer.add(graphic);
       });
-  } 
+    }
   }
-  
+
   // Funktion som tar bort lager på kartan
   function deleteLayer(layerName) {
     const layer = layers[layerName];
