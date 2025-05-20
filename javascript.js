@@ -11,15 +11,27 @@ require([
   "esri/geometry/geometryEngine",
   "esri/geometry/Polygon",
   "esri/geometry/support/webMercatorUtils"
-], function (Map, MapView, Graphic, GraphicsLayer, SimpleMarkerSymbol, Point, Polyline, SimpleLineSymbol, Sketch, geometryEngine, Polygon, webMercatorUtils) {
-
+], function (
+  Map,
+  MapView,
+  Graphic,
+  GraphicsLayer,
+  SimpleMarkerSymbol,
+  Point,
+  Polyline,
+  SimpleLineSymbol,
+  Sketch,
+  geometryEngine,
+  Polygon,
+  webMercatorUtils
+) {
   const map = new Map({ basemap: "streets" });
 
   const view = new MapView({
     container: "viewDiv",
     map: map,
     center: [17.1413, 60.6749],
-    zoom: 13
+    zoom: 13,
   });
 
   // Allmänna layers
@@ -30,7 +42,6 @@ require([
   const filteredPolygonLayers = {};
   map.add(filteredPointsLayer);
 
-
   // Motionsspår i polygon filter
   const filteredPolygonLineLayers = {};
 
@@ -39,7 +50,6 @@ require([
   map.add(polygonLayer);
   map.reorder(polygonLayer, 0);
   const savedPolygonCoords = [];
-
 
   // POI
   const poiLayer = new GraphicsLayer();
@@ -80,8 +90,8 @@ require([
       size: 10,
       outline: {
         color: "white",
-        width: 1
-      }
+        width: 1,
+      },
     });
 
     const graphic = new Graphic({
@@ -89,17 +99,16 @@ require([
       symbol: symbol,
       attributes: {
         name: name,
-        description: description
+        description: description,
       },
       popupTemplate: {
         title: name,
-        content: description
-      }
+        content: description,
+      },
     });
 
     poiLayer.add(graphic);
   });
-
 
   const sketch = new Sketch({
     layer: polygonLayer,
@@ -109,15 +118,15 @@ require([
     visibleElements: {
       selectionTools: false,
       settingsMenu: false,
-      undoRedoMenu: false
+      undoRedoMenu: false,
     },
     defaultUpdateOptions: {
       enableRotation: false,
       enableScaling: false,
       enableZ: false,
       multipleSelectionEnabled: false,
-      toggleToolOnClick: false
-    }
+      toggleToolOnClick: false,
+    },
   });
   view.ui.add(sketch, "top-right");
 
@@ -132,28 +141,32 @@ require([
   sketch.visible = false;
 
   window.togglePolygon = function (action) {
-    if (action === 'draw') {
+    if (action === "draw") {
       // Hide all layers and remove active-layer class from buttons
-      Object.keys(layers).forEach(name => {
+      Object.keys(layers).forEach((name) => {
         if (layers[name]) layers[name].visible = false;
       });
-      Object.keys(filteredPolygonLayers).forEach(name => {
+      Object.keys(filteredPolygonLayers).forEach((name) => {
         if (filteredPolygonLayers[name]) filteredPolygonLayers[name].visible = false;
       });
-      document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
+      document
+        .querySelectorAll("a.active-layer")
+        .forEach((btn) => btn.classList.remove("active-layer"));
 
       polygonLayer.visible = true;
       sketch.visible = true;
       sketch.create("polygon");
-    } else if (action === 'delete') {
+    } else if (action === "delete") {
       if (savedPolygonCoords.length > 0) {
         polygonLayer.removeAll();
-        savedPolygonCoords.length = 0;   // Rensa koordinater
-        updatePointLayers();             // Uppdatera lagren så alla punkter visas
+        savedPolygonCoords.length = 0; // Rensa koordinater
+        updatePointLayers(); // Uppdatera lagren så alla punkter visas
         sketch.cancel();
         sketch.visible = false;
         polygonLayer.visible = false;
-        document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
+        document
+          .querySelectorAll("a.active-layer")
+          .forEach((btn) => btn.classList.remove("active-layer"));
       }
     }
   };
@@ -234,7 +247,6 @@ require([
     }
   }
 
-  // Lägger till lager med funktioner
   addPointLayer("badplatser", "JSON/badplatser.json", "blue");
   addPointLayer("idrott_motion", "JSON/idrott_motion.json", "yellow");
   addPointLayer("lekplatser", "JSON/lekplatser.json", "orange");
@@ -246,11 +258,7 @@ require([
   addPointLayer("spontanidrott", "JSON/spontanidrott.json", "magenta");
   addPointLayer("utegym", "JSON/utegym.json", "green");
   addAllPathsLayer();
-  // getPathsData(0);
-  // getPathsData(5);
-  // deleteLayer("Paths5");
 
-  // Funktion som hämtar JSON-data
   async function fetchData(file) {
     try {
       const response = await fetch(file);
@@ -261,7 +269,6 @@ require([
     }
   }
 
-  // Fuktion för att spaka point-lager
   async function addPointLayer(layerName, dataFile, color) {
     const layer = new GraphicsLayer();
     layers[layerName] = layer;
@@ -272,16 +279,13 @@ require([
     const data = await fetchData(dataFile);
     if (data) {
       if (savedPolygonCoords.length > 0) {
-        // The array has at least one item
-        showPointsInPolygon(data, color);
+        showPointsInPolygon(layerName, data, color);
       } else {
-        // The array is empty
         showPoints(layer, data, color);
       }
     }
   }
 
-  // Ändra showPointsInPolygon:
   function showPointsInPolygon(layerName, data, color) {
     // Ta bort gammalt lager om det finns
     if (filteredPolygonLayers[layerName]) {
@@ -294,16 +298,16 @@ require([
 
     const spatialRef = view.spatialReference || { wkid: 4326 };
 
-    data.features.forEach(feature => {
+    data.features.forEach((feature) => {
       const coords = feature.geometry.coordinates;
 
       const point = new Point({
         longitude: coords[0],
         latitude: coords[1],
-        spatialReference: spatialRef
+        spatialReference: spatialRef,
       });
 
-      const isInside = savedPolygonCoords.some(rings => {
+      const isInside = savedPolygonCoords.some((rings) => {
         const polygon = new Polygon({ rings: rings, spatialReference: spatialRef });
         return geometryEngine.contains(polygon, point);
       });
@@ -313,21 +317,23 @@ require([
           style: "circle",
           color: color,
           size: 8,
-          outline: { color: "white", width: 1 }
+          outline: { color: "white", width: 1 },
         });
 
         const props = feature.properties || {};
 
         const popupTemplate = {
           title: props.NAMN || props.name || "Details",
-          content: Object.entries(props).map(([k, v]) => `<b>${k}:</b> ${v}`).join("<br>") || "No info"
+          content: Object.entries(props)
+            .map(([k, v]) => `<b>${k}:</b> ${v}`)
+            .join("<br>") || "No info",
         };
 
         const graphic = new Graphic({
           geometry: point,
           symbol: symbol,
           attributes: props,
-          popupTemplate: popupTemplate
+          popupTemplate: popupTemplate,
         });
 
         layer.add(graphic);
@@ -353,11 +359,11 @@ require([
       const coords = feature.geometry.coordinates;
       const line = new Polyline({
         paths: [coords],
-        spatialReference: { wkid: 4326 }
+        spatialReference: { wkid: 4326 },
       });
 
-      const isInside = savedPolygonCoords.some(rings => {
-        const fixedRings = rings.map(ring =>
+      const isInside = savedPolygonCoords.some((rings) => {
+        const fixedRings = rings.map((ring) =>
           ring.map(([x, y]) => {
             const [lng, lat] = webMercatorUtils.xyToLngLat(x, y);
             return [lng, lat];
@@ -372,7 +378,7 @@ require([
         const color = colorFunc(index, data.features.length);
         const symbol = new SimpleLineSymbol({
           color: color,
-          width: 3
+          width: 3,
         });
 
         const popupTemplate = {
@@ -383,14 +389,14 @@ require([
           <b>Info:</b> ${feature.properties?.INFO || ""}<br/>
           <b>Extra info:</b> ${feature.properties?.EXTRA_INFO || ""}<br/>
           <b>Längd (meter):</b> ${feature.properties?.["Shape.STLength()"] || ""}<br/>
-        `
+        `,
         };
 
         const graphic = new Graphic({
           geometry: line,
           symbol: symbol,
           attributes: feature.properties,
-          popupTemplate: popupTemplate
+          popupTemplate: popupTemplate,
         });
 
         layer.add(graphic);
@@ -401,15 +407,14 @@ require([
     map.reorder(layer, 1);
   }
 
-  // Funktion som visar punkter på lager
   function showPoints(layer, data, color) {
     layer.removeAll();
 
-    data.features.forEach(feature => {
+    data.features.forEach((feature) => {
       const coords = feature.geometry.coordinates;
       const point = new Point({
         longitude: coords[0],
-        latitude: coords[1]
+        latitude: coords[1],
       });
 
       const symbol = new SimpleMarkerSymbol({
@@ -418,18 +423,16 @@ require([
         size: 8,
         outline: {
           color: "white",
-          width: 1
-        }
+          width: 1,
+        },
       });
 
       const props = feature.properties || {};
 
-      // Build popup content dynamically from all properties
       let content = "";
       for (const key in props) {
         if (props.hasOwnProperty(key) && props[key] !== null && props[key] !== undefined) {
           let value = props[key];
-          // If value looks like a URL, make it clickable
           if (typeof value === "string" && value.match(/^https?:\/\//)) {
             value = `<a href="${value}" target="_blank">${value}</a>`;
           }
@@ -439,24 +442,21 @@ require([
 
       const popupTemplate = {
         title: props.NAMN || props.name || "Details",
-        content: content || "No additional information available."
+        content: content || "No additional information available.",
       };
 
       const graphic = new Graphic({
         geometry: point,
         symbol: symbol,
         attributes: props,
-        popupTemplate: popupTemplate
+        popupTemplate: popupTemplate,
       });
 
       layer.add(graphic);
     });
   }
 
-
-  // Genererar färg baserad på index
   function getColorByIndex(index, total) {
-    // Lista med färger
     const COLORS = [
       "#e6194b", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#46f0f0", "#f032e6",
       "#bcf60c", "#fabebe", "#008080", "#e6beff", "#9a6324", "#fffac8", "#800000", "#aaffc3",
@@ -465,15 +465,12 @@ require([
       "#f1cbff", "#b7e4c7", "#d0f4de", "#e2cfc4", "#e0bbff", "#b3ffd9", "#ffdfba", "#f3c6e8",
       "#baffc9"
     ];
-    // Om indexen finns i listan så används deras färg
     if (index < COLORS.length) {
       return COLORS[index];
     }
-    // Annan färg genereras om indexet når gränsen av listan
     return `hsl(${(index * 360 / total) % 360}, 80%, 45%)`;
   }
 
-  // Funktion som läser data från JSON-fil för att sedan rita ett line-lager med popup
   async function getPathsData(lineIndex) {
     const pathLayer = new GraphicsLayer();
     layers[`Paths${lineIndex}`] = pathLayer;
@@ -485,7 +482,6 @@ require([
     }
   }
 
-  // Funktion för att rita ut linjer på lager, varje linje får popup baserat på JSON
   function showPaths(layer, data, lineIndex) {
     layer.removeAll();
 
@@ -497,17 +493,16 @@ require([
 
       const line = new Polyline({
         paths: [coords],
-        spatialReference: { wkid: 4326 }
+        spatialReference: { wkid: 4326 },
       });
 
       const color = getColorByIndex(lineIndex, totalFeatures);
 
       const symbol = new SimpleLineSymbol({
         color: color,
-        width: 3
+        width: 3,
       });
 
-      // Skapa popupTemplate baserat på attributer
       const popupTemplate = {
         title: "{NAMN}",
         content: `
@@ -523,7 +518,7 @@ require([
         geometry: line,
         symbol: symbol,
         attributes: feature.properties,
-        popupTemplate: popupTemplate
+        popupTemplate: popupTemplate,
       });
 
       layer.add(graphic);
@@ -532,7 +527,6 @@ require([
     }
   }
 
-  // Funktion för att rita alla paths, varje linje får popup
   async function addAllPathsLayer() {
     const pathLayer = new GraphicsLayer();
     layers["PathsAll"] = pathLayer;
@@ -547,17 +541,16 @@ require([
 
         const line = new Polyline({
           paths: [coords],
-          spatialReference: { wkid: 4326 }
+          spatialReference: { wkid: 4326 },
         });
 
         const color = getColorByIndex(index, totalFeatures);
 
         const symbol = new SimpleLineSymbol({
           color: color,
-          width: 3
+          width: 3,
         });
 
-        // PopupTemplate för varje linje
         const popupTemplate = {
           title: "{NAMN}",
           content: `
@@ -573,7 +566,7 @@ require([
           geometry: line,
           symbol: symbol,
           attributes: feature.properties,
-          popupTemplate: popupTemplate
+          popupTemplate: popupTemplate,
         });
 
         pathLayer.add(graphic);
@@ -581,19 +574,17 @@ require([
     }
   }
 
-  // Funktion som tar bort lager på kartan
   function deleteLayer(layerName) {
     const layer = layers[layerName];
     if (layer) {
       map.remove(layer);
-      delete layers[layerName]; // Tar brot referensen till lagret i layers-objektet
+      delete layers[layerName];
       console.log(`Layer ${layerName} has been deleted.`);
     } else {
       console.error(`Layer ${layerName} does not exist.`);
     }
   }
 
-  // Ändra toggleLayer:
   window.toggleLayer = async function (layerName) {
     const isPointLayer = !!layerInfo[layerName];
     const isPathsAll = layerName === "PathsAll";
@@ -603,7 +594,6 @@ require([
         layer = filteredPolygonLayers[layerName];
       } else if (isPathsAll) {
         layer = filteredPolygonLineLayers["PathsAll"];
-        // Om lagret inte finns, skapa det!
         if (!layer) {
           const data = await fetchData("JSON/motionsspar.json");
           if (data) {
@@ -614,42 +604,47 @@ require([
       }
       if (layer) {
         layer.visible = !layer.visible;
-
-        // Visuell feedback på knappen
-        const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
-        buttons.forEach(button => {
-          button.classList.toggle("active-layer", layer.visible);
-        });
-
-        console.log(`${layerName} i polygonen är nu ${layer.visible ? "synliga" : "dolda"}`);
+        const buttons = document.querySelectorAll(
+          `a[href='#'][onclick="toggleLayer('${layerName}')"]`
+        );
+        buttons.forEach((button) =>
+          button.classList.toggle("active-layer", layer.visible)
+        );
+        console.log(
+          `${layerName} i polygonen är nu ${
+            layer.visible ? "synliga" : "dolda"
+          }`
+        );
       } else {
         console.warn(`Inga objekt i polygonen för ${layerName}`);
       }
       return;
     }
 
-    // Standardbeteende om ingen polygon finns eller om det inte är ett punktlager
     const layer = layers[layerName];
     if (layer) {
       layer.visible = !layer.visible;
 
-      const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
-      buttons.forEach(button => {
-        button.classList.toggle("active-layer", layer.visible);
-      });
+      const buttons = document.querySelectorAll(
+        `a[href='#'][onclick="toggleLayer('${layerName}')"]`
+      );
+      buttons.forEach((button) =>
+        button.classList.toggle("active-layer", layer.visible)
+      );
 
-      console.log(`Lagret "${layerName}" är nu ${layer.visible ? "synligt" : "dolt"}`);
+      console.log(
+        `Lagret "${layerName}" är nu ${layer.visible ? "synligt" : "dolt"}`
+      );
     } else {
       console.error(`Lagret "${layerName}" finns inte`);
     }
   };
 
-  // Sökfilter för olika objekt
   window.filterFunction = async function () {
     const input = document.getElementById("searchInput").value.toLowerCase().trim();
 
     if (!input) {
-      Object.keys(layers).forEach(name => {
+      Object.keys(layers).forEach((name) => {
         const layer = layers[name];
         if (!layer) return;
 
@@ -663,7 +658,9 @@ require([
 
       const pathsAllLayer = layers["PathsAll"];
       if (pathsAllLayer) {
-        const toggleButton = document.querySelector(`a[href='#'][onclick="toggleLayer('PathsAll')"]`);
+        const toggleButton = document.querySelector(
+          `a[href='#'][onclick="toggleLayer('PathsAll')"]`
+        );
         if (toggleButton && toggleButton.classList.contains("active-layer")) {
           pathsAllLayer.visible = true;
         } else {
@@ -671,29 +668,31 @@ require([
         }
       }
 
-      document.querySelectorAll("a.active-layer").forEach(btn => btn.classList.remove("active-layer"));
+      document
+        .querySelectorAll("a.active-layer")
+        .forEach((btn) => btn.classList.remove("active-layer"));
       return;
     }
 
     const searchableLayers = {
-      "badplatser": "badplatser",
+      badplatser: "badplatser",
       "livräddningsutrustning": "livraddningsutrustning",
-      "pulkabackar": "pulkabackar",
-      "idrott": "idrott_motion",
-      "motion": "idrott_motion",
-      "motionsspår": "PathsAll",
-      "spontanidrott": "spontanidrott",
-      "utegym": "utegym",
-      "lekplatser": "lekplatser",
-      "rastplatser": "rastplatser",
-      "papperskorgar": "papperskorgar",
-      "toaletter": "offentliga_toaletter",
-      "offentliga toaletter": "offentliga_toaletter"
+      pulkabackar: "pulkabackar",
+      idrott: "idrott_motion",
+      motion: "idrott_motion",
+      motionsspår: "PathsAll",
+      spontanidrott: "spontanidrott",
+      utegym: "utegym",
+      lekplatser: "lekplatser",
+      rastplatser: "rastplatser",
+      papperskorgar: "papperskorgar",
+      toaletter: "offentliga_toaletter",
+      "offentliga toaletter": "offentliga_toaletter",
     };
 
     let matchFound = false;
 
-    Object.keys(layers).forEach(name => {
+    Object.keys(layers).forEach((name) => {
       if (!name.startsWith("SearchResult")) {
         layers[name].visible = false;
       }
@@ -705,8 +704,12 @@ require([
         const layer = layers[layerName];
         if (layer) {
           layer.visible = true;
-          const buttons = document.querySelectorAll(`a[href='#'][onclick="toggleLayer('${layerName}')"]`);
-          buttons.forEach(button => button.classList.add("active-layer"));
+          const buttons = document.querySelectorAll(
+            `a[href='#'][onclick="toggleLayer('${layerName}')"]`
+          );
+          buttons.forEach((button) =>
+            button.classList.add("active-layer")
+          );
         }
         break;
       }
@@ -715,12 +718,12 @@ require([
     if (!matchFound) {
       const data = await fetchData("JSON/motionsspar.json");
       if (data && data.features) {
-        const index = data.features.findIndex(f =>
-          f.properties?.NAMN?.toLowerCase().trim() === input
+        const index = data.features.findIndex(
+          (f) => f.properties?.NAMN?.toLowerCase().trim() === input
         );
 
         if (index !== -1) {
-          Object.keys(layers).forEach(name => {
+          Object.keys(layers).forEach((name) => {
             if (name.startsWith("Paths") && name !== "PathsAll") {
               map.remove(layers[name]);
               delete layers[name];
@@ -733,7 +736,6 @@ require([
       }
     }
 
-    // 3. Sök i punktdata – baserat på både namn och typ
     if (!matchFound) {
       const pointFiles = [
         { name: "badplatser", file: "JSON/badplatser.json", color: "blue" },
@@ -745,10 +747,10 @@ require([
         { name: "pulkabackar", file: "JSON/pulkabackar.json", color: "indigo" },
         { name: "rastplatser", file: "JSON/rastplatser.json", color: "teal" },
         { name: "spontanidrott", file: "JSON/spontanidrott.json", color: "magenta" },
-        { name: "utegym", file: "JSON/utegym.json", color: "green" }
+        { name: "utegym", file: "JSON/utegym.json", color: "green" },
       ];
 
-      Object.keys(layers).forEach(name => {
+      Object.keys(layers).forEach((name) => {
         if (name.startsWith("SearchResult")) {
           map.remove(layers[name]);
           delete layers[name];
@@ -761,17 +763,20 @@ require([
 
         const matchedGraphics = [];
 
-        data.features.forEach(feature => {
+        data.features.forEach((feature) => {
           const props = feature.properties || {};
           for (const key in props) {
             const keyLower = key.toLowerCase();
             if (keyLower.includes("namn") || keyLower.includes("typ")) {
               const val = props[key];
-              if (typeof val === "string" && val.toLowerCase().includes(input)) {
+              if (
+                typeof val === "string" &&
+                val.toLowerCase().includes(input)
+              ) {
                 const coords = feature.geometry.coordinates;
                 const point = new Point({
                   longitude: coords[0],
-                  latitude: coords[1]
+                  latitude: coords[1],
                 });
 
                 const symbol = new SimpleMarkerSymbol({
@@ -780,8 +785,8 @@ require([
                   size: 8,
                   outline: {
                     color: "white",
-                    width: 1
-                  }
+                    width: 1,
+                  },
                 });
 
                 let content = "";
@@ -801,8 +806,8 @@ require([
                   attributes: props,
                   popupTemplate: {
                     title: props[key],
-                    content: content
-                  }
+                    content: content,
+                  },
                 });
 
                 matchedGraphics.push(graphic);
@@ -836,11 +841,9 @@ require([
     }
   };
 
-
-
   async function populateAutocomplete() {
     const datalist = document.getElementById("suggestions");
-    datalist.innerHTML = ""; // Rensa gamla förslag
+    datalist.innerHTML = "";
 
     const sources = [
       { name: "Motionsspår", file: "JSON/motionsspar.json", propertyKey: "NAMN" },
@@ -853,15 +856,15 @@ require([
       { name: "Pulkabackar", file: "JSON/pulkabackar.json" },
       { name: "Rastplatser", file: "JSON/rastplatser.json" },
       { name: "Spontanidrott", file: "JSON/spontanidrott.json" },
-      { name: "Utegym", file: "JSON/utegym.json" }
+      { name: "Utegym", file: "JSON/utegym.json" },
     ];
 
-    const seenValues = new Set(); // För att undvika dubbletter
+    const seenValues = new Set();
 
     for (const source of sources) {
       const data = await fetchData(source.file);
       if (data && data.features) {
-        data.features.forEach(feature => {
+        data.features.forEach((feature) => {
           const props = feature.properties || {};
           for (const key in props) {
             const keyLower = key.toLowerCase();
@@ -877,7 +880,7 @@ require([
                   option.value = uniqueKey;
                   datalist.appendChild(option);
                 }
-                break; // Sluta efter första matchande fält
+                break;
               }
             }
           }
@@ -886,30 +889,85 @@ require([
     }
   }
 
-
-
-
-  // Add event listener to the search input field
   document.getElementById("searchInput").addEventListener("input", function () {
-    // Get the current value of the input
     let inputVal = this.value.trim();
 
-    // Check if the value contains ": " and remove the part before and including ": "
-    const match = inputVal.match(/^[^:]+:\s*(.*)$/); // Match everything before ": "
+    const match = inputVal.match(/^[^:]+:\s*(.*)$/);
     if (match) {
-      // If a match is found, update the input value to only show the part after ": "
       this.value = match[1];
     }
   });
 
-  // Call populateAutocomplete to fill the datalist
   populateAutocomplete();
 
+  // ---- FILTER FUNKTIONER (VARNING: HACKIGT SOM FAN!!!) ----
 
+  // Storear det sista grafiska objektet på klick
+  window._lastSelectedGraphic = null;
+  view.on("click", function(event) {
+    view.hitTest(event).then(function(response) {
+      if (response.results.length > 0) {
+        const result = response.results.find(r => r.graphic);
+        if (result) {
+          window._lastSelectedGraphic = result.graphic;
+        }
+      }
+    });
+  });
 
-
-
-
-
+  // Weird fucked up sine-funktion hack för distans
+  function haversine(lon1, lat1, lon2, lat2) {
+    // Returnar distans i meter
+    const R = 6371000;
+    const toRad = deg => deg * Math.PI / 180;
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+  }
+  
+  window.filterAllLayersByProximity = function(selectedGraphic) {
+    if (!selectedGraphic) return;
+    const refGeom = selectedGraphic.geometry;
+    const lon1 = refGeom.longitude, lat1 = refGeom.latitude;
+  
+    // Får avstånd baserat på användarinput (defaultar till 50m)
+    const distanceInput = document.getElementById("distanceInput");
+    const filterDistance = distanceInput ? Number(distanceInput.value) : 50;
+  
+    const pointLayerNames = [
+      "badplatser", "idrott_motion", "lekplatser", "livraddningsutrustning",
+      "offentliga_toaletter", "papperskorgar", "pulkabackar", "rastplatser",
+      "spontanidrott", "utegym"
+    ];
+    pointLayerNames.forEach(layerName => {
+      const layer = layers[layerName];
+      if (!layer) return;
+      if (!layer._originalGraphics) {
+        layer._originalGraphics = layer.graphics.toArray();
+      }
+      const graphicsToKeep = layer._originalGraphics.filter(graphic => {
+        if (graphic === selectedGraphic) return true;
+        let geom = graphic.geometry;
+        if (geom.type !== "point") return false;
+        const lon2 = geom.longitude, lat2 = geom.latitude;
+        const dist = haversine(lon1, lat1, lon2, lat2);
+        return dist !== null && dist <= filterDistance;
+      });
+      layer.removeAll();
+      graphicsToKeep.forEach(g => layer.add(g));
+    });
+  };
+  
+  // Funktion för att återställa lager
+  window.restoreLayerGraphics = function(layerName) {
+    const layer = layers[layerName];
+    if (!layer || !layer._originalGraphics) return;
+    layer.removeAll();
+    layer._originalGraphics.forEach(g => layer.add(g));
+  };
 
 });
