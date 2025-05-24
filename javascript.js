@@ -1,4 +1,5 @@
 require([
+  "esri/config",
   "esri/Map",
   "esri/views/MapView",
   "esri/Graphic",
@@ -10,8 +11,10 @@ require([
   "esri/widgets/Sketch",
   "esri/geometry/geometryEngine",
   "esri/geometry/Polygon",
-  "esri/geometry/support/webMercatorUtils"
+  "esri/geometry/support/webMercatorUtils",
+  "esri/rest/locator"
 ], function (
+  esriConfig,
   Map,
   MapView,
   Graphic,
@@ -23,7 +26,8 @@ require([
   Sketch,
   geometryEngine,
   Polygon,
-  webMercatorUtils
+  webMercatorUtils,
+  locator
 ) {
   const map = new Map({ basemap: "streets" });
 
@@ -611,8 +615,7 @@ require([
           button.classList.toggle("active-layer", layer.visible)
         );
         console.log(
-          `${layerName} i polygonen är nu ${
-            layer.visible ? "synliga" : "dolda"
+          `${layerName} i polygonen är nu ${layer.visible ? "synliga" : "dolda"
           }`
         );
       } else {
@@ -904,8 +907,8 @@ require([
 
   // Storear det sista grafiska objektet på klick
   window._lastSelectedGraphic = null;
-  view.on("click", function(event) {
-    view.hitTest(event).then(function(response) {
+  view.on("click", function (event) {
+    view.hitTest(event).then(function (response) {
       if (response.results.length > 0) {
         const result = response.results.find(r => r.graphic);
         if (result) {
@@ -922,22 +925,22 @@ require([
     const toRad = deg => deg * Math.PI / 180;
     const dLat = toRad(lat2 - lat1);
     const dLon = toRad(lon2 - lon1);
-    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-              Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-              Math.sin(dLon/2) * Math.sin(dLon/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
   }
-  
-  window.filterAllLayersByProximity = function(selectedGraphic) {
+
+  window.filterAllLayersByProximity = function (selectedGraphic) {
     if (!selectedGraphic) return;
     const refGeom = selectedGraphic.geometry;
     const lon1 = refGeom.longitude, lat1 = refGeom.latitude;
-  
+
     // Får avstånd baserat på användarinput (defaultar till 50m)
     const distanceInput = document.getElementById("distanceInput");
     const filterDistance = distanceInput ? Number(distanceInput.value) : 50;
-  
+
     const pointLayerNames = [
       "badplatser", "idrott_motion", "lekplatser", "livraddningsutrustning",
       "offentliga_toaletter", "papperskorgar", "pulkabackar", "rastplatser",
@@ -961,13 +964,87 @@ require([
       graphicsToKeep.forEach(g => layer.add(g));
     });
   };
-  
+
   // Funktion för att återställa lager
-  window.restoreLayerGraphics = function(layerName) {
+  window.restoreLayerGraphics = function (layerName) {
     const layer = layers[layerName];
     if (!layer || !layer._originalGraphics) return;
     layer.removeAll();
     layer._originalGraphics.forEach(g => layer.add(g));
+  };
+
+  // API adressökning via Geocoding
+  // AAPTxy8BH1VEsoebNVZXo8HurGuzNiuipj3FeKc7J3bGv8MaeMrTf_4Cd93WYmOpXvbA7CaNK_hxZ9yggnHAS3EBCSERDu9xA5Aamx855-nVlZyF0eg2FhfAJkrBrAl8vZ4C4Jf7ShQRCMflvFOZiEZYkrNdRlqSHkz6T9H-DIOtfmucYgvNGbI6dxd6C2o3oOU8JKRygADxbDRc4qWKQoJo1ZQ0V_ICixNhnJSxVtJNExg.AT1_5p5pSRQ3
+  // https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/<request>?<parameters>&f=json&token=<ACCESS_TOKEN>
+  // const apiKey = "AAPTxy8BH1VEsoebNVZXo8HurGuzNiuipj3FeKc7J3bGv8MaeMrTf_4Cd93WYmOpXvbA7CaNK_hxZ9yggnHAS3EBCSERDu9xA5Aamx855-nVlZyF0eg2FhfAJkrBrAl8vZ4C4Jf7ShQRCMflvFOZiEZYkrNdRlqSHkz6T9H-DIOtfmucYgvNGbI6dxd6C2o3oOU8JKRygADxbDRc4qWKQoJo1ZQ0V_ICixNhnJSxVtJNExg.AT1_5p5pSRQ3";
+
+  esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurGuzNiuipj3FeKc7J3bGv8MaeMrTf_4Cd93WYmOpXvbA7CaNK_hxZ9yggnHAS3EBCSERDu9xA5Aamx855-nVlZyF0eg2FhfAJkrBrAl8vZ4C4Jf7ShQRCMflvFOZiEZYkrNdRlqSHkz6T9H-DIOtfmucYgvNGbI6dxd6C2o3oOU8JKRygADxbDRc4qWKQoJo1ZQ0V_ICixNhnJSxVtJNExg.AT1_5p5pSRQ3";
+
+  window.geocodeAddress = function () {
+    const input = document.getElementById("addressInput").value;
+    const resultBox = document.getElementById("resultBox");
+
+    if (!input) {
+      resultBox.textContent = "⚠️ Skriv in en adress.";
+      return;
+    }
+
+    const geocodingServiceUrl = "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer";
+
+    const params = {
+      address: {
+        address: input
+      }
+    };
+
+    locator.addressToLocations(geocodingServiceUrl, params).then((results) => {
+      if (results.length) {
+        const result = results[0];
+        view.graphics.removeAll();
+
+        view.graphics.add(new Graphic({
+          symbol: {
+            type: "simple-marker",
+            color: "#000000",
+            size: "8px",
+            outline: {
+              color: "#ffffff",
+              width: "1px"
+            }
+          },
+          geometry: result.location,
+          attributes: {
+            title: "Address",
+            address: result.address,
+            score: result.score
+          },
+          popupTemplate: {
+            title: "{title}",
+            content: result.address + "<br><br>" +
+              result.location.longitude.toFixed(5) + "," +
+              result.location.latitude.toFixed(5)
+          }
+        }));
+
+        view.goTo({
+          target: result.location,
+          zoom: 13
+        });
+
+        view.popup.open({
+          location: result.location,
+          title: "Sökresultat",
+          content: result.address
+        });
+
+        resultBox.textContent = `✅ Adress hittad:\n${result.address}`;
+      } else {
+        resultBox.textContent = "❌ Ingen träff på adressen.";
+      }
+    }).catch(error => {
+      resultBox.textContent = "❌ Ett fel uppstod vid sökning:\n" + error.message;
+      console.error(error);
+    });
   };
 
 });

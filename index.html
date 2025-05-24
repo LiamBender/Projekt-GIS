@@ -77,6 +77,10 @@
         <input type="number" id="distanceInput" min="1" max="10000" value="50" step="1">
         <button id="proximityFilterBtn" type="button">Filtrera punkter</button>
         <button id="restoreProximityBtn" type="button">Återställ filtrerade lager</button>
+
+        <input type="text" id="addressInput" placeholder="Skriv adress..." />
+        <button onclick="geocodeAddress()">Sök Adress</button>
+        <pre id="resultBox">Resultat visas här...</pre>
     </section>
 
     <div id="viewDiv"></div>
@@ -89,37 +93,37 @@
     </footer>
     <script src="javascript.js" async defer></script>
     <script>
-      // Knapp för proximity filter och restore
-      window.addEventListener("DOMContentLoaded", function () {
-        // Proximity filter button event
-        const filterBtn = document.getElementById("proximityFilterBtn");
-        filterBtn.addEventListener("click", function () {
-          if (window._lastSelectedGraphic && typeof filterAllLayersByProximity === "function") {
-            filterAllLayersByProximity(window._lastSelectedGraphic);
-          } else {
-            alert("Klicka först på ett objekt på kartan att filtrera kring.");
-          }
-        });
+        // Knapp för proximity filter och restore
+        window.addEventListener("DOMContentLoaded", function () {
+            // Proximity filter button event
+            const filterBtn = document.getElementById("proximityFilterBtn");
+            filterBtn.addEventListener("click", function () {
+                if (window._lastSelectedGraphic && typeof filterAllLayersByProximity === "function") {
+                    filterAllLayersByProximity(window._lastSelectedGraphic);
+                } else {
+                    alert("Klicka först på ett objekt på kartan att filtrera kring.");
+                }
+            });
 
-        // Återställ filtrerade lager event
-        const restoreBtn = document.getElementById("restoreProximityBtn");
-        restoreBtn.addEventListener("click", function () {
-          if (typeof restoreLayerGraphics === "function") {
-            [
-              "badplatser",
-              "idrott_motion",
-              "lekplatser",
-              "livraddningsutrustning",
-              "offentliga_toaletter",
-              "papperskorgar",
-              "pulkabackar",
-              "rastplatser",
-              "spontanidrott",
-              "utegym"
-            ].forEach(restoreLayerGraphics);
-          }
+            // Återställ filtrerade lager event
+            const restoreBtn = document.getElementById("restoreProximityBtn");
+            restoreBtn.addEventListener("click", function () {
+                if (typeof restoreLayerGraphics === "function") {
+                    [
+                        "badplatser",
+                        "idrott_motion",
+                        "lekplatser",
+                        "livraddningsutrustning",
+                        "offentliga_toaletter",
+                        "papperskorgar",
+                        "pulkabackar",
+                        "rastplatser",
+                        "spontanidrott",
+                        "utegym"
+                    ].forEach(restoreLayerGraphics);
+                }
+            });
         });
-      });
     </script>
 </body>
 
