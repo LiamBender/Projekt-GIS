@@ -41,6 +41,10 @@ require([
   // Allmänna layers
   const layers = {}; // Objekt som kan spara flera lager
 
+  // Adress layer
+  const addressLayer = new GraphicsLayer({ id: "addressLayer" });
+  map.add(addressLayer);
+
   //Polygon filter
   const filteredPointsLayer = new GraphicsLayer();
   const filteredPolygonLayers = {};
@@ -178,6 +182,11 @@ require([
 
   sketch.on("create", (event) => {
     if (event.state === "complete") {
+      const addressLayerRef = map.findLayerById("addressLayer");
+      if (addressLayerRef) {
+        addressLayerRef.removeAll();
+      }
+
       // Lägg till polygonen i lagret
       polygonLayer.add(event.graphic);
 
@@ -1155,9 +1164,9 @@ require([
       .then((results) => {
         if (results.length) {
           const result = results[0];
-          view.graphics.removeAll();
+          addressLayer.removeAll();
 
-          view.graphics.add(
+          addressLayer.add(
             new Graphic({
               symbol: {
                 type: "simple-marker",
