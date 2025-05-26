@@ -200,6 +200,29 @@ button.active-layer {
   left: 15px;
 }
 
+/* Suggestions */
+#suggestions.custom-suggestions {
+  position: absolute;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  z-index: 9999;
+  width: 100%;
+  display: none;
+  color: white;
+}
+
+#suggestions.custom-suggestions div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions.custom-suggestions div:hover {
+  background-color: #555;
+}
+
 /* Responsive adjustments */
 @media (max-width: 480px) {
   #sideMenu,

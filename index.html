@@ -48,11 +48,11 @@
         <input
           type="text"
           id="searchInput"
-          list="suggestions"
           placeholder="T.ex. badplats"
+          autocomplete="off"
           onkeyup="filterFunction()"
         />
-        <datalist id="suggestions"></datalist>
+        <div id="suggestions" class="custom-suggestions"></div>
       </div>
 
       <!-- Närhetsfilter -->

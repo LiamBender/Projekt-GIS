@@ -792,8 +792,21 @@ require([
         );
 
         if (index !== -1) {
+          // Ta bort tidigare individuella motionsspår
           Object.keys(layers).forEach((name) => {
             if (name.startsWith("Paths") && name !== "PathsAll") {
+              map.remove(layers[name]);
+              delete layers[name];
+            }
+            // DÖLJ alla andra lager
+            if (!name.startsWith("SearchResult")) {
+              layers[name].visible = false;
+            }
+          });
+
+          // Rensa SearchResult-lager
+          Object.keys(layers).forEach((name) => {
+            if (name.startsWith("SearchResult")) {
               map.remove(layers[name]);
               delete layers[name];
             }
@@ -801,6 +814,7 @@ require([
 
           getPathsData(index);
           matchFound = true;
+          return;
         }
       }
     }
@@ -931,15 +945,12 @@ require([
   };
 
   async function populateAutocomplete() {
-    const datalist = document.getElementById("suggestions");
-    datalist.innerHTML = "";
+    const suggestionsBox = document.getElementById("suggestions");
+    suggestionsBox.innerHTML = "";
+    suggestionsBox.style.display = "none";
 
     const sources = [
-      {
-        name: "Motionsspår",
-        file: "JSON/motionsspar.json",
-        propertyKey: "NAMN",
-      },
+      { name: "Motionsspår", file: "JSON/motionsspar.json" },
       { name: "Badplatser", file: "JSON/badplatser.json" },
       { name: "Idrott & Motion", file: "JSON/idrott_motion.json" },
       { name: "Lekplatser", file: "JSON/lekplatser.json" },
@@ -972,9 +983,16 @@ require([
                 if (!seenValues.has(uniqueKey)) {
                   seenValues.add(uniqueKey);
 
-                  const option = document.createElement("option");
-                  option.value = uniqueKey;
-                  datalist.appendChild(option);
+                  const div = document.createElement("div");
+                  div.textContent = uniqueKey;
+                  div.dataset.value = value.toLowerCase();
+                  div.onclick = () => {
+                    document.getElementById("searchInput").value = value;
+                    suggestionsBox.style.display = "none";
+                    filterFunction();
+                  };
+
+                  suggestionsBox.appendChild(div);
                 }
                 break;
               }
@@ -995,6 +1013,34 @@ require([
   });
 
   populateAutocomplete();
+
+  populateAutocomplete();
+
+  document.getElementById("searchInput").addEventListener("input", function () {
+    // Ta bort prefix om användaren klistrat in något med "Kategori (Namn): ..."
+    const match = this.value.match(/^[^:]+:\s*(.*)$/);
+    if (match) this.value = match[1];
+
+    const value = this.value.toLowerCase().trim();
+    const box = document.getElementById("suggestions");
+    const options = Array.from(box.children);
+    let matches = 0;
+
+    options.forEach((option) => {
+      const isMatch = option.dataset.value?.startsWith(value);
+
+      option.style.display = isMatch ? "block" : "none";
+      if (isMatch) matches++;
+    });
+
+    box.style.display = matches > 0 ? "block" : "none";
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest("#suggestions") && e.target.id !== "searchInput") {
+      document.getElementById("suggestions").style.display = "none";
+    }
+  });
 
   // ---- FILTER FUNKTIONER (VARNING: HACKIGT SOM FAN!!!) ----
 
