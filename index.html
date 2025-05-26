@@ -1,130 +1,216 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css" />
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.32/esri/themes/light/main.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://js.arcgis.com/4.32/"></script>
-</head>
+  </head>
 
-<body>
+  <body>
+    <button
+      id="menuButton"
+      onclick="toggleAnyMenu('sideMenu', 'menuButton', ['toolsMenu'])"
+    >
+      <img src="icons/icons8-menu-50.png" alt="Search Icon" />
+    </button>
 
-    <header class="header">
-        <nav class="nav-buttons">
-            <div class="dropdown">
-                <button class="dropbtn">Bad & Friluft</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="toggleLayer('badplatser')">Badplatser</a>
-                    <a href="#" onclick="toggleLayer('livraddningsutrustning')">Livräddningsutrustning</a>
-                    <a href="#" onclick="toggleLayer('pulkabackar')">Pulkabackar</a>
-                </div>
-            </div>
+    <!-- Extra knapp -->
+    <button
+      id="toolsButton"
+      onclick="toggleAnyMenu('toolsMenu', 'toolsButton', ['sideMenu'])"
+    >
+      <img src="icons/icons8-search-50.png" alt="Tools Icon" />
+    </button>
 
-            <div class="dropdown">
-                <button class="dropbtn">Motion & Idrott</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="toggleLayer('idrott_motion')">Idrott & Motion</a>
-                    <a href="#" onclick="toggleLayer('PathsAll')">Motionsspår</a>
-                    <a href="#" onclick="toggleLayer('spontanidrott')">Spontanidrott</a>
-                    <a href="#" onclick="toggleLayer('utegym')">Utegym</a>
-                </div>
-            </div>
+    <div id="toolsMenu">
+      <button
+        class="close-btn"
+        onclick="toggleAnyMenu('toolsMenu', 'toolsButton', ['sideMenu'])"
+      >
+        &times;
+      </button>
 
-            <div class="dropdown">
-                <button class="dropbtn">Rast & Lek</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="toggleLayer('lekplatser')">Lekplatser</a>
-                    <a href="#" onclick="toggleLayer('rastplatser')">Rastplatser</a>
-                    <a href="#" onclick="toggleLayer('papperskorgar')">Papperskorgar</a>
-                </div>
-            </div>
+      <h2>Verktygsmeny</h2>
 
-            <div class="dropdown">
-                <button class="dropbtn">Service</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="toggleLayer('offentliga_toaletter')">Offentliga Toaletter</a>
-                </div>
-            </div>
+      <!-- Sökfunktion -->
+      <div class="menu-section">
+        <h3>Sök efter objekt</h3>
 
-            <div class="dropdown">
-                <button class="dropbtn">POI</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="pointHandler('create')">Skapa POI</a>
-                    <a href="#" onclick="pointHandler('delete')">Ta bort POI</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Polygon</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="togglePolygon('draw')">Skapa Polygon</a>
-                    <a href="#" onclick="togglePolygon('delete')">Ta bort Polygon</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <section>
-        <input type="text" id="searchInput" list="suggestions" placeholder="Sök efter objekt..."
-            onkeyup="filterFunction()">
+        <label for="searchInput">Skriv namn:</label>
+        <input
+          type="text"
+          id="searchInput"
+          list="suggestions"
+          placeholder="T.ex. badplats"
+          onkeyup="filterFunction()"
+        />
         <datalist id="suggestions"></datalist>
-        <label for="distanceInput">Filter avstånd (meter):</label>
-        <input type="number" id="distanceInput" min="1" max="10000" value="50" step="1">
-        <button id="proximityFilterBtn" type="button">Filtrera punkter</button>
-        <button id="restoreProximityBtn" type="button">Återställ filtrerade lager</button>
+      </div>
 
-        <input type="text" id="addressInput" placeholder="Skriv adress..." />
+      <!-- Närhetsfilter -->
+      <div class="menu-section">
+        <h3>Filter avstånd</h3>
+
+        <label for="distanceInput">Avstånd (meter):</label>
+        <input
+          type="number"
+          id="distanceInput"
+          min="1"
+          max="10000"
+          value="50"
+          step="1"
+        />
+
+        <button id="proximityFilterBtn" type="button">Filtrera punkter</button>
+        <button id="restoreProximityBtn" type="button">
+          Återställ filtrerade lager
+        </button>
+      </div>
+
+      <!-- Adressökning -->
+      <div class="menu-section">
+        <h3>Adressökning</h3>
+
+        <label for="addressInput">Skriv adress:</label>
+        <input type="text" id="addressInput" placeholder="Ex: Kungsgatan 1" />
         <button onclick="geocodeAddress()">Sök Adress</button>
+
         <pre id="resultBox">Resultat visas här...</pre>
-    </section>
+      </div>
+    </div>
+
+    <!-- Sliding Menu -->
+    <div id="sideMenu">
+      <button
+        class="close-btn"
+        onclick="toggleAnyMenu('sideMenu', 'menuButton', ['toolsMenu'])"
+      >
+        &times;
+      </button>
+
+      <h2>Kategori meny</h2>
+      <div class="menu-section">
+        <h3>Bad & Friluft</h3>
+        <button onclick="toggleLayer('badplatser')">Badplatser</button>
+        <button onclick="toggleLayer('livraddningsutrustning')">
+          Livräddningsutrustning
+        </button>
+        <button onclick="toggleLayer('pulkabackar')">Pulkabackar</button>
+      </div>
+
+      <div class="menu-section">
+        <h3>Motion & Idrott</h3>
+        <button onclick="toggleLayer('idrott_motion')">Idrott & Motion</button>
+        <button onclick="toggleLayer('PathsAll')">Motionsspår</button>
+        <button onclick="toggleLayer('spontanidrott')">Spontanidrott</button>
+        <button onclick="toggleLayer('utegym')">Utegym</button>
+      </div>
+
+      <div class="menu-section">
+        <h3>Rast & Lek</h3>
+        <button onclick="toggleLayer('lekplatser')">Lekplatser</button>
+        <button onclick="toggleLayer('rastplatser')">Rastplatser</button>
+        <button onclick="toggleLayer('papperskorgar')">Papperskorgar</button>
+      </div>
+
+      <div class="menu-section">
+        <h3>Service</h3>
+        <button onclick="toggleLayer('offentliga_toaletter')">
+          Offentliga Toaletter
+        </button>
+      </div>
+
+      <div class="menu-section">
+        <h3>POI</h3>
+        <button onclick="pointHandler('create')">Skapa POI</button>
+        <button onclick="pointHandler('delete')">Ta bort POI</button>
+      </div>
+
+      <div class="menu-section">
+        <h3>Polygon</h3>
+        <button onclick="togglePolygon('draw')">Skapa Polygon</button>
+        <button onclick="togglePolygon('delete')">Ta bort Polygon</button>
+      </div>
+    </div>
 
     <div id="viewDiv"></div>
 
-    <footer>
-        <p>högskolan gävle</p>
-        <p>2025</p>
-        <p>denna map är skapad av högskolan gävle</p>
-        <p>frilufts karta</p>
-    </footer>
     <script src="javascript.js" async defer></script>
     <script>
-        // Knapp för proximity filter och restore
-        window.addEventListener("DOMContentLoaded", function () {
-            // Proximity filter button event
-            const filterBtn = document.getElementById("proximityFilterBtn");
-            filterBtn.addEventListener("click", function () {
-                if (window._lastSelectedGraphic && typeof filterAllLayersByProximity === "function") {
-                    filterAllLayersByProximity(window._lastSelectedGraphic);
-                } else {
-                    alert("Klicka först på ett objekt på kartan att filtrera kring.");
-                }
-            });
+      // Meny
+      function toggleAnyMenu(
+        menuIdToToggle,
+        buttonIdToToggle,
+        otherMenus = []
+      ) {
+        const menuToToggle = document.getElementById(menuIdToToggle);
+        const buttonToToggle = document.getElementById(buttonIdToToggle);
+        const allButtons = [
+          document.getElementById("menuButton"),
+          document.getElementById("toolsButton"),
+        ];
 
-            // Återställ filtrerade lager event
-            const restoreBtn = document.getElementById("restoreProximityBtn");
-            restoreBtn.addEventListener("click", function () {
-                if (typeof restoreLayerGraphics === "function") {
-                    [
-                        "badplatser",
-                        "idrott_motion",
-                        "lekplatser",
-                        "livraddningsutrustning",
-                        "offentliga_toaletter",
-                        "papperskorgar",
-                        "pulkabackar",
-                        "rastplatser",
-                        "spontanidrott",
-                        "utegym"
-                    ].forEach(restoreLayerGraphics);
-                }
-            });
+        const isOpening = !menuToToggle.classList.contains("open");
+
+        // Close all other menus
+        otherMenus.forEach((menuId) => {
+          const otherMenu = document.getElementById(menuId);
+          if (otherMenu && otherMenu !== menuToToggle) {
+            otherMenu.classList.remove("open");
+          }
         });
-    </script>
-</body>
 
+        // Toggle this menu
+        menuToToggle.classList.toggle("open");
+
+        // Hide or show all buttons depending on state
+        allButtons.forEach((btn) => {
+          if (btn) btn.classList.toggle("hide", isOpening);
+        });
+      }
+
+      // Knapp för proximity filter och restore
+      window.addEventListener("DOMContentLoaded", function () {
+        // Proximity filter button event
+        const filterBtn = document.getElementById("proximityFilterBtn");
+        filterBtn.addEventListener("click", function () {
+          if (
+            window._lastSelectedGraphic &&
+            typeof filterAllLayersByProximity === "function"
+          ) {
+            filterAllLayersByProximity(window._lastSelectedGraphic);
+          } else {
+            alert("Klicka först på ett objekt på kartan att filtrera kring.");
+          }
+        });
+
+        // Återställ filtrerade lager event
+        const restoreBtn = document.getElementById("restoreProximityBtn");
+        restoreBtn.addEventListener("click", function () {
+          if (typeof restoreLayerGraphics === "function") {
+            [
+              "badplatser",
+              "idrott_motion",
+              "lekplatser",
+              "livraddningsutrustning",
+              "offentliga_toaletter",
+              "papperskorgar",
+              "pulkabackar",
+              "rastplatser",
+              "spontanidrott",
+              "utegym",
+            ].forEach(restoreLayerGraphics);
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

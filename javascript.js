@@ -12,7 +12,7 @@ require([
   "esri/geometry/geometryEngine",
   "esri/geometry/Polygon",
   "esri/geometry/support/webMercatorUtils",
-  "esri/rest/locator"
+  "esri/rest/locator",
 ], function (
   esriConfig,
   Map,
@@ -151,10 +151,11 @@ require([
         if (layers[name]) layers[name].visible = false;
       });
       Object.keys(filteredPolygonLayers).forEach((name) => {
-        if (filteredPolygonLayers[name]) filteredPolygonLayers[name].visible = false;
+        if (filteredPolygonLayers[name])
+          filteredPolygonLayers[name].visible = false;
       });
       document
-        .querySelectorAll("a.active-layer")
+        .querySelectorAll(".active-layer")
         .forEach((btn) => btn.classList.remove("active-layer"));
 
       polygonLayer.visible = true;
@@ -169,7 +170,7 @@ require([
         sketch.visible = false;
         polygonLayer.visible = false;
         document
-          .querySelectorAll("a.active-layer")
+          .querySelectorAll(".active-layer")
           .forEach((btn) => btn.classList.remove("active-layer"));
       }
     }
@@ -200,8 +201,14 @@ require([
     badplatser: { file: "JSON/badplatser.json", color: "blue" },
     idrott_motion: { file: "JSON/idrott_motion.json", color: "yellow" },
     lekplatser: { file: "JSON/lekplatser.json", color: "orange" },
-    livraddningsutrustning: { file: "JSON/livraddningsutrustning.json", color: "purple" },
-    offentliga_toaletter: { file: "JSON/offentliga_toaletter.json", color: "cyan" },
+    livraddningsutrustning: {
+      file: "JSON/livraddningsutrustning.json",
+      color: "purple",
+    },
+    offentliga_toaletter: {
+      file: "JSON/offentliga_toaletter.json",
+      color: "cyan",
+    },
     papperskorgar: { file: "JSON/papperskorgar.json", color: "black" },
     pulkabackar: { file: "JSON/pulkabackar.json", color: "indigo" },
     rastplatser: { file: "JSON/rastplatser.json", color: "teal" },
@@ -254,8 +261,16 @@ require([
   addPointLayer("badplatser", "JSON/badplatser.json", "blue");
   addPointLayer("idrott_motion", "JSON/idrott_motion.json", "yellow");
   addPointLayer("lekplatser", "JSON/lekplatser.json", "orange");
-  addPointLayer("livraddningsutrustning", "JSON/livraddningsutrustning.json", "purple");
-  addPointLayer("offentliga_toaletter", "JSON/offentliga_toaletter.json", "cyan");
+  addPointLayer(
+    "livraddningsutrustning",
+    "JSON/livraddningsutrustning.json",
+    "purple"
+  );
+  addPointLayer(
+    "offentliga_toaletter",
+    "JSON/offentliga_toaletter.json",
+    "cyan"
+  );
   addPointLayer("papperskorgar", "JSON/papperskorgar.json", "black");
   addPointLayer("pulkabackar", "JSON/pulkabackar.json", "indigo");
   addPointLayer("rastplatser", "JSON/rastplatser.json", "teal");
@@ -266,7 +281,8 @@ require([
   async function fetchData(file) {
     try {
       const response = await fetch(file);
-      if (!response.ok) throw new Error(`Failed to fetch ${file}: ${response.statusText}`);
+      if (!response.ok)
+        throw new Error(`Failed to fetch ${file}: ${response.statusText}`);
       return await response.json();
     } catch (error) {
       console.error(error);
@@ -312,7 +328,10 @@ require([
       });
 
       const isInside = savedPolygonCoords.some((rings) => {
-        const polygon = new Polygon({ rings: rings, spatialReference: spatialRef });
+        const polygon = new Polygon({
+          rings: rings,
+          spatialReference: spatialRef,
+        });
         return geometryEngine.contains(polygon, point);
       });
 
@@ -328,9 +347,10 @@ require([
 
         const popupTemplate = {
           title: props.NAMN || props.name || "Details",
-          content: Object.entries(props)
-            .map(([k, v]) => `<b>${k}:</b> ${v}`)
-            .join("<br>") || "No info",
+          content:
+            Object.entries(props)
+              .map(([k, v]) => `<b>${k}:</b> ${v}`)
+              .join("<br>") || "No info",
         };
 
         const graphic = new Graphic({
@@ -373,7 +393,10 @@ require([
             return [lng, lat];
           })
         );
-        const polygon = new Polygon({ rings: fixedRings, spatialReference: { wkid: 4326 } });
+        const polygon = new Polygon({
+          rings: fixedRings,
+          spatialReference: { wkid: 4326 },
+        });
         return geometryEngine.intersects(polygon, line);
       });
 
@@ -392,7 +415,9 @@ require([
           <b>Ändamål:</b> ${feature.properties?.ANDAMAL || ""}<br/>
           <b>Info:</b> ${feature.properties?.INFO || ""}<br/>
           <b>Extra info:</b> ${feature.properties?.EXTRA_INFO || ""}<br/>
-          <b>Längd (meter):</b> ${feature.properties?.["Shape.STLength()"] || ""}<br/>
+          <b>Längd (meter):</b> ${
+            feature.properties?.["Shape.STLength()"] || ""
+          }<br/>
         `,
         };
 
@@ -435,7 +460,11 @@ require([
 
       let content = "";
       for (const key in props) {
-        if (props.hasOwnProperty(key) && props[key] !== null && props[key] !== undefined) {
+        if (
+          props.hasOwnProperty(key) &&
+          props[key] !== null &&
+          props[key] !== undefined
+        ) {
           let value = props[key];
           if (typeof value === "string" && value.match(/^https?:\/\//)) {
             value = `<a href="${value}" target="_blank">${value}</a>`;
@@ -462,17 +491,52 @@ require([
 
   function getColorByIndex(index, total) {
     const COLORS = [
-      "#e6194b", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#46f0f0", "#f032e6",
-      "#bcf60c", "#fabebe", "#008080", "#e6beff", "#9a6324", "#fffac8", "#800000", "#aaffc3",
-      "#808000", "#ffd8b1", "#000075", "#808080", "#d2f53c", "#faff00", "#a9a9a9", "#b6a6ca",
-      "#ffb3ba", "#c6e2ff", "#b5ead7", "#ffdac1", "#ff9aa2", "#b28dff", "#ffb347", "#cfcfc4",
-      "#f1cbff", "#b7e4c7", "#d0f4de", "#e2cfc4", "#e0bbff", "#b3ffd9", "#ffdfba", "#f3c6e8",
-      "#baffc9"
+      "#e6194b",
+      "#3cb44b",
+      "#ffe119",
+      "#4363d8",
+      "#f58231",
+      "#911eb4",
+      "#46f0f0",
+      "#f032e6",
+      "#bcf60c",
+      "#fabebe",
+      "#008080",
+      "#e6beff",
+      "#9a6324",
+      "#fffac8",
+      "#800000",
+      "#aaffc3",
+      "#808000",
+      "#ffd8b1",
+      "#000075",
+      "#808080",
+      "#d2f53c",
+      "#faff00",
+      "#a9a9a9",
+      "#b6a6ca",
+      "#ffb3ba",
+      "#c6e2ff",
+      "#b5ead7",
+      "#ffdac1",
+      "#ff9aa2",
+      "#b28dff",
+      "#ffb347",
+      "#cfcfc4",
+      "#f1cbff",
+      "#b7e4c7",
+      "#d0f4de",
+      "#e2cfc4",
+      "#e0bbff",
+      "#b3ffd9",
+      "#ffdfba",
+      "#f3c6e8",
+      "#baffc9",
     ];
     if (index < COLORS.length) {
       return COLORS[index];
     }
-    return `hsl(${(index * 360 / total) % 360}, 80%, 45%)`;
+    return `hsl(${((index * 360) / total) % 360}, 80%, 45%)`;
   }
 
   async function getPathsData(lineIndex) {
@@ -515,7 +579,7 @@ require([
           <b>Info:</b> {INFO}<br/>
           <b>Extra info:</b> {EXTRA_INFO}<br/>
           <b>Längd (meter):</b> {Shape.STLength()}<br/>
-        `
+        `,
       };
 
       const graphic = new Graphic({
@@ -563,7 +627,7 @@ require([
             <b>Info:</b> {INFO}<br/>
             <b>Extra info:</b> {EXTRA_INFO}<br/>
             <b>Längd (meter):</b> {Shape.STLength()}<br/>
-          `
+          `,
         };
 
         const graphic = new Graphic({
@@ -609,13 +673,14 @@ require([
       if (layer) {
         layer.visible = !layer.visible;
         const buttons = document.querySelectorAll(
-          `a[href='#'][onclick="toggleLayer('${layerName}')"]`
+          `[onclick="toggleLayer('${layerName}')"]`
         );
         buttons.forEach((button) =>
           button.classList.toggle("active-layer", layer.visible)
         );
         console.log(
-          `${layerName} i polygonen är nu ${layer.visible ? "synliga" : "dolda"
+          `${layerName} i polygonen är nu ${
+            layer.visible ? "synliga" : "dolda"
           }`
         );
       } else {
@@ -629,7 +694,7 @@ require([
       layer.visible = !layer.visible;
 
       const buttons = document.querySelectorAll(
-        `a[href='#'][onclick="toggleLayer('${layerName}')"]`
+        `[onclick="toggleLayer('${layerName}')"]`
       );
       buttons.forEach((button) =>
         button.classList.toggle("active-layer", layer.visible)
@@ -644,7 +709,10 @@ require([
   };
 
   window.filterFunction = async function () {
-    const input = document.getElementById("searchInput").value.toLowerCase().trim();
+    const input = document
+      .getElementById("searchInput")
+      .value.toLowerCase()
+      .trim();
 
     if (!input) {
       Object.keys(layers).forEach((name) => {
@@ -662,7 +730,7 @@ require([
       const pathsAllLayer = layers["PathsAll"];
       if (pathsAllLayer) {
         const toggleButton = document.querySelector(
-          `a[href='#'][onclick="toggleLayer('PathsAll')"]`
+          `[onclick="toggleLayer('PathsAll')"]`
         );
         if (toggleButton && toggleButton.classList.contains("active-layer")) {
           pathsAllLayer.visible = true;
@@ -672,14 +740,14 @@ require([
       }
 
       document
-        .querySelectorAll("a.active-layer")
+        .querySelectorAll(".active-layer")
         .forEach((btn) => btn.classList.remove("active-layer"));
       return;
     }
 
     const searchableLayers = {
       badplatser: "badplatser",
-      "livräddningsutrustning": "livraddningsutrustning",
+      livräddningsutrustning: "livraddningsutrustning",
       pulkabackar: "pulkabackar",
       idrott: "idrott_motion",
       motion: "idrott_motion",
@@ -708,11 +776,9 @@ require([
         if (layer) {
           layer.visible = true;
           const buttons = document.querySelectorAll(
-            `a[href='#'][onclick="toggleLayer('${layerName}')"]`
+            `[onclick="toggleLayer('${layerName}')"]`
           );
-          buttons.forEach((button) =>
-            button.classList.add("active-layer")
-          );
+          buttons.forEach((button) => button.classList.add("active-layer"));
         }
         break;
       }
@@ -742,14 +808,34 @@ require([
     if (!matchFound) {
       const pointFiles = [
         { name: "badplatser", file: "JSON/badplatser.json", color: "blue" },
-        { name: "idrott_motion", file: "JSON/idrott_motion.json", color: "yellow" },
+        {
+          name: "idrott_motion",
+          file: "JSON/idrott_motion.json",
+          color: "yellow",
+        },
         { name: "lekplatser", file: "JSON/lekplatser.json", color: "orange" },
-        { name: "livraddningsutrustning", file: "JSON/livraddningsutrustning.json", color: "purple" },
-        { name: "offentliga_toaletter", file: "JSON/offentliga_toaletter.json", color: "cyan" },
-        { name: "papperskorgar", file: "JSON/papperskorgar.json", color: "black" },
+        {
+          name: "livraddningsutrustning",
+          file: "JSON/livraddningsutrustning.json",
+          color: "purple",
+        },
+        {
+          name: "offentliga_toaletter",
+          file: "JSON/offentliga_toaletter.json",
+          color: "cyan",
+        },
+        {
+          name: "papperskorgar",
+          file: "JSON/papperskorgar.json",
+          color: "black",
+        },
         { name: "pulkabackar", file: "JSON/pulkabackar.json", color: "indigo" },
         { name: "rastplatser", file: "JSON/rastplatser.json", color: "teal" },
-        { name: "spontanidrott", file: "JSON/spontanidrott.json", color: "magenta" },
+        {
+          name: "spontanidrott",
+          file: "JSON/spontanidrott.json",
+          color: "magenta",
+        },
         { name: "utegym", file: "JSON/utegym.json", color: "green" },
       ];
 
@@ -849,11 +935,18 @@ require([
     datalist.innerHTML = "";
 
     const sources = [
-      { name: "Motionsspår", file: "JSON/motionsspar.json", propertyKey: "NAMN" },
+      {
+        name: "Motionsspår",
+        file: "JSON/motionsspar.json",
+        propertyKey: "NAMN",
+      },
       { name: "Badplatser", file: "JSON/badplatser.json" },
       { name: "Idrott & Motion", file: "JSON/idrott_motion.json" },
       { name: "Lekplatser", file: "JSON/lekplatser.json" },
-      { name: "Livräddningsutrustning", file: "JSON/livraddningsutrustning.json" },
+      {
+        name: "Livräddningsutrustning",
+        file: "JSON/livraddningsutrustning.json",
+      },
       { name: "Offentliga toaletter", file: "JSON/offentliga_toaletter.json" },
       { name: "Papperskorgar", file: "JSON/papperskorgar.json" },
       { name: "Pulkabackar", file: "JSON/pulkabackar.json" },
@@ -910,7 +1003,7 @@ require([
   view.on("click", function (event) {
     view.hitTest(event).then(function (response) {
       if (response.results.length > 0) {
-        const result = response.results.find(r => r.graphic);
+        const result = response.results.find((r) => r.graphic);
         if (result) {
           window._lastSelectedGraphic = result.graphic;
         }
@@ -922,12 +1015,15 @@ require([
   function haversine(lon1, lat1, lon2, lat2) {
     // Returnar distans i meter
     const R = 6371000;
-    const toRad = deg => deg * Math.PI / 180;
+    const toRad = (deg) => (deg * Math.PI) / 180;
     const dLat = toRad(lat2 - lat1);
     const dLon = toRad(lon2 - lon1);
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(lat1)) *
+        Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
   }
@@ -935,33 +1031,42 @@ require([
   window.filterAllLayersByProximity = function (selectedGraphic) {
     if (!selectedGraphic) return;
     const refGeom = selectedGraphic.geometry;
-    const lon1 = refGeom.longitude, lat1 = refGeom.latitude;
+    const lon1 = refGeom.longitude,
+      lat1 = refGeom.latitude;
 
     // Får avstånd baserat på användarinput (defaultar till 50m)
     const distanceInput = document.getElementById("distanceInput");
     const filterDistance = distanceInput ? Number(distanceInput.value) : 50;
 
     const pointLayerNames = [
-      "badplatser", "idrott_motion", "lekplatser", "livraddningsutrustning",
-      "offentliga_toaletter", "papperskorgar", "pulkabackar", "rastplatser",
-      "spontanidrott", "utegym"
+      "badplatser",
+      "idrott_motion",
+      "lekplatser",
+      "livraddningsutrustning",
+      "offentliga_toaletter",
+      "papperskorgar",
+      "pulkabackar",
+      "rastplatser",
+      "spontanidrott",
+      "utegym",
     ];
-    pointLayerNames.forEach(layerName => {
+    pointLayerNames.forEach((layerName) => {
       const layer = layers[layerName];
       if (!layer) return;
       if (!layer._originalGraphics) {
         layer._originalGraphics = layer.graphics.toArray();
       }
-      const graphicsToKeep = layer._originalGraphics.filter(graphic => {
+      const graphicsToKeep = layer._originalGraphics.filter((graphic) => {
         if (graphic === selectedGraphic) return true;
         let geom = graphic.geometry;
         if (geom.type !== "point") return false;
-        const lon2 = geom.longitude, lat2 = geom.latitude;
+        const lon2 = geom.longitude,
+          lat2 = geom.latitude;
         const dist = haversine(lon1, lat1, lon2, lat2);
         return dist !== null && dist <= filterDistance;
       });
       layer.removeAll();
-      graphicsToKeep.forEach(g => layer.add(g));
+      graphicsToKeep.forEach((g) => layer.add(g));
     });
   };
 
@@ -970,7 +1075,7 @@ require([
     const layer = layers[layerName];
     if (!layer || !layer._originalGraphics) return;
     layer.removeAll();
-    layer._originalGraphics.forEach(g => layer.add(g));
+    layer._originalGraphics.forEach((g) => layer.add(g));
   };
 
   // API adressökning via Geocoding
@@ -978,7 +1083,8 @@ require([
   // https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/<request>?<parameters>&f=json&token=<ACCESS_TOKEN>
   // const apiKey = "AAPTxy8BH1VEsoebNVZXo8HurGuzNiuipj3FeKc7J3bGv8MaeMrTf_4Cd93WYmOpXvbA7CaNK_hxZ9yggnHAS3EBCSERDu9xA5Aamx855-nVlZyF0eg2FhfAJkrBrAl8vZ4C4Jf7ShQRCMflvFOZiEZYkrNdRlqSHkz6T9H-DIOtfmucYgvNGbI6dxd6C2o3oOU8JKRygADxbDRc4qWKQoJo1ZQ0V_ICixNhnJSxVtJNExg.AT1_5p5pSRQ3";
 
-  esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurGuzNiuipj3FeKc7J3bGv8MaeMrTf_4Cd93WYmOpXvbA7CaNK_hxZ9yggnHAS3EBCSERDu9xA5Aamx855-nVlZyF0eg2FhfAJkrBrAl8vZ4C4Jf7ShQRCMflvFOZiEZYkrNdRlqSHkz6T9H-DIOtfmucYgvNGbI6dxd6C2o3oOU8JKRygADxbDRc4qWKQoJo1ZQ0V_ICixNhnJSxVtJNExg.AT1_5p5pSRQ3";
+  esriConfig.apiKey =
+    "AAPTxy8BH1VEsoebNVZXo8HurGuzNiuipj3FeKc7J3bGv8MaeMrTf_4Cd93WYmOpXvbA7CaNK_hxZ9yggnHAS3EBCSERDu9xA5Aamx855-nVlZyF0eg2FhfAJkrBrAl8vZ4C4Jf7ShQRCMflvFOZiEZYkrNdRlqSHkz6T9H-DIOtfmucYgvNGbI6dxd6C2o3oOU8JKRygADxbDRc4qWKQoJo1ZQ0V_ICixNhnJSxVtJNExg.AT1_5p5pSRQ3";
 
   window.geocodeAddress = function () {
     const input = document.getElementById("addressInput").value;
@@ -989,62 +1095,75 @@ require([
       return;
     }
 
-    const geocodingServiceUrl = "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer";
+    const geocodingServiceUrl =
+      "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer";
 
     const params = {
       address: {
-        address: input
-      }
+        address: input,
+      },
     };
 
-    locator.addressToLocations(geocodingServiceUrl, params).then((results) => {
-      if (results.length) {
-        const result = results[0];
-        view.graphics.removeAll();
+    locator
+      .addressToLocations(geocodingServiceUrl, params)
+      .then((results) => {
+        if (results.length) {
+          const result = results[0];
+          view.graphics.removeAll();
 
-        view.graphics.add(new Graphic({
-          symbol: {
-            type: "simple-marker",
-            color: "#000000",
-            size: "8px",
-            outline: {
-              color: "#ffffff",
-              width: "1px"
-            }
-          },
-          geometry: result.location,
-          attributes: {
-            title: "Address",
-            address: result.address,
-            score: result.score
-          },
-          popupTemplate: {
-            title: "{title}",
-            content: result.address + "<br><br>" +
-              result.location.longitude.toFixed(5) + "," +
-              result.location.latitude.toFixed(5)
+          view.graphics.add(
+            new Graphic({
+              symbol: {
+                type: "simple-marker",
+                color: "#000000",
+                size: "8px",
+                outline: {
+                  color: "#ffffff",
+                  width: "1px",
+                },
+              },
+              geometry: result.location,
+              attributes: {
+                title: "Address",
+                address: result.address,
+                score: result.score,
+              },
+              popupTemplate: {
+                title: "{title}",
+                content:
+                  result.address +
+                  "<br><br>" +
+                  result.location.longitude.toFixed(5) +
+                  "," +
+                  result.location.latitude.toFixed(5),
+              },
+            })
+          );
+
+          view.goTo({
+            target: result.location,
+            zoom: 13,
+          });
+
+          if (view.popup && typeof view.popup.open === "function") {
+            view.popup.open({
+              location: result.location,
+              title: "Sökresultat",
+              content: result.address,
+            });
+          } else {
+            console.warn("⚠️ view.popup.open() är inte tillgänglig.");
           }
-        }));
 
-        view.goTo({
-          target: result.location,
-          zoom: 13
-        });
-
-        view.popup.open({
-          location: result.location,
-          title: "Sökresultat",
-          content: result.address
-        });
-
-        resultBox.textContent = `✅ Adress hittad:\n${result.address}`;
-      } else {
-        resultBox.textContent = "❌ Ingen träff på adressen.";
-      }
-    }).catch(error => {
-      resultBox.textContent = "❌ Ett fel uppstod vid sökning:\n" + error.message;
-      console.error(error);
-    });
+          resultBox.textContent = `✅ Adress hittad:\n${result.address}`;
+        } else {
+          resultBox.textContent = "❌ Ingen träff på adressen.";
+        }
+      })
+      .catch((error) => {
+        resultBox.textContent =
+          "❌ Ett fel uppstod vid sökning:\n" + error.message;
+        console.error(error);
+      });
   };
-
 });

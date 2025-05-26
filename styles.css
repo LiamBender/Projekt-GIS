@@ -1,98 +1,229 @@
-html, body, #viewDiv {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .header {
-    background-color: #000000;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Ensure full-screen layout */
+html,
+body,
+#viewDiv {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  outline: none;
 }
 
-.dropdown {
-    position: relative;
-    justify-content: center;
-    display: inline-block;
-    margin: 0 75px;
+/* Floating search icon in top-right */
+#menuButton {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1001;
+  background-color: #1a1a1a;
+  border: none;
+  padding: 8px; /* spacing around the icon */
+  border-radius: 50%; /* makes it circular */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* optional: soft shadow */
 }
 
-.dropbtn {
-    background-color: transparent;
-    color: white;
-    padding: 5px 0;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    position: relative;
+#menuButton img {
+  width: 24px;
+  height: 24px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    min-width: 175px;
-    z-index: 1;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    left: 0px;
-    top: 100%;
-    padding-top: 5px;
-    transform: translateX(-28%);
-    text-align: center;
-    line-height: 0.6;
+#menuButton.hide {
+  display: none;
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.2s;
+/* Right-side sliding menu */
+#sideMenu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* start hidden off-screen */
+  width: 300px;
+  height: 100%;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box; /* includes padding in width */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
 }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
+#sideMenu.open {
+  right: 0;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-  
-
-footer {
-    background-color: #000000;
-    color: #ffffff; 
-    padding: 40px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-.active-layer {
-   background-color: #e0e0e0;
-   font-weight: bold;
-   border-left: 4px solid green;
+/* Close button inside menu */
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  cursor: pointer;
 }
 
-section {
-    padding: 20px;
-    background-color: black;
-    position: absolute;
-    bottom: 0px;  /* adjust based on header height */
-    right: 0;
-    color: white;
-    z-index: 10; /* make sure it’s above the map */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5); /* optional for style */
-    border-bottom-left-radius: 8px; /* optional for style */
+.menu-section {
+  margin-top: 20px;
 }
 
-#searchInput {
-  width: 350px;
+.menu-section h3 {
   font-size: 16px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 4px;
 }
 
+.menu-section button {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.menu-section button:hover {
+  background-color: #555;
+}
+
+button.active-layer {
+  background-color: #414141;
+  font-weight: bold;
+  border-left: 4px solid #00a329;
+}
+
+/* Andra knapp under första */
+#toolsButton {
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  z-index: 1001;
+  background-color: #1a1a1a;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#toolsButton img {
+  width: 24px;
+  height: 24px;
+}
+
+#toolsButton.hide {
+  display: none;
+}
+
+/* Andra meny från höger */
+#toolsMenu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  z-index: 999; /* Ligger under sideMenu */
+  overflow-y: auto;
+}
+
+#toolsMenu.open {
+  right: 0;
+}
+
+/* tools menu */
+
+#toolsMenu label {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+#toolsMenu input[type="text"],
+#toolsMenu input[type="number"],
+#toolsMenu button:not(.close-btn) {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #333;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: block;
+}
+
+#toolsMenu button:not(.close-btn):hover {
+  background-color: #555;
+}
+
+/* Match active-layer look for clarity */
+#toolsMenu button.active-layer {
+  background-color: #414141;
+  font-weight: bold;
+  border-left: 4px solid #00a329;
+}
+
+/* Result box styling */
+#toolsMenu pre#resultBox {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  color: #c8c8c8;
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+#toolsMenu .close-btn {
+  right: auto;
+  left: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  #sideMenu,
+  #toolsMenu {
+    width: 100%;
+    font-size: 15px;
+    padding: 15px;
+  }
+
+  #toolsMenu .close-btn,
+  #sideMenu .close-btn {
+    font-size: 26px;
+    top: 10px;
+    right: 15px;
+  }
+
+  .menu-section h3 {
+    font-size: 15px;
+  }
+
+  #toolsMenu input,
+  #toolsMenu button,
+  #sideMenu button {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
