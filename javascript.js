@@ -718,6 +718,7 @@ require([
   };
 
   window.filterFunction = async function () {
+    togglePolygon("delete");
     const input = document
       .getElementById("searchInput")
       .value.toLowerCase()
