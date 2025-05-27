@@ -22,7 +22,6 @@
       <img src="icons/icons8-menu-50.png" alt="Search Icon" />
     </button>
 
-    <!-- Extra knapp -->
     <button
       id="toolsButton"
       onclick="toggleAnyMenu('toolsMenu', 'toolsButton', ['sideMenu'])"
@@ -30,6 +29,7 @@
       <img src="icons/icons8-search-50.png" alt="Tools Icon" />
     </button>
 
+    <!-- Tools Menu -->
     <div id="toolsMenu">
       <button
         class="close-btn"
@@ -50,8 +50,8 @@
           id="searchInput"
           placeholder="T.ex. badplats"
           autocomplete="off"
-          onkeyup="filterFunction()"
         />
+        <button id="searchButton" type="button">Sök</button>
         <div id="suggestions" class="custom-suggestions"></div>
       </div>
 
@@ -145,6 +145,18 @@
 
     <script src="javascript.js" async defer></script>
     <script>
+      // filterknapp
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchBtn = document.getElementById("searchButton");
+        if (searchBtn) {
+          searchBtn.addEventListener("click", function () {
+            if (typeof filterFunction === "function") {
+              filterFunction();
+            }
+          });
+        }
+      });
+
       // Meny
       function toggleAnyMenu(
         menuIdToToggle,
@@ -160,7 +172,7 @@
 
         const isOpening = !menuToToggle.classList.contains("open");
 
-        // Close all other menus
+        // Stäng alla andra menyer
         otherMenus.forEach((menuId) => {
           const otherMenu = document.getElementById(menuId);
           if (otherMenu && otherMenu !== menuToToggle) {
@@ -168,10 +180,10 @@
           }
         });
 
-        // Toggle this menu
+        // Toggla denna meny
         menuToToggle.classList.toggle("open");
 
-        // Hide or show all buttons depending on state
+        // Göm eller visa knappen
         allButtons.forEach((btn) => {
           if (btn) btn.classList.toggle("hide", isOpening);
         });

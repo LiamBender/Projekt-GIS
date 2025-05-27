@@ -1023,8 +1023,6 @@ require([
 
   populateAutocomplete();
 
-  populateAutocomplete();
-
   document.getElementById("searchInput").addEventListener("input", function () {
     // Ta bort prefix om användaren klistrat in något med "Kategori (Namn): ..."
     const match = this.value.match(/^[^:]+:\s*(.*)$/);
