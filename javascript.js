@@ -954,6 +954,13 @@ require([
     }
   };
 
+  document
+    .getElementById("removeSearchButton")
+    .addEventListener("click", () => {
+      document.getElementById("searchInput").value = "";
+      window.filterFunction();
+    });
+
   async function populateAutocomplete() {
     const suggestionsBox = document.getElementById("suggestions");
     suggestionsBox.innerHTML = "";
