@@ -13,6 +13,10 @@ require([
   "esri/geometry/Polygon",
   "esri/geometry/support/webMercatorUtils",
   "esri/rest/locator",
+  "esri/rest/route",
+  "esri/core/Collection",
+  "esri/rest/support/RouteParameters",
+  "esri/rest/support/Stop",
 ], function (
   esriConfig,
   Map,
@@ -27,7 +31,11 @@ require([
   geometryEngine,
   Polygon,
   webMercatorUtils,
-  locator
+  locator,
+  route,
+  Collection,
+  RouteParameters,
+  Stop
 ) {
   const map = new Map({ basemap: "streets" });
 
@@ -37,6 +45,13 @@ require([
     center: [17.1413, 60.6749],
     zoom: 13,
   });
+
+  // Routing layer
+  const routingLayer = new GraphicsLayer();
+  map.add(routingLayer);
+
+  let routingActive = false;
+  let selectedStops = [];
 
   // Allmänna layers
   const layers = {}; // Objekt som kan spara flera lager
@@ -116,6 +131,41 @@ require([
     });
 
     poiLayer.add(graphic);
+  });
+
+  // Routing
+  view.on("click", function (event) {
+    if (!routingActive) return;
+
+    const mapPoint = event.mapPoint;
+
+    routingLayer.add(
+      new Graphic({
+        geometry: mapPoint,
+        symbol: {
+          type: "simple-marker",
+          color: "red",
+          size: "10px",
+        },
+      })
+    );
+
+    selectedStops.push(
+      new Stop({
+        geometry: {
+          type: "point",
+          x: mapPoint.longitude,
+          y: mapPoint.latitude,
+          spatialReference: { wkid: 4326 },
+        },
+      })
+    );
+
+    if (selectedStops.length === 2) {
+      routingActive = false;
+      view.container.style.cursor = "default";
+      solveRoute(selectedStops);
+    }
   });
 
   const sketch = new Sketch({
@@ -1226,5 +1276,54 @@ require([
           "❌ Ett fel uppstod vid sökning:\n" + error.message;
         console.error(error);
       });
+  };
+
+  // Routing
+
+  function solveRoute(stops) {
+    const routeParams = new RouteParameters({
+      stops: new Collection(stops),
+      returnDirections: true,
+      returnRoutes: true,
+      outSpatialReference: { wkid: 3857 },
+    });
+
+    const routeUrl =
+      "https://route-api.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World";
+
+    route
+      .solve(routeUrl, routeParams)
+      .then((result) => {
+        const routeGraphic = new Graphic({
+          geometry: result.routeResults[0].route.geometry,
+          symbol: {
+            type: "simple-line",
+            color: [0, 0, 255, 0.7],
+            width: 4,
+          },
+        });
+
+        routingLayer.add(routeGraphic);
+        console.log("Rutt klar");
+      })
+      .catch((error) => {
+        console.error("Fel vid ruttningsförsök:", error);
+      });
+  }
+
+  window.startRoutingMode = function () {
+    routingActive = true;
+    selectedStops = [];
+    routingLayer.removeAll();
+    view.container.style.cursor = "crosshair";
+    console.log("Ruttläge aktiverat – klicka på två punkter");
+  };
+
+  window.resetRouting = function () {
+    routingLayer.removeAll();
+    selectedStops = [];
+    routingActive = false;
+    view.container.style.cursor = "default";
+    console.log("Rutt nollställd");
   };
 });

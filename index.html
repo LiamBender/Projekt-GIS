@@ -54,8 +54,19 @@
         <button id="searchButton" type="button">Sök</button>
 
         <div id="suggestions" class="custom-suggestions"></div>
-        
+
         <button id="removeSearchButton" type="button">Ta bort</button>
+      </div>
+
+      <!-- Routing -->
+      <div class="menu-section">
+        <h3>Routing</h3>
+        <button id="startRouting" type="button" onclick="startRoutingMode()">
+          Starta ruttläge
+        </button>
+        <button id="resetRouting" type="button" onclick="resetRouting()">
+          Nollställ rutt
+        </button>
       </div>
 
       <!-- Närhetsfilter -->
@@ -194,6 +205,18 @@
 
       // Knapp för proximity filter och restore
       window.addEventListener("DOMContentLoaded", function () {
+        // Routing
+        const startRoutingBtn = document.getElementById("startRouting");
+        if (startRoutingBtn) {
+          startRoutingBtn.addEventListener("click", function () {
+            routingActive = true;
+            selectedStops = [];
+            routingLayer.removeAll();
+            view.container.style.cursor = "crosshair";
+            console.log("Ruttläge aktiverat – klicka på två punkter");
+          });
+        }
+
         // Proximity filter button event
         const filterBtn = document.getElementById("proximityFilterBtn");
         filterBtn.addEventListener("click", function () {
