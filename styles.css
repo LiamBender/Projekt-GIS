@@ -1,4 +1,3 @@
-/* Ensure full-screen layout */
 html,
 body,
 #viewDiv {
@@ -9,7 +8,6 @@ body,
   outline: none;
 }
 
-/* Floating search icon in top-right */
 #menuButton {
   position: fixed;
   top: 15px;
@@ -17,13 +15,13 @@ body,
   z-index: 1001;
   background-color: #1a1a1a;
   border: none;
-  padding: 8px; /* spacing around the icon */
-  border-radius: 50%; /* makes it circular */
+  padding: 8px;
+  border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* optional: soft shadow */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 #menuButton img {
@@ -35,17 +33,17 @@ body,
   display: none;
 }
 
-/* Right-side sliding menu */
+/* Kategorimenyn */
 #sideMenu {
   position: fixed;
   top: 0;
-  right: -300px; /* start hidden off-screen */
+  right: -300px;
   width: 300px;
   height: 100%;
   background-color: #1a1a1a;
   color: white;
   padding: 20px;
-  box-sizing: border-box; /* includes padding in width */
+  box-sizing: border-box;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transition: right 0.3s ease;
   z-index: 1000;
@@ -56,7 +54,6 @@ body,
   right: 0;
 }
 
-/* Close button inside menu */
 .close-btn {
   background: none;
   border: none;
@@ -103,7 +100,7 @@ button.active-layer {
   border-left: 4px solid #00a329;
 }
 
-/* Andra knapp under första */
+/* Andra knapp under första alltså verktygsmeny knappen */
 #toolsButton {
   position: fixed;
   top: 70px;
@@ -129,7 +126,7 @@ button.active-layer {
   display: none;
 }
 
-/* Andra meny från höger */
+/* Verktygsmenyn */
 #toolsMenu {
   position: fixed;
   top: 0;
@@ -149,8 +146,6 @@ button.active-layer {
 #toolsMenu.open {
   right: 0;
 }
-
-/* tools menu */
 
 #toolsMenu label {
   margin-top: 15px;
@@ -177,14 +172,12 @@ button.active-layer {
   background-color: #555;
 }
 
-/* Match active-layer look for clarity */
 #toolsMenu button.active-layer {
   background-color: #414141;
   font-weight: bold;
   border-left: 4px solid #00a329;
 }
 
-/* Result box styling */
 #toolsMenu pre#resultBox {
   margin-top: 15px;
   padding: 10px;
@@ -200,7 +193,7 @@ button.active-layer {
   left: 15px;
 }
 
-/* Suggestions */
+/* Suggestions alltså sökfunktionens förslagsruta */
 #suggestions.custom-suggestions {
   position: absolute;
   max-height: 150px;
@@ -223,7 +216,7 @@ button.active-layer {
   background-color: #555;
 }
 
-/* Responsive adjustments */
+/* Responsivitet för hemsidan */
 @media (max-width: 480px) {
   #sideMenu,
   #toolsMenu {
