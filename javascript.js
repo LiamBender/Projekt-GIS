@@ -54,7 +54,7 @@ require([
   let selectedStops = [];
 
   // Allmänna layers
-  const layers = {}; // Objekt som kan spara flera lager
+  const layers = {};
 
   // Adress layer
   const addressLayer = new GraphicsLayer({ id: "addressLayer" });
@@ -195,12 +195,12 @@ require([
     }
   });
 
-  // Starta ej ritning direkt
   sketch.visible = false;
 
+  // Startar eller tar bort en ritad polygon på kartan
   window.togglePolygon = function (action) {
     if (action === "draw") {
-      // Hide all layers and remove active-layer class from buttons
+      // Göm alla lager o ta bort active-layer klassen från knapparna
       Object.keys(layers).forEach((name) => {
         if (layers[name]) layers[name].visible = false;
       });
@@ -230,6 +230,7 @@ require([
     }
   };
 
+  // När en polygon har ritats klart
   sketch.on("create", (event) => {
     if (event.state === "complete") {
       const addressLayerRef = map.findLayerById("addressLayer");
@@ -237,20 +238,16 @@ require([
         addressLayerRef.removeAll();
       }
 
-      // Lägg till polygonen i lagret
       polygonLayer.add(event.graphic);
 
-      // Extrahera polygonens koordinater (rings)
       const polygonCoords = event.graphic.geometry.rings;
 
-      // Spara koordinaterna i den globala arrayen
       savedPolygonCoords.push(polygonCoords);
 
       console.log("Sparade polygonkoordinater:", savedPolygonCoords);
 
       updatePointLayers();
 
-      // Avsluta ritning och göm widgeten
       sketch.cancel();
       sketch.visible = false;
     }
@@ -310,8 +307,6 @@ require([
         if (savedPolygonCoords.length > 0) {
           showPathsInPolygon(data, getColorByIndex);
         } else {
-          // Visa vanliga lager
-          // (Inget att göra här, lagret finns redan)
         }
       }
     }
@@ -337,6 +332,7 @@ require([
   addPointLayer("utegym", "JSON/utegym.json", "green");
   addAllPathsLayer();
 
+  // Hämta data
   async function fetchData(file) {
     try {
       const response = await fetch(file);
@@ -365,8 +361,8 @@ require([
     }
   }
 
+  // Visar punkter i polygonen
   function showPointsInPolygon(layerName, data, color) {
-    // Ta bort gammalt lager om det finns
     if (filteredPolygonLayers[layerName]) {
       map.remove(filteredPolygonLayers[layerName]);
     }
@@ -404,12 +400,24 @@ require([
 
         const props = feature.properties || {};
 
+        let content = "";
+        for (const key in props) {
+          if (
+            props.hasOwnProperty(key) &&
+            props[key] !== null &&
+            props[key] !== undefined
+          ) {
+            let value = props[key];
+            if (typeof value === "string" && value.match(/^https?:\/\//)) {
+              value = `<a href="${value}" target="_blank">${value}</a>`;
+            }
+            content += `<b>${key}:</b> ${value}<br>`;
+          }
+        }
+
         const popupTemplate = {
           title: props.NAMN || props.name || "Details",
-          content:
-            Object.entries(props)
-              .map(([k, v]) => `<b>${k}:</b> ${v}`)
-              .join("<br>") || "No info",
+          content: content || "No additional information available.",
         };
 
         const graphic = new Graphic({
@@ -425,6 +433,7 @@ require([
     });
   }
 
+  // Visar alla motionsspår som interjectar med polygonen
   function showPathsInPolygon(data, colorFunc) {
     let layer = filteredPolygonLineLayers["PathsAll"];
     if (!layer) {
@@ -495,6 +504,7 @@ require([
     map.reorder(layer, 1);
   }
 
+  // Visar punkter på kartan
   function showPoints(layer, data, color) {
     layer.removeAll();
 
@@ -598,6 +608,7 @@ require([
     return `hsl(${((index * 360) / total) % 360}, 80%, 45%)`;
   }
 
+  // Hämtar data för ett specifikt motionsspår
   async function getPathsData(lineIndex) {
     const pathLayer = new GraphicsLayer();
     layers[`Paths${lineIndex}`] = pathLayer;
@@ -654,6 +665,7 @@ require([
     }
   }
 
+  // Lägger till ett lager för alla motionsspår
   async function addAllPathsLayer() {
     const pathLayer = new GraphicsLayer();
     layers["PathsAll"] = pathLayer;
@@ -701,6 +713,7 @@ require([
     }
   }
 
+  // Funktion för att ta bort ett lager
   function deleteLayer(layerName) {
     const layer = layers[layerName];
     if (layer) {
@@ -712,6 +725,7 @@ require([
     }
   }
 
+  // Låter användaren toggla layer
   window.toggleLayer = async function (layerName) {
     const isPointLayer = !!layerInfo[layerName];
     const isPathsAll = layerName === "PathsAll";
@@ -1011,6 +1025,7 @@ require([
       window.filterFunction();
     });
 
+  // Fyller sökförslag automatiskt från olika JSON-källor och undviker dubbletter
   async function populateAutocomplete() {
     const suggestionsBox = document.getElementById("suggestions");
     suggestionsBox.innerHTML = "";
@@ -1081,8 +1096,8 @@ require([
 
   populateAutocomplete();
 
+  // Hanterar inmatning i sökfältet
   document.getElementById("searchInput").addEventListener("input", function () {
-    // Ta bort prefix om användaren klistrat in något med "Kategori (Namn): ..."
     const match = this.value.match(/^[^:]+:\s*(.*)$/);
     if (match) this.value = match[1];
 
@@ -1190,9 +1205,6 @@ require([
   };
 
   // API adressökning via Geocoding
-  // AAPTxy8BH1VEsoebNVZXo8HurGuzNiuipj3FeKc7J3bGv8MaeMrTf_4Cd93WYmOpXvbA7CaNK_hxZ9yggnHAS3EBCSERDu9xA5Aamx855-nVlZyF0eg2FhfAJkrBrAl8vZ4C4Jf7ShQRCMflvFOZiEZYkrNdRlqSHkz6T9H-DIOtfmucYgvNGbI6dxd6C2o3oOU8JKRygADxbDRc4qWKQoJo1ZQ0V_ICixNhnJSxVtJNExg.AT1_5p5pSRQ3
-  // https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/<request>?<parameters>&f=json&token=<ACCESS_TOKEN>
-  // const apiKey = "AAPTxy8BH1VEsoebNVZXo8HurGuzNiuipj3FeKc7J3bGv8MaeMrTf_4Cd93WYmOpXvbA7CaNK_hxZ9yggnHAS3EBCSERDu9xA5Aamx855-nVlZyF0eg2FhfAJkrBrAl8vZ4C4Jf7ShQRCMflvFOZiEZYkrNdRlqSHkz6T9H-DIOtfmucYgvNGbI6dxd6C2o3oOU8JKRygADxbDRc4qWKQoJo1ZQ0V_ICixNhnJSxVtJNExg.AT1_5p5pSRQ3";
 
   esriConfig.apiKey =
     "AAPTxy8BH1VEsoebNVZXo8HurGuzNiuipj3FeKc7J3bGv8MaeMrTf_4Cd93WYmOpXvbA7CaNK_hxZ9yggnHAS3EBCSERDu9xA5Aamx855-nVlZyF0eg2FhfAJkrBrAl8vZ4C4Jf7ShQRCMflvFOZiEZYkrNdRlqSHkz6T9H-DIOtfmucYgvNGbI6dxd6C2o3oOU8JKRygADxbDRc4qWKQoJo1ZQ0V_ICixNhnJSxVtJNExg.AT1_5p5pSRQ3";
@@ -1263,23 +1275,22 @@ require([
               content: result.address,
             });
           } else {
-            console.warn("⚠️ view.popup.open() är inte tillgänglig.");
+            console.warn("view.popup.open() fungerar ej");
           }
 
-          resultBox.textContent = `✅ Adress hittad:\n${result.address}`;
+          resultBox.textContent = `Adress hittad:\n${result.address}`;
         } else {
-          resultBox.textContent = "❌ Ingen träff på adressen.";
+          resultBox.textContent = "Ingen träff på adressen.";
         }
       })
       .catch((error) => {
         resultBox.textContent =
-          "❌ Ett fel uppstod vid sökning:\n" + error.message;
+          "Ett fel uppstod vid sökning:\n" + error.message;
         console.error(error);
       });
   };
 
-  // Routing
-
+  // Routing via API
   function solveRoute(stops) {
     const routeParams = new RouteParameters({
       stops: new Collection(stops),

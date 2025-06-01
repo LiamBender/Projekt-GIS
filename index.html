@@ -29,7 +29,7 @@
       <img src="icons/icons8-search-50.png" alt="Tools Icon" />
     </button>
 
-    <!-- Tools Menu -->
+    <!-- Verktygsmenyn -->
     <div id="toolsMenu">
       <button
         class="close-btn"
@@ -101,7 +101,7 @@
       </div>
     </div>
 
-    <!-- Sliding Menu -->
+    <!-- Kategori meny -->
     <div id="sideMenu">
       <button
         class="close-btn"
@@ -171,7 +171,7 @@
         }
       });
 
-      // Meny
+      // För att öppna menyerna
       function toggleAnyMenu(
         menuIdToToggle,
         buttonIdToToggle,
@@ -186,7 +186,7 @@
 
         const isOpening = !menuToToggle.classList.contains("open");
 
-        // Stäng alla andra menyer
+        // Stäng ner alla andra menyer när du väl öppnar en
         otherMenus.forEach((menuId) => {
           const otherMenu = document.getElementById(menuId);
           if (otherMenu && otherMenu !== menuToToggle) {
@@ -194,16 +194,14 @@
           }
         });
 
-        // Toggla denna meny
         menuToToggle.classList.toggle("open");
 
-        // Göm eller visa knappen
         allButtons.forEach((btn) => {
           if (btn) btn.classList.toggle("hide", isOpening);
         });
       }
 
-      // Knapp för proximity filter och restore
+      // Knapp för  närhetsfilter och restore
       window.addEventListener("DOMContentLoaded", function () {
         // Routing
         const startRoutingBtn = document.getElementById("startRouting");
@@ -217,7 +215,7 @@
           });
         }
 
-        // Proximity filter button event
+        // Närhetsfilter button event
         const filterBtn = document.getElementById("proximityFilterBtn");
         filterBtn.addEventListener("click", function () {
           if (
