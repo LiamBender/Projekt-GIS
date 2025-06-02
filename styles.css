@@ -216,6 +216,19 @@ button.active-layer {
   background-color: #555;
 }
 
+#sideMenu,
+#toolsMenu {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#sideMenu.open,
+#toolsMenu.open {
+  visibility: visible;
+  opacity: 1;
+  transition: right 0.3s ease, opacity 0.3s ease;
+}
+
 /* Responsivitet för hemsidan */
 @media (max-width: 480px) {
   #sideMenu,
@@ -223,6 +236,7 @@ button.active-layer {
     width: 100%;
     font-size: 15px;
     padding: 15px;
+    right: -100%;
   }
 
   #toolsMenu .close-btn,
